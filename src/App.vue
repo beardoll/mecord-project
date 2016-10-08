@@ -53,10 +53,10 @@ export default {
   },
   methods: {
     login: function (data) {
-/*      this.accesstoken.userId = data.userId
-      this.accesstoken.id = data.id*/
-      this.accesstoken.id = data
-      this.accesstoken.userId = 1
+      this.accesstoken.userId = data.userId
+      this.accesstoken.id = data.id
+/*      this.accesstoken.id = data
+      this.accesstoken.userId = 1*/
       process.nextTick(this.loadClientDate())
     },
     loadClientDate () {
