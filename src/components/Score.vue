@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="am-u-sm-3" style="margin:0;padding:0">
-        <div class="score-plugin" style="margin:auto">
+        <div class="score-plugin" style="margin:auto" id="symptom">
           <select :name="questionItem.title" class="select1 symptomscoreinput1" style="display:none" >
             <option value = "10">10</option>
             <option value = "9">9</option>
@@ -44,7 +44,7 @@
         </div>
       </div>
       <div class="am-u-sm-3" style="margin:0;padding:0">
-        <div class=" score-plugin" style="margin:auto">
+        <div class=" score-plugin" style="margin:auto" id="frequency">
           <select :name="questionItem.title" class="select2 symptomscoreinput2" style="display:none">
             <option value = "10">10</option>
             <option value = "9">9</option>
@@ -196,7 +196,7 @@
     }
 </style>
 <script>
-    var attachFastClick = require('fastclick')
+    /* var attachFastClick = require('fastclick')*/
     export default{
       props: ['questionItem', 'curindex', 'defaultdata'],
       data () {
@@ -207,9 +207,13 @@
       ready: function () {
         this.scoreControl()
         this.setSymptomScoreData(this.defaultdata)
+/*        var symptom = document.getElementById('symptom')
+        var frequency = document.getElementById('frequency')*/
+/*        attachFastClick(symptom)
+        attachFastClick(frequency)*/
       },
       attached: function () {
-        attachFastClick('#score')
+        // attachFastClick('#score')
       },
       methods: {
         scoreControl () {
@@ -254,7 +258,7 @@
               }
             })
           })
-          $('.bar1').on('touchstart', function (event) {
+/*          $('.bar1').on('touchstart', function (event) {
             var target = event.target
             var parentdiv = $(target).parent()
             var curindex = $(parentdiv).children('div').index(target) // 找出事件触发的控件在父控件中的定位
@@ -268,7 +272,7 @@
                 $('.score-plugin .select1').children('option').eq(index).attr('selected', false)
               }
             })
-          })
+          })*/
           function getCurrentIndex1 () {
             // 返回'score-current'对应的控件在父组件中的位置
             var curindex = -1
@@ -320,7 +324,7 @@
               }
             })
           })
-          $('.bar2').on('touchstart', function (event) {
+/*          $('.bar2').on('touchstart', function (event) {
             var target = event.target
             var parentdiv = $(target).parent()
             var curindex = $(parentdiv).children('div').index(target) // 找出事件触发的控件在父控件中的定位
@@ -333,7 +337,7 @@
                 $('.score-plugin .select2').children('option').eq(index).attr('selected', false)
               }
             })
-          })
+          })*/
           function getCurrentIndex2 () {
             // 返回'score-current'对应的控件在父组件中的位置
             var curindex = -1

@@ -16,6 +16,14 @@
   </head>
   <body>
     <app></app>
+    <script>
+      window.addEventListener('load', function() {
+        var symptom = document.getElementById('symptom')
+        var frequency = document.getElementById('frequency')
+        FastClick.attach(symptom)
+        FastClick.attach(frequency)
+      })
+    </script>
     <!--<input type="checkbox" value="1">
     <input type="checkbox" value="2">-->
     <!--<form id="haha">
