@@ -1,4 +1,4 @@
-<template>
+<template id="score">
     <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
     <div v-for="tipsintem in questionItem.tips" class="questiontips" track-by="$index">
       提示{{$index+1}}:&nbsp;{{questionItem.tips}}
@@ -196,6 +196,7 @@
     }
 </style>
 <script>
+    var attachFastClick = require('fastclick')
     export default{
       props: ['questionItem', 'curindex', 'defaultdata'],
       data () {
@@ -206,6 +207,9 @@
       ready: function () {
         this.scoreControl()
         this.setSymptomScoreData(this.defaultdata)
+      },
+      attached: function () {
+        attachFastClick('#score')
       },
       methods: {
         scoreControl () {
@@ -243,20 +247,27 @@
             $('.score-plugin .bar1').each(function (index, element) {
               if (index === curindex) {
                 $(this).addClass('score-current')
+                $('.score-plugin .select1').children('option').eq(index).attr('selected', true)
               } else {
                 $(this).removeClass('score-current')
+                $('.score-plugin .select1').children('option').eq(index).attr('selected', false)
               }
             })
-            var selectedindex = getCurrentIndex1()
-            $('.score-plugin .select1 option').each(function (index, element) {
-              if (index === selectedindex) {
-                // console.log($(this))
-                $(this).attr('selected', true)
+          })
+          $('.bar1').on('touchstart', function (event) {
+            var target = event.target
+            var parentdiv = $(target).parent()
+            var curindex = $(parentdiv).children('div').index(target) // 找出事件触发的控件在父控件中的定位
+            // console.log(curindex)
+            $('.score-plugin .bar1').each(function (index, element) {
+              if (index === curindex) {
+                $(this).addClass('score-current')
+                $('.score-plugin .select1').children('option').eq(index).attr('selected', true)
               } else {
-                $(this).attr('selected', false)
+                $(this).removeClass('score-current')
+                $('.score-plugin .select1').children('option').eq(index).attr('selected', false)
               }
             })
-            // console.log(getCurrentIndex())
           })
           function getCurrentIndex1 () {
             // 返回'score-current'对应的控件在父组件中的位置
@@ -302,20 +313,26 @@
             $('.score-plugin .bar2').each(function (index, element) {
               if (index === curindex) {
                 $(this).addClass('score-current')
+                $('.score-plugin .select2').children('option').eq(index).attr('selected', true)
               } else {
                 $(this).removeClass('score-current')
+                $('.score-plugin .select2').children('option').eq(index).attr('selected', false)
               }
             })
-            var selectedindex = getCurrentIndex2()
-            $('.score-plugin .select2 option').each(function (index, element) {
-              if (index === selectedindex) {
-                // console.log($(this))
-                $(this).attr('selected', true)
+          })
+          $('.bar2').on('touchstart', function (event) {
+            var target = event.target
+            var parentdiv = $(target).parent()
+            var curindex = $(parentdiv).children('div').index(target) // 找出事件触发的控件在父控件中的定位
+            $('.score-plugin .bar2').each(function (index, element) {
+              if (index === curindex) {
+                $(this).addClass('score-current')
+                $('.score-plugin .select2').children('option').eq(index).attr('selected', true)
               } else {
-                $(this).attr('selected', false)
+                $(this).removeClass('score-current')
+                $('.score-plugin .select2').children('option').eq(index).attr('selected', false)
               }
             })
-            // console.log(getCurrentIndex())
           })
           function getCurrentIndex2 () {
             // 返回'score-current'对应的控件在父组件中的位置
