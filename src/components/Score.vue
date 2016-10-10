@@ -16,7 +16,7 @@
       </div>
       <div class="am-u-sm-3" style="margin:0;padding:0">
         <div class="score-plugin" style="margin:auto" id="symptom">
-          <select :name="questionItem.title" class="select1 symptomscoreinput1" style="display:none" >
+          <select :name="questionItem.title" class="select1 symptomscoreinput1" id="select1" style="display:none">
             <option value = "10">10</option>
             <option value = "9">9</option>
             <option value = "8">8</option>
@@ -45,7 +45,7 @@
       </div>
       <div class="am-u-sm-3" style="margin:0;padding:0">
         <div class=" score-plugin" style="margin:auto" id="frequency">
-          <select :name="questionItem.title" class="select2 symptomscoreinput2" style="display:none">
+          <select :name="questionItem.title" class="select2 symptomscoreinput2" id="select2" style="display:none">
             <option value = "10">10</option>
             <option value = "9">9</option>
             <option value = "8">8</option>
@@ -196,7 +196,7 @@
     }
 </style>
 <script>
-    /* var attachFastClick = require('fastclick')*/
+/*    var attachFastClick = require('fastclick')*/
     export default{
       props: ['questionItem', 'curindex', 'defaultdata'],
       data () {
@@ -207,106 +207,33 @@
       ready: function () {
         this.scoreControl()
         this.setSymptomScoreData(this.defaultdata)
-/*        var symptom = document.getElementById('symptom')
-        var frequency = document.getElementById('frequency')*/
-/*        attachFastClick(symptom)
-        attachFastClick(frequency)*/
       },
       attached: function () {
-        // attachFastClick('#score')
+/*        var symptom = document.getElementById('symptom')
+        var frequency = document.getElementById('frequency')
+        console.log(symptom)
+        attachFastClick(symptom)
+        attachFastClick(frequency)*/
       },
       methods: {
         scoreControl () {
           // 症状控件函数
-          $('.bar1').mouseenter(function (event) {
-            var target = event.target
-            // console.log(target)
-            var parentdiv = $(target).parent()
-            var curindex = $(parentdiv).children('div').index(target) // 找出事件触发的控件在父控件中的定位
-            $('.bottomfigure1').text(10 - curindex)
-            $('.score-plugin .bar1').each(function (index, element) {
-              if (index >= curindex) {
-                $(this).removeClass('score-default1').addClass('score-selected1')
-              } else {
-                $(this).removeClass('score-selected1').addClass('score-default1')
-              }
-            })
-          }).mouseleave(function (event) {
-            // console.log(target)
-            var curindex = getCurrentIndex1()
-            $('.bottomfigure1').text(10 - curindex)
-            $('.score-plugin .bar1').each(function (index, element) {
-              if (index >= curindex) {
-                $(this).removeClass('score-default1').addClass('score-selected1')
-              } else {
-                $(this).removeClass('score-selected1').addClass('score-default1')
-              }
-            })
-          })
           $('.bar1').on('click', function (event) {
             var target = event.target
             var parentdiv = $(target).parent()
             var curindex = $(parentdiv).children('div').index(target) // 找出事件触发的控件在父控件中的定位
-            // console.log(curindex)
+            $('#select1').val(10 - curindex)
+            $('.bottomfigure1').text(10 - curindex)
             $('.score-plugin .bar1').each(function (index, element) {
+              if (index >= curindex) {
+                $(this).removeClass('score-default1').addClass('score-selected1')
+              } else {
+                $(this).removeClass('score-selected1').addClass('score-default1')
+              }
               if (index === curindex) {
                 $(this).addClass('score-current')
-                $('.score-plugin .select1').children('option').eq(index).attr('selected', true)
               } else {
                 $(this).removeClass('score-current')
-                $('.score-plugin .select1').children('option').eq(index).attr('selected', false)
-              }
-            })
-          })
-/*          $('.bar1').on('touchstart', function (event) {
-            var target = event.target
-            var parentdiv = $(target).parent()
-            var curindex = $(parentdiv).children('div').index(target) // 找出事件触发的控件在父控件中的定位
-            // console.log(curindex)
-            $('.score-plugin .bar1').each(function (index, element) {
-              if (index === curindex) {
-                $(this).addClass('score-current')
-                $('.score-plugin .select1').children('option').eq(index).attr('selected', true)
-              } else {
-                $(this).removeClass('score-current')
-                $('.score-plugin .select1').children('option').eq(index).attr('selected', false)
-              }
-            })
-          })*/
-          function getCurrentIndex1 () {
-            // 返回'score-current'对应的控件在父组件中的位置
-            var curindex = -1
-            $('.score-plugin .bar1').each(function (index, element) {
-              if ($(this).hasClass('score-current')) {
-                curindex = index
-              }
-            })
-            return curindex
-          }
-
-          // 频率控件函数
-          $('.bar2').mouseenter(function (event) {
-            var target = event.target
-            // console.log(target)
-            var parentdiv = $(target).parent()
-            var curindex = $(parentdiv).children('div').index(target) // 找出事件触发的控件在父控件中的定位
-            $('.bottomfigure2').text(10 - curindex)
-            $('.score-plugin .bar2').each(function (index, element) {
-              if (index >= curindex) {
-                $(this).removeClass('score-default2').addClass('score-selected2')
-              } else {
-                $(this).removeClass('score-selected2').addClass('score-default2')
-              }
-            })
-          }).mouseleave(function (event) {
-            // console.log(target)
-            var curindex = getCurrentIndex2()
-            $('.bottomfigure2').text(10 - curindex)
-            $('.score-plugin .bar2').each(function (index, element) {
-              if (index >= curindex) {
-                $(this).removeClass('score-default2').addClass('score-selected2')
-              } else {
-                $(this).removeClass('score-selected2').addClass('score-default2')
               }
             })
           })
@@ -314,40 +241,21 @@
             var target = event.target
             var parentdiv = $(target).parent()
             var curindex = $(parentdiv).children('div').index(target) // 找出事件触发的控件在父控件中的定位
+            $('#select2').val(10 - curindex)
+            $('.bottomfigure2').text(10 - curindex)
             $('.score-plugin .bar2').each(function (index, element) {
+              if (index >= curindex) {
+                $(this).removeClass('score-default2').addClass('score-selected2')
+              } else {
+                $(this).removeClass('score-selected2').addClass('score-default2')
+              }
               if (index === curindex) {
                 $(this).addClass('score-current')
-                $('.score-plugin .select2').children('option').eq(index).attr('selected', true)
               } else {
                 $(this).removeClass('score-current')
-                $('.score-plugin .select2').children('option').eq(index).attr('selected', false)
               }
             })
           })
-/*          $('.bar2').on('touchstart', function (event) {
-            var target = event.target
-            var parentdiv = $(target).parent()
-            var curindex = $(parentdiv).children('div').index(target) // 找出事件触发的控件在父控件中的定位
-            $('.score-plugin .bar2').each(function (index, element) {
-              if (index === curindex) {
-                $(this).addClass('score-current')
-                $('.score-plugin .select2').children('option').eq(index).attr('selected', true)
-              } else {
-                $(this).removeClass('score-current')
-                $('.score-plugin .select2').children('option').eq(index).attr('selected', false)
-              }
-            })
-          })*/
-          function getCurrentIndex2 () {
-            // 返回'score-current'对应的控件在父组件中的位置
-            var curindex = -1
-            $('.score-plugin .bar2').each(function (index, element) {
-              if ($(this).hasClass('score-current')) {
-                curindex = index
-              }
-            })
-            return curindex
-          }
         },
         setSymptomScoreData (data) { // 设置评分题的值
           var datafigure = []
@@ -355,12 +263,11 @@
           datafigure.push(parseInt(data[1]))
           $('.bottomfigure1').text(datafigure[0])
           var selectedindex1 = 10 - datafigure[0] // option指定的选项在父组件中的位置
+          $('#select1').val(10 - selectedindex1)
           $('.score-plugin .bar1').each(function (index, element) {
-            $('.score-plugin .select1 option').eq(index).attr('selected', false)
             $(this).removeClass('score-current')
             if (index === selectedindex1) {
               $(this).addClass('score-current')
-              $('.score-plugin .select1 option').eq(index).attr('selected', true)
             }
             if (index >= selectedindex1) {
               $(this).removeClass('score-default1').addClass('score-selected1')
@@ -370,12 +277,11 @@
           })
           $('.bottomfigure2').text(datafigure[1])
           var selectedindex2 = 10 - datafigure[1] // option指定的选项在父组件中的位置
+          $('#select2').val(10 - selectedindex2)
           $('.score-plugin .bar2').each(function (index, element) {
-            $('.score-plugin .select2 option').eq(index).attr('selected', false)
             $(this).removeClass('score-current')
             if (index === selectedindex2) {
               $(this).addClass('score-current')
-              $('.score-plugin .select2 option').eq(index).attr('selected', true)
             }
             if (index >= selectedindex2) {
               $(this).removeClass('score-default2').addClass('score-selected2')
