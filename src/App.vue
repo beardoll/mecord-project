@@ -60,7 +60,7 @@ export default {
       process.nextTick(this.loadClientDate())
     },
     loadClientDate () {
-      this.$http.get('http://api.mecord.cn/api/MecordUsers/' + this.accesstoken.userId + '?filter=%7B%22include%22%3A%7B%22tasks%22%3A%5B%22creator%22%2C%7B%22submissions%22%3A%7B%22questionSet%22%3A%22questions%22%7D%7D%5D%7D%7D&access_token=' +
+      this.$http.get('https://api.mecord.cn/api/MecordUsers/' + this.accesstoken.userId + '?filter=%7B%22include%22%3A%7B%22tasks%22%3A%5B%22creator%22%2C%7B%22submissions%22%3A%7B%22questionSet%22%3A%22questions%22%7D%7D%5D%7D%7D&access_token=' +
         this.accesstoken.id).then((response) => {
           this.$set('userData', response.body)
           // console.log(response.body)

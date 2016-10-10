@@ -262,11 +262,11 @@
           temp.content = content
           submitanswers.push(temp)
         }
-        this.$http.post('http://api.mecord.cn/api/Submissions/' + this.$root.accesstoken.userId + '/answers?access_token=' + this.$root.accesstoken.id, submitanswers).then(
+        this.$http.post('https://api.mecord.cn/api/Submissions/' + this.$root.accesstoken.userId + '/answers?access_token=' + this.$root.accesstoken.id, submitanswers).then(
           (response) => {
             console.log('successfully submit!')
             var updatetaskid = this.$root.currentrealtaskid
-            var updatetaskurl = 'http://api.mecord.cn/api/Tasks/' + updatetaskid
+            var updatetaskurl = 'https://api.mecord.cn/api/Tasks/' + updatetaskid
             var updateprogress = this.$root.progress[this.$root.currenttaskindex] + 1
             var updatestate = ''
             if (updateprogress === this.$root.rootunfinished[this.$root.currenttaskindex].plans.dates.length - 1) {
