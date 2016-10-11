@@ -23,6 +23,9 @@
               <tr>
                 <td @click.stop="goSelfMaterial()">&nbsp;&nbsp;&nbsp;&nbsp;个人资料</td>
               </tr>
+              <tr>
+                <td @click.stop="upLoadImg()">&nbsp;&nbsp;&nbsp;&nbsp;上传舌苔照片</td>
+              </tr>
 <!--              <tr>
                 <td style="text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;账户绑定</td>
               </tr>
@@ -781,6 +784,9 @@
             $('#minunfinishedprogress' + i).css('width', (this.unfinished[i].progress) / this.unfinished[i].plans.dates.length * 100 + '%')
           }
         }
+      },
+      upLoadImg () {
+        this.$router.go('/uploadimg')
       }
     },
     route: {

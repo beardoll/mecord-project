@@ -53,10 +53,10 @@ export default {
   },
   methods: {
     login: function (data) {
-      this.accesstoken.userId = data.userId
-      this.accesstoken.id = data.id
-/*      this.accesstoken.id = data
-      this.accesstoken.userId = 2*/
+/*      this.accesstoken.userId = data.userId
+      this.accesstoken.id = data.id*/
+      this.accesstoken.id = data
+      this.accesstoken.userId = 2
       process.nextTick(this.loadClientDate())
     },
     loadClientDate () {
@@ -67,7 +67,7 @@ export default {
           // console.log('http://mecord.cn:3000/api/MecordUsers/' + this.accesstoken.userId + '?filter=%7B%22include%22%3A%7B%22tasks%22%3A%5B%22creator%22%2C%22questionSet%22%5D%7D%7D&access_token=' +
           // this.accesstoken.id)
           // this.$router.go('/modification')
-          console.log(JSON.stringify(this.userData))
+          // console.log(JSON.stringify(this.userData))
           this.$router.go('/userinterface/:0')
           // this.$router.go('/preview')
         }, (response) => {

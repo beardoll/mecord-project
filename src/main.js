@@ -83,6 +83,11 @@ router.map({
     component: function (resolve) {
       require(['./components/Modification'], resolve)
     }
+  },
+  '/uploadimg': {
+    component: function (resolve) {
+      require(['./components/UploadImg'], resolve)
+    }
   }
 })
 

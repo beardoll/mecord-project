@@ -11,12 +11,12 @@
     }
 </style>
 <script>
-  var qs = require('querystring')
+/*  var qs = require('querystring')*/
   export default {
-    created: function () {
+/*    created: function () {
       let params = qs.parse(window.location.href.split('?')[1])
       if (params.code) {
-        this.$http.get('http://mecord.cn:3000/api/MecordUsers/wxLogin?code=' + params.code)
+        this.$http.get('https://api.mecord.cn/api/MecordUsers/wxLogin?code=' + params.code)
           .then((response) => {
             console.log('登录成功！')
             this.$root.login(response.body.data)
@@ -26,12 +26,12 @@
           })
           // this.$router.go('userinterface/:0')
       }
-    }
-/*    ready: function () {
-      console.log('begin login!')
-      this.$root.login('LVsy17Tx0nKNEewIXbA46g4MFXVlvUKLb7j4qA4jfp13bYzR1HSCktcYmQ3yn8Jo')
-      this.$root.loadClientDate()
     }*/
+    ready: function () {
+      console.log('begin login!')
+      this.$root.login('WKoDkAdg2LaWaVRSyEFSgWZ6XTAx7p5cpqoudWBaGOJpS1FmNihseUb0VpIHxyt2')
+      this.$root.loadClientDate()
+    }
   }
 </script>
 x
