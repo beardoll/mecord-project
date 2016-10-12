@@ -2,7 +2,7 @@
   <div id="navigation">
     <div class="navheader">
       <div class="am-u-sm-3">
-        <img src="../assets/left-arrow.png" style="cursor:pointer;width:100px;height:40px">
+        <img src="../assets/hospital.jpg" style="cursor:pointer;width:100px;height:40px">
       </div>
       <div class="am-u-sm-6 am-u-end" id="dropdownhead" style="text-align:center;font-size:20px;color:white">
         Mecord

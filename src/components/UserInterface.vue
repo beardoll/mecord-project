@@ -1,11 +1,11 @@
 <template>
     <div id="userinterface">
-        <div class="uiheader">
+<!--        <div class="uiheader">
           <div class="" id="dropdownhead" style="text-align:center;font-size:24px;color:white;margin-top:auto;padding:auto">
               Mecord
           </div>
-        </div>
-        <div class="usercenter" v-if="windowIndex === 3">
+        </div>-->
+        <div class="usercenter" v-if="windowIndex === 1">
           <div class="userinfo">
           <div class="am-u-sm-3" style="text-align:left;margin:0;padding:0">
             <img src="../assets/wechat-min.png" style="height:80px;width:80px;margin-top:auto;margin-bottom:auto;margin-left:0">
@@ -23,9 +23,9 @@
               <tr>
                 <td @click.stop="goSelfMaterial()">&nbsp;&nbsp;&nbsp;&nbsp;个人资料</td>
               </tr>
-              <tr>
+<!--              <tr>
                 <td @click.stop="upLoadImg()">&nbsp;&nbsp;&nbsp;&nbsp;上传舌苔照片</td>
-              </tr>
+              </tr>-->
 <!--              <tr>
                 <td style="text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;账户绑定</td>
               </tr>
@@ -81,7 +81,7 @@
                   <div class="firstpanel">
                     <div style="text-align:left" class="am-g">
                       <span class="am-u-sm-7" style="margin:0;padding:0"><span class="tasktitle"> {{taskindex.title}}</span>
-                        <span class="taskstyle"> &nbsp;[标准]</span></span>
+                        <span class="taskstyle"></span></span>
                       <span class="establisher am-u-sm-5"><span style="margin-right:5px">调查人：{{taskindex.creator.nickname}}</span></span>
                     </div>
                     <div class="am-g" style="margin-top:10px">
@@ -142,7 +142,7 @@
                   <div class="firstpanel">
                     <div style="text-align:left" class="am-g">
                       <span class="am-u-sm-7" style="margin:0;padding:0"><span class="tasktitle"> {{taskindex.title}}</span>
-                        <span class="taskstyle"> &nbsp;[标准]</span></span>
+                        <span class="taskstyle"></span></span>
                       <span class="establisher am-u-sm-5"><span style="margin-right:5px">调查人：{{taskindex.creator.nickname}}</span></span>
                     </div>
                     <div class="am-g" style="margin-top:10px">
@@ -208,31 +208,15 @@
             </table>
           </div>
         </div>
-        <div class="notice" style="width:100%;height:80%;overflow:scroll" v-if="windowIndex === 1"></div>
-        <div class="phonelist" style="width:100%;height:80%;overflow:scroll" v-if="windowIndex === 2"></div>
-        <div class="footer" id="footer">
-          <div class="am-u-sm-3" style="background-color:dodgerblue;padding-top:10px;cursor:pointer;
-          border: solid 1px yellow" @click.stop="changeIcon(0)">
-            <img src="../assets/mainpage-white.png" v-if="shining !== 0">
-            <img src="../assets/mainpage-yellow.png"  v-if="shining === 0">
+        <div class="footer am-topbar am-topbar-fixed-bottom" id="footer" style="background:snow">
+          <div class="am-u-sm-6" @click.stop="changeIcon(0)">
+            <img src="../assets/homewhite.png" class="footerimg" v-if="shining !== 0">
+            <img src="../assets/homeblue.png"  class="footerimg" v-if="shining === 0">
             <p style="margin:0;padding:0;color:orange">主页</p>
           </div>
-          <div class="am-u-sm-3" style="background-color:dodgerblue;padding-top:10px;cursor:pointer"
-               @click.stop="changeIcon(1)">
-            <img src="../assets/notice-white.png" v-if="shining !== 1">
-            <img src="../assets/notice-yellow.png" v-if="shining === 1">
-            <p style="margin:0;padding:0">通知</p>
-          </div>
-          <div class="am-u-sm-3" style="background-color:dodgerblue;padding-top:10px;cursor:pointer"
-               @click.stop="changeIcon(2)">
-            <img src="../assets/phonelist-white.png" v-if="shining !== 2">
-            <img src="../assets/phonelist-yellow.png" v-if="shining === 2">
-            <p style="margin:0;padding:0">通讯录</p>
-          </div>
-          <div class="am-u-sm-3" style="background-color:dodgerblue;padding-top:10px;cursor:pointer"
-               @click.stop="changeIcon(3)">
-            <img src="../assets/selfcenter-white.png"  v-if="shining !== 3">
-            <img src="../assets/selfcenter-yellow.png" v-if="shining === 3">
+          <div class="am-u-sm-6" @click.stop="changeIcon(1)">
+            <img src="../assets/personwhite.png" class="footerimg" v-if="shining !== 1">
+            <img src="../assets/personblue.png" class="footerimg" v-if="shining === 1">
             <p style="margin:0;padding:0" style="color:black">我</p>
           </div>
         </div>
@@ -246,12 +230,6 @@
     body{
         background-color:white;
     }
-    .uiheader{  /*   页头   */
-      width: 100%;
-      height: 10%;
-      padding-top: 10px;
-      background-color: dodgerblue;
-    }
     /********************** 用户中心部分 **********************/
     #userinterface{
       background-color: white;
@@ -264,7 +242,7 @@
     /*************************  主页部分 ************************/
     .mainpage {
       width: 100%;
-      height: 80%;
+      height: 90%;
       overflow: scroll;
     }
 
@@ -497,22 +475,12 @@
       background-color: #8a6343;
     }
 
-    /************************* 通知 ***********************/
-    .notice{
-      width: 100%;
-      height: 80%;
-      padding-top: 50px;
-      background-color: #00d4b4;
-      display: block;
-    }
-
-    /************************* 通讯录 ***********************/
 
 
     /************************* 个人中心 ***********************/
     .usercenter{
       width:100%;
-      height:80%;
+      height:90%;
       overflow:scroll
     }
     #userinterface .useroperation{  /*   操作选择(e.g 账户绑定等，外div) */
@@ -533,9 +501,10 @@
       margin: 0;
       padding: 0;
     }
-    #footer div img{
-      width: 40px;
-      height:30px
+    .footerimg{
+      width: 15%;
+      height: 60%;
+      margin-top: 5%;
     }
 </style>
 <script>
@@ -677,31 +646,6 @@
       // this.countLeftTime()
     },
     methods: {
-//      setInitialData () {
-//        this.totaltasklength = this.$root.userData.tasks.length
-//        var temp = []
-//        for (var i = 0; i < this.$root.userData.tasks.length; i++) {
-//          if (this.$root.userData.tasks[i].status !== 'finished') {
-//            // “未完成”有“未开始”和“未填写完”两种情况
-//            temp.push(this.$root.userData.tasks[i])
-//          }
-//        }
-//        this.unfinished = temp
-//        var temp2 = []
-//        for (var i2 = 0; i2 < this.$root.userData.tasks.length; i2++) {
-//          if (this.$root.userData.tasks[i2].status === 'finished') {
-//            temp2.push(this.$root.userData.tasks[i2])
-//          }
-//        }
-//        this.finished = temp2
-//        var temp3 = []
-//        for (var i3 = 0; i3 < this.unfinished.length; i3++) {
-//          if (i < this.mintasklength) {
-//            temp3.push(this.unfinished[i3])
-//          }
-//        }
-//        this.minunfinishedtasks = temp3
-//      },
       goSelfMaterial () {
         this.$router.go('/selfmaterial')
       },
@@ -719,29 +663,18 @@
         this.showdetail = true
       },
       changeIcon (tips) {
-        if (tips === 1 || tips === 2) {
-          return
-        } else {
-          var selectedIndex = tips
-          this.shining = tips
-          this.windowIndex = tips
-
-          $('#footer div').each(function (index, element) {
-            if (index === selectedIndex) {  // 当前下标指向发生点击事件的图标
-              // console.log($(this).attr('id'))
-              $(this).css({
-                'border-top': 'solid 1px yellow',
-                'border-left': 'solid 1px yellow',
-                'border-right': 'solid 1px yellow'
-              }) // 当前选中的标签带框
-              $(this).children('p').css('color', 'orange')
-            } else {
-              // console.log($(this).children('p'))
-              $(this).css('border', 'solid 0px white') // 未被选中的标签外框消失
-              $(this).children('p').css('color', 'black')
-            }
-          })
-        }
+        var selectedIndex = tips
+        this.shining = tips
+        this.windowIndex = tips
+        $('#footer div').each(function (index, element) {
+          if (index === selectedIndex) {  // 当前下标指向发生点击事件的图标
+            // console.log($(this).attr('id'))
+            $(this).children('p').css('color', 'dodgerblue')
+          } else {
+            // console.log($(this).children('p'))
+            $(this).children('p').css('color', 'black')
+          }
+        })
       },
       toggleState (tips) {
         if (this.state === 0) {
@@ -784,10 +717,10 @@
             $('#minunfinishedprogress' + i).css('width', (this.unfinished[i].progress) / this.unfinished[i].plans.dates.length * 100 + '%')
           }
         }
-      },
-      upLoadImg () {
-        this.$router.go('/uploadimg')
       }
+/*      upLoadImg () {
+        this.$router.go('/uploadimg')
+      }*/
     },
     route: {
       data: function (transition) {

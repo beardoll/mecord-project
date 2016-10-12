@@ -1,11 +1,11 @@
 <template>
     <div id="modification">
-      <div class="mohead">
+<!--      <div class="mohead">
         <div id="dropdownhead" style="text-align:center;
       font-size:24px;color:white;margin:auto;padding:auto">
           Mecord
         </div>
-      </div>
+      </div>-->
       <div class="mobody">
         <div class="motitle">{{questions.title}}</div>
         <div class="moquestion">
@@ -77,14 +77,14 @@
                   <div v-if="questionItem.type === 'symptom_score'">
                     <Score :question-item = "questionItem" :curindex = "curindex" :defaultdata = "scoredefaultdata" v-ref:score></Score>
                   </div>
-                  <div style="margin-top:50px">
-                    <button type="button" class="nextpagebtn2 am-btn am-btn-lg am-btn-primary am-radius" @click.stop="validModification()">确认修改</button>
-                  </div>
                 </div>
               </div>
             </fieldset>
           </form>
         </div>
+      </div>
+      <div style="margin-top:50px" class="am-topbar am-topbar-fixed-bottom">
+        <button type="button" class="am-btn am-btn-lg am-btn-primary am-radius" @click.stop="validModification()">确认修改</button>
       </div>
     </div>
 </template>
@@ -107,7 +107,7 @@
     }
     .mobody{
       width: 100%;
-      height: 90%;
+      height: 100%;
     }
     .motitle{
       background-color: #00d4b4;
@@ -120,15 +120,11 @@
     .moquestion{
       width: 100%;
       margin: auto;
+      padding-bottom: 60px;
     }
     .questiontips{
       text-align: left;
       background-color: #fbedd9;
-    }
-    .nextpagebtn2{
-      position: absolute;
-      left: 32%;
-      top: 100%
     }
 </style>
 <script>

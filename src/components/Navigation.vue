@@ -1,6 +1,6 @@
 <template>
     <div id="navigation">
-      <div class="navheader">
+<!--      <div class="navheader">
         <div class="am-u-sm-3">
           <img src="../assets/left-arrow.png" style="cursor:pointer;width:35px;height:35px;margin-top:1%"
           @click.stop="backToFrontPage()">
@@ -9,9 +9,9 @@
         font-size:24px;color:white;margin-top:0.5%">
           Mecord
         </div>
-      </div>
+      </div>-->
       <div class="navbody">
-        <img src="../assets/tsinghua.gif" style="width:140px;height:180px;margin:auto">
+        <img src="../assets/hospital.jpg" style="width:140px;height:180px;margin:auto">
           <hr data-am-widget="divider" style="width:70%;margin:auto" class="am-divider am-divider-default" />
         <p style="font-size:28px">{{title}}</p>
           <hr data-am-widget="divider" style="width:70%;margin:auto" class="am-divider am-divider-dotted" />

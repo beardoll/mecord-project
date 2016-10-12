@@ -1,11 +1,11 @@
 <template>
     <div id="login">
-      <div class="loginheader">
+<!--      <div class="loginheader">
         <div class="am-u-sm-3">
           <i class="am-icon-md am-icon-arrow-left"></i>
         </div>
         <span class="am-u-sm-6 am-u-end" style="text-align:center;font-size:20px">登录</span>
-      </div>
+      </div>-->
       <div class="loginbody">
         <form>
           <div class="am-form-group am-form-icon">

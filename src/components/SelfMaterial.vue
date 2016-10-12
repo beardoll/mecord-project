@@ -1,6 +1,6 @@
 <template>
     <div id="selfmaterial">
-      <div class="smheader">
+<!--      <div class="smheader">
         <div class="am-u-sm-3" style="text-align:left">
           <img src="../assets/left-arrow.png" style="cursor:pointer;width:35px;height:35px;margin-top:1%"
                @click.stop="backToFrontPage()">
@@ -8,7 +8,7 @@
         <span class="am-u-sm-6" style="text-align:center;font-size:24px;color:white">个人资料</span>
         <span class="am-u-sm-3 savetext" style="font-size:16px;color:white;margin-top:8px;
         cursor:pointer" @click.stop="save()">保存</span>
-      </div>
+      </div>-->
       <div class="" style="width:100%;height:90%">
         <div class="tabs-body">
             <form class="am-form am-form-horizontal">
