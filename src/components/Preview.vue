@@ -53,9 +53,9 @@
             <img class="showimgarea" :src = "questionItem.answers[$index]">
           </div>
         </div>
-        <div class="submitbtn am-topbar am-topbar-fixed-bottom" style="background-color:white">
-          <button class="am-btn am-btn-primary am-btn-radius" @click.stop="submit()">提交</button>
-        </div>
+      </div>
+      <div class="submitbtn am-topbar am-topbar-fixed-bottom" style="background-color:white">
+        <button class="am-btn am-btn-primary am-btn-radius" @click.stop="submit()">提交</button>
       </div>
     </div>
 </template>
@@ -78,10 +78,12 @@
     }
     .prebody{
       width: 100%;
-      height: 100%;
+      height: 90%;
+      margin-bottom: 40px;
+      overflow: scroll;
     }
     .questionbody{
-      padding-bottom: 60px;
+      padding-bottom: 20px;
     }
     .pretitle{
       background-color: #00d4b4;
@@ -89,7 +91,7 @@
       text-align: left;
       font-size: 20px;
       padding-top: 2px;
-      padding-bottm: 2px;
+      padding-bottom: 2px;
     }
     .selectedoption{
       color: black;
@@ -142,6 +144,10 @@
       height: 200px;
       margin-top: 10px;
       margin-right: auto;
+    }
+    .submitbtn{
+      width: 100%;
+      height: 10%;
     }
 </style>
 <script>

@@ -1,15 +1,6 @@
 <template>
     <div id="selfmaterial">
-<!--      <div class="smheader">
-        <div class="am-u-sm-3" style="text-align:left">
-          <img src="../assets/left-arrow.png" style="cursor:pointer;width:35px;height:35px;margin-top:1%"
-               @click.stop="backToFrontPage()">
-        </div>
-        <span class="am-u-sm-6" style="text-align:center;font-size:24px;color:white">个人资料</span>
-        <span class="am-u-sm-3 savetext" style="font-size:16px;color:white;margin-top:8px;
-        cursor:pointer" @click.stop="save()">保存</span>
-      </div>-->
-      <div class="" style="width:100%;height:90%">
+      <div class="smbody" style="width:100%;height:90%">
         <div class="tabs-body">
             <form class="am-form am-form-horizontal">
               <legend>个人信息</legend>
@@ -80,6 +71,9 @@
             </form>
         </div>
       </div>
+      <div class="smfoot am-topbar am-topbar-fixed-bottom">
+        <div type="button" class="am-btn am-btn-primary" @click.stop="save()">保存</div>
+      </div>
     </div>
 </template>
 <style>
@@ -96,11 +90,10 @@
       height: 100%;
       padding-left: 0;
     }
-    #selfmaterial .smheader {
+    .smbody{
       width: 100%;
-      height: 10%;
-      padding-top: 10px;
-      background-color: dodgerblue;
+      height: 90%;
+      overflow: scroll;
     }
     #selfmaterial .smbody .topbar{
       width: 300px;
@@ -146,6 +139,9 @@
       color:orange;
       margin-left: 0px;
     }
+    .smfoot{
+
+    }
 </style>
 <script>
   export default {
@@ -189,9 +185,6 @@
       }
     },
     methods: {
-      save () {
-        // 保存个人资料
-      },
       expandPrivateInfo () {
         $('#privateinfo').toggle()
       },
@@ -213,6 +206,8 @@
             $(this).addClass('default')
           }
         })
+      },
+      save () {  // 保存个人资料
       }
     }
   }
