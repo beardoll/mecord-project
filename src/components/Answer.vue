@@ -44,8 +44,15 @@
                       </div>
                       <div style="margin-top:20px" class="selectinput">
                         <div class="am-radio" v-for="selection in questionItem.content.choice" style="padding-top:5px;padding-bottom:5px">
-                          <input type = "radio" :name="questionItem.title" :value="$index" style="margin-left:0px;
-                          margin-right:10px;width:18px;height:18px;margin-top:5px"><span style="font-size:24px">{{selection}}</span>
+                          <div class="am-g">
+                            <div class="am-u-sm-2">
+                              <input type = "radio" :name="questionItem.title" :value="$index" style="margin-left:0px;
+                              margin-right:10px;width:12px;height:12px;margin-top:3px">
+                            </div>
+                            <div class="am-u-sm-10">
+                              <span style="font-size:18px">{{selection}}</span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -58,9 +65,15 @@
                       </div>
                       <div style="margin-top:20px">
                         <div class="am-checkbox multiselectinput"  v-for="selection in questionItem.content.choice" track-by="$index">
-                          <input type= "checkbox" :name="questionItem.title" :value="$index" style="margin-left:10px;
-                            margin-right:10px;padding-top:5px;padding-bottom:5px;margin-top:10px;width:24px;height:24px"> <span style="font-size:30px">{{selection}}</span>
-                        </div>
+                          <div class="am-g">
+                            <div class="am-u-sm-2">
+                              <input type= "checkbox" :name="questionItem.title" :value="$index" style="margin-left:10px;
+                                margin-right:10px;padding-top:5px;padding-bottom:5px;margin-top:10px;width:18px;height:18px">
+                            </div>
+                            <div class="am-u-sm-10">
+                              <span style="font-size:18px">{{selection}}</span>
+                            </div>
+                          </div>
                       </div>
                     </div>
                   </div>

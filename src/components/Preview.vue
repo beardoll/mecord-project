@@ -142,7 +142,6 @@
       height: 200px;
       margin-top: 10px;
       margin-right: auto;
-      margin-right: auto;
     }
 </style>
 <script>

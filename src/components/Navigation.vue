@@ -11,8 +11,8 @@
         </div>
       </div>-->
       <div class="navbody">
-        <img src="../assets/hospital.jpg" style="width:140px;height:180px;margin:auto">
-          <hr data-am-widget="divider" style="width:70%;margin:auto" class="am-divider am-divider-default" />
+        <img src="../assets/hospital.jpg" style="margin:auto" id="logo">
+          <hr data-am-widget="divider" style="width:70%;margin-left:auto;margin-right:auto;margin-top:10px" class="am-divider am-divider-default" />
         <p style="font-size:28px">{{title}}</p>
           <hr data-am-widget="divider" style="width:70%;margin:auto" class="am-divider am-divider-dotted" />
         <h5>{{description}}</h5>
@@ -49,6 +49,14 @@
     data () {
       return {
       }
+    },
+    ready: function () {
+      var logowidth = $('#logo').width()
+      var logoheight = $('#logo').height()
+      var ratio = logoheight / logowidth
+      var maxwidth = 160
+      $('#logo').css('width', maxwidth + 'px')
+      $('#logo').css('height', maxwidth * ratio + 'px')
     },
     computed: {
       title: function () {

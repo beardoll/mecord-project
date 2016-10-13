@@ -1,7 +1,8 @@
 <template>
     <div id="gate">
       <div id="tipsword">
-        <p style="font-size:30px;color:red">页面加载中...</p>
+        <i class="am-icon-spinner am-icon-md am-icon-spin"></i>
+        <p style="font-size:16px">页面加载中</p>
       </div>
     </div>
 </template>
@@ -15,7 +16,7 @@
       width: 70%;
       text-align: center;
       margin: auto;
-      margin-top: 300px;
+      margin-top: 200px;
     }
 </style>
 <script>
