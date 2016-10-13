@@ -44,15 +44,15 @@
                       </div>
                       <div style="margin-top:20px" class="selectinput">
                         <div class="am-radio" v-for="selection in questionItem.content.choice" style="padding-top:5px;padding-bottom:5px">
-                          <div class="am-g">
-                            <div class="am-u-sm-2">
-                              <input type = "radio" :name="questionItem.title" :value="$index" style="margin-left:0px;
-                              margin-right:10px;width:12px;height:12px;margin-top:3px">
+                            <div class="am-g">
+                              <div class="am-u-sm-1">
+                                <input type = "radio" :name="questionItem.title" :value="$index" style="margin-left:0px;
+                                margin-right:10px;width:18px;height:18px;margin-top:5px">
+                              </div>
+                              <div class="am-u-sm-11">
+                                <span style="font-size:18px">{{selection}}</span>
+                              </div>
                             </div>
-                            <div class="am-u-sm-10">
-                              <span style="font-size:18px">{{selection}}</span>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -65,16 +65,17 @@
                       </div>
                       <div style="margin-top:20px">
                         <div class="am-checkbox multiselectinput"  v-for="selection in questionItem.content.choice" track-by="$index">
-                          <div class="am-g">
-                            <div class="am-u-sm-2">
-                              <input type= "checkbox" :name="questionItem.title" :value="$index" style="margin-left:10px;
-                                margin-right:10px;padding-top:5px;padding-bottom:5px;margin-top:10px;width:18px;height:18px">
+                            <div class="am-g">
+                              <div class="am-u-sm-1" style="margin:0;padding:0;text-align:right">
+                                <input type= "checkbox" :name="questionItem.title" :value="$index" style="margin-left:10px;
+                                  margin-right:10px;padding-top:5px;padding-bottom:5px;margin-top:10px;width:18px;height:18px">
+                              </div>
+                              <div class="am-u-sm-11" style="margin:0;padding-left:10px;padding-top:5px;text-align:left">
+                                <span style="font-size:18px">{{selection}}</span>
+                              </div>
                             </div>
-                            <div class="am-u-sm-10">
-                              <span style="font-size:18px">{{selection}}</span>
-                            </div>
-                          </div>
                       </div>
+                    </div>
                     </div>
                   </div>
                   <div v-if="questionItem.type === 'multi_blank'">

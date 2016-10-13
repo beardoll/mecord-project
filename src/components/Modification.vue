@@ -38,11 +38,11 @@
                       <div style="margin-top:20px" class="selectinput">
                         <div class="am-radio" v-for="selection in questionItem.content.choice" style="padding-top:5px;padding-bottom:5px">
                           <div class="am-g">
-                            <div class="am-u-sm-2">
+                            <div class="am-u-sm-1">
                               <input type = "radio" :name="questionItem.title" :value="$index" style="margin-left:0px;
-                              margin-right:10px;width:12px;height:12px;margin-top:3px">
+                                margin-right:10px;width:12px;height:12px;margin-top:3px">
                             </div>
-                            <div class="am-u-sm-10">
+                            <div class="am-u-sm-11">
                               <span style="font-size:18px">{{selection}}</span>
                             </div>
                           </div>
@@ -50,26 +50,27 @@
                       </div>
                     </div>
                   </div>
-                  <div v-if="questionItem.type === 'multi_select'">
-                    <div class= "am-form-group am-g am-g-collapse" style="text-align:left">
+                  <div v-if="questionItem.type === 'select'">
+                    <div class="am-form-group" style="text-align:left">
                       <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
                       <div v-for="tipsintem in questionItem.tips" class="questiontips" track-by="$index">
                         提示{{$index+1}}:&nbsp;{{questionItem.tips}}
                       </div>
-                      <div style="margin-top:20px">
-                        <div class="am-checkbox multiselectinput"  v-for="selection in questionItem.content.choice" track-by="$index">
+                      <div style="margin-top:20px" class="selectinput">
+                        <div class="am-radio" v-for="selection in questionItem.content.choice" style="padding-top:5px;padding-bottom:5px">
                           <div class="am-g">
-                            <div class="am-u-sm-2">
-                              <input type= "checkbox" :name="questionItem.title" :value="$index" style="margin-left:10px;
-                                margin-right:10px;padding-top:5px;padding-bottom:5px;margin-top:10px;width:18px;height:18px">
+                            <div class="am-u-sm-1">
+                              <input type = "radio" :name="questionItem.title" :value="$index" style="margin-left:0px;
+                                margin-right:10px;width:18px;height:18px;margin-top:5px">
                             </div>
-                            <div class="am-u-sm-10">
+                            <div class="am-u-sm-11">
                               <span style="font-size:18px">{{selection}}</span>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
+                  </div>
                   <div v-if="questionItem.type === 'multi_blank'">
                     <label class="am-form-label" style="background-color:#cccccc;width:100%;text-align:left">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
                     <div v-for="tipsintem in questionItem.tips" class="questiontips" track-by="$index" style="text-align:left">
