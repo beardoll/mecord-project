@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>登录界面</title>
-    <script src="jsfile/jquery.min.js"></script>
-    <script src="jsfile/amazeui.min.js"></script>
-    <link rel="stylesheet" href="cssfile/amazeui.min.css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <style>
         *{
             margin: 0px;
@@ -40,7 +38,7 @@
     </style>
 </head>
 <body>
-<div class="loginbox">
+<!--<div class="loginbox">
     <div class="am-icon am-icon"
     <div class="top-loginbox">
         <h2 style="color: black; font-weight: bold"> 用户登录</h2>
@@ -81,6 +79,14 @@
             window.open('registration.html')
         })
     })
-</script>
+</script>-->
+  <button type="button" id="test">点击我</button>
+  <script>
+    $('#test').click(function(){
+      var time = new Date().getTime()
+      var num = 3
+      alert(time + '&' + num)
+    })
+  </script>
 </body>
 </html>

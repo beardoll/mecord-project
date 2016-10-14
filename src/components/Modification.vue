@@ -91,6 +91,9 @@
                   <div v-if="questionItem.type === 'symptom_score'">
                     <Score :question-item = "questionItem" :curindex = "curindex" :defaultdata = "scoredefaultdata" v-ref:score></Score>
                   </div>
+                  <div v-if="questionItem.type === 'upload_image'">
+                    <uploadimg :imgsrcforchild = "imgsrcforchild" :question-item = "questionItem" :curindex = "curindex"></uploadimg>
+                  </div>
                 </div>
               </div>
             </fieldset>
@@ -143,14 +146,23 @@
 </style>
 <script>
   import Score from './Score'
+  import uploadimg from './UploadImg'
   export default{
     data () {
       return {
-        scoredefaultdata: [0, 0]
+        scoredefaultdata: [0, 0],
+        imgsrcforchild: '', // 给子组件传递的img地址
+        imgsrc: ''
       }
     },
     components: {
-      Score
+      Score,
+      uploadimg
+    },
+    events: {
+      'uploadimgsrc': function (item) {
+        this.imgsrc = item
+      }
     },
     computed: {
       questions: function () {
@@ -169,6 +181,9 @@
     created: function () {
       if (this.curquestion.type === 'symptom_score') {
         this.scoredefaultdata = this.curanswer
+      }
+      if (this.curquestion.type === 'upload_image') {
+        this.imgsrcforchild = this.curanswer
       }
     },
     ready: function () {
@@ -230,7 +245,12 @@
         })
       },
       validModification () {
-        var formjson = $('#patient-form').serializeArray()
+        var formjson
+        if (this.curquestion.type !== 'upload_image') {
+          formjson = $('#patient-form').serializeArray()
+        } else {
+          formjson = this.imgsrc
+        }
         // console.log(formjson)
         var status = true
         switch (this.curquestion.type) {  // 先验证是否已完成题目
@@ -257,6 +277,10 @@
               status = false
             }
             break
+          case 'upload_image':
+            if (formjson === '') {
+              status = false
+            }
         }
         if (status === false) {
           window.alert('请完成此题！')
@@ -282,6 +306,9 @@
               for (var j = 0; j < formjson.length; j++) {
                 data.push(formjson[j].value)
               }
+              break
+            case 'upload_image':
+              data.push(formjson)
               break
           }
           this.$dispatch('editanswer', data)

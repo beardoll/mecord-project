@@ -49,8 +49,8 @@
               {{score}}:{{questionItem.content.frequencyParts[$index]}}
             </div>
           </div>
-          <div v-if="questionItem.type === 'uploadimg'">
-            <img class="showimgarea" :src = "questionItem.answers[$index]">
+          <div v-if="questionItem.type === 'upload_image'">
+            <img class="showimgarea" v-bind:src = "questionItem.answers">
           </div>
         </div>
       </div>
@@ -151,7 +151,7 @@
     }
 </style>
 <script>
-//  import CosCloud from '../static/sdk/qcloud_sdk.js'
+  var wx = require('weixin-js-sdk')
   export default{
     data () {
 
@@ -165,8 +165,12 @@
           var temp1 = []
           var data1 = currentanswer[i]
           var data = []
-          for (var ww = 0; ww < data1.length; ww++) { // 先把字符类型数据转化为数字
-            data.push(parseInt(data1[ww]))
+          if (tempquest[i].type !== 'upload_image') {
+            for (var ww = 0; ww < data1.length; ww++) { // 先把字符类型数据转化为数字
+              data.push(parseInt(data1[ww]))
+            }
+          } else {
+            data = data1
           }
           switch (tempquest[i].type) {
             case 'blank':
@@ -198,6 +202,9 @@
             case 'symptom_score':
               temp1 = data
               break
+            case 'upload_image':
+              temp1 = data
+              break
           }
           temp.push(temp1)
         }
@@ -216,9 +223,20 @@
       },
       submissionid: function () {
         return this.submissions.id
+      },
+      resbody: function () {
+        return this.$root.wxsignature
       }
     },
     ready: function () {
+      wx.config({
+        debug: false,
+        appId: this.resbody.appId,          // 必填，公众号的唯一标识
+        timestamp: this.resbody.timestamp,      // 必填，生成签名的时间戳
+        nonceStr: this.resbody.nonceStr,      // 必填，生成签名的随机串
+        signature: this.resbody.signature,      // 必填，签名，见附录1
+        jsApiList: this.resbody.jsApiList       // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+      })
     },
     methods: {
       edit (index) { // 修改index对应的题目
@@ -251,100 +269,111 @@
         // 提交表单数据
         // console.log(this.submission.answers)
         var submitanswers = []
+        var attachmentsurl = []
+        var attachmentsquestionid = []
         for (var i = 0; i < this.questions.length; i++) {
-          if (this.questions[i].type !== 'uploadimg') {
-            var temp = {}
-            temp.userId = this.$root.accesstoken.userId
-            temp.questionId = this.questions[i].id
-            temp.type = this.questions[i].type
-            var content = {}
-            var currentanswer = this.answers[i] // 当前问题对应的答案
-            switch (this.questions[i].type) {
-              case 'symptom_score':
-                content.levelScore = currentanswer[0]
-                content.frequencyScore = currentanswer[1]
-                break
-              case 'multi_blank':
-                var data = []
-                for (var j = 0; j < currentanswer.length; j++) {
-                  data.push(currentanswer[j])
-                }
-                content.datas = data
-                break
-              case 'select':
-                content.select = currentanswer[0]
-                break
-              case 'multi_select':
-                var data2 = []
-                for (var k = 0; k < currentanswer.length; k++) {
-                  data2.push(currentanswer[k])
-                }
-                content.datas = data2
-                break
-              case 'blank':
-                content.datas = currentanswer[0]
-                break
-            }
-            temp.content = content
-            submitanswers.push(temp)
+          var temp = {}
+          temp.userId = this.$root.accesstoken.userId
+          temp.questionId = this.questions[i].id
+          temp.type = this.questions[i].type
+          var content = {}
+          var currentanswer = this.answers[i] // 当前问题对应的答案
+          switch (this.questions[i].type) {
+            case 'symptom_score':
+              content.levelScore = currentanswer[0]
+              content.frequencyScore = currentanswer[1]
+              break
+            case 'multi_blank':
+              var data = []
+              for (var j = 0; j < currentanswer.length; j++) {
+                data.push(currentanswer[j])
+              }
+              content.datas = data
+              break
+            case 'select':
+              content.select = currentanswer[0]
+              break
+            case 'multi_select':
+              var data2 = []
+              for (var k = 0; k < currentanswer.length; k++) {
+                data2.push(currentanswer[k])
+              }
+              content.datas = data2
+              break
+            case 'blank':
+              content.datas = currentanswer[0]
+              break
+            case 'upload_image':
+              attachmentsquestionid.push(temp.questionId)
+              attachmentsurl.push(currentanswer)
           }
+          temp.content = content
+          submitanswers.push(temp)
         }
-        console.log(this.submissionid)
+        // window.alert(JSON.stringify(submitanswers))
         this.$http.post('https://api.mecord.cn/api/Submissions/' + this.submissionid + '/answers?access_token=' + this.$root.accesstoken.id, submitanswers).then(
           (response) => {
             console.log('successfully submit!')
-//            for (var j = 0; j < this.questions.length; j++) {   // 一个个图片附件进行上传z
-//              if (this.questions[j].type === 'uploadimg') {
-//                var imgnode = []
-//                imgnode.id = this.questions[j].id
-//                var tempsrc = this.answer[j]
-//                var bucketName = this.$root.accesstoken.userId + '&' + Date().getTime()
-//                this.$http.get('https://api.mecord.cn/api/MecordUsers/{id}/getCosSign?userId=' + this.$root.accesstoken.userId).then(
-//                  (response) => {
-//                    var successCallBack = function (result) {
-//                      var data = []
-//                      data.filename = bucketName
-//                      data.submmitterId = this.$root.accesstoken.userId
-//                      data.description = ''
-//                      data.permission = 'public'
-//                      data.urls = result
-//                      this.$http.post('https://api.mecord.cn/api/Answers/' + imgnode.id + '/attachment', data).then(
-//                      (response) => {
-//                        console.log('successfully upload to server!')
-//                      }, (response) => {
-//                        console.log('cannot upload to server!')
-//                      })
-//                    }
-//                    var remotePath = response.path
-//                    var errorCallBack = function (result) {
-//                      console.log('Cannot upload to cos cloud!')
-//                    }
-//                    var cos = new CosCloud('APPID')
-//                    cos.prototype.uploadFile(successCallBack, errorCallBack, bucketName, remotePath, tempsrc)
-//                  }, (response) => {
-//                  console.log('cannot get the signature')
-//                })
-//              }
-//            }
-            var updatetaskid = this.$root.currentrealtaskid
-            var updatetaskurl = 'https://api.mecord.cn/api/Tasks/' + updatetaskid
-            var updateprogress = this.$root.progress[this.$root.currenttaskindex] + 1
-            var updatestate = ''
-            if (updateprogress === this.$root.rootunfinished[this.$root.currenttaskindex].plans.dates.length - 1) {
-              updatestate = 'finished'
-            } else {
-              updatestate = 'unfinished'
+//            console.log(JSON.stringify(submitanswers))
+            var answerid = []
+            var questionid = []
+            var datax = response.body
+            for (var kk = 0; kk < datax.length; kk++) {
+              answerid.push(datax[kk].id)
+              questionid.push(datax[kk].questionId)
             }
-            this.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
-              console.log('sucessfully put!')
-              window.alert('提交成功啦！')
-              this.$root.loadClientDate()
-            }, (response) => {
-              console.log('fail put!')
-            })
+            var that = this
+            var uploadinfo = {}
+//            window.alert('no problem!')
+            for (var jj = 0; jj < attachmentsquestionid.length; jj++) {   // 一个个图片附件进行上传
+              var index = questionid.indexOf(attachmentsquestionid[jj]) // 附件问题在response对应的下标
+              wx.uploadImage({
+                localId: attachmentsurl[jj].toString(), // 需要上传的图片的本地ID，由chooseImage接口获得
+                isShowProgressTips: 1, // 默认为1，显示进度提示
+                success: function (res) {
+                  var serverId = res.serverId.toString() // 返回图片的服务器端ID
+                  uploadinfo.filename = that.$root.accesstoken.userId + '&' + new Date().getTime()
+                  uploadinfo.submitterId = that.$root.accesstoken.userId
+                  uploadinfo.urls = serverId
+                  uploadinfo.desription = ''
+                  uploadinfo.permission = 'public'
+                  that.$http.post('https://api.mecord.cn/api/Answers/' + answerid[index] + '/attachments', uploadinfo).then((response) => {
+//                    console.log('successfully submit the src to the server!')
+//                    window.alert('successfully submit the src to the server!')
+                    if (jj === attachmentsquestionid.length) {  // 已经异步执行了- -
+//                      window.alert('update!!')
+                      var updatetaskid = that.$root.currentrealtaskid
+                      var updatetaskurl = 'https://api.mecord.cn/api/Tasks/' + updatetaskid
+                      var updateprogress = that.$root.progress[that.$root.currenttaskindex] + 1
+                      var updatestate = ''
+                      if (updateprogress === that.$root.rootunfinished[that.$root.currenttaskindex].plans.dates.length - 1) {
+                        updatestate = 'finished'
+                      } else {
+                        updatestate = 'unfinished'
+                      }
+                      that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
+                        console.log('sucessfully put!')
+                        window.alert('提交成功啦！')
+                        that.$root.loadClientDate()
+                      }, (response) => {
+                        console.log('fail put!')
+                        window.alert(JSON.stringify(response.body))
+                        window.alert('提交失败！')
+                      })
+                    }
+                  }, (response) => {
+                    window.alert(JSON.stringify(response.body))
+                    console.log('fail to submit the src to the server!')
+                    window.alert('fail to submit the src to the server!')
+                    // window.alert(response)
+                  })
+                }
+              })
+            }
           }, (response) => {
           console.log(JSON.stringify(submitanswers))
           console.log('fail to submit!')
+          window.alert('fail to submit!')
         })
       }
     }

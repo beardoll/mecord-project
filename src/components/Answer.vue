@@ -98,8 +98,8 @@
                   <div v-if="questionItem.type === 'symptom_score'">
                     <Score :question-item = "questionItem" :curindex = "curindex" :defaultdata = "scoredefaultdata" v-ref:score></Score>
                   </div>
-                  <div v-if="questionItem.type === 'uploadimg'">
-                    <UploadImg :imgsrcforchild = "imgsrcforchild" :question-item = "questionItem" :curindex = "curindex"></UploadImg>
+                  <div v-if="questionItem.type === 'upload_image'">
+                    <uploadimg :imgsrcforchild = "imgsrcforchild" :question-item = "questionItem" :curindex = "curindex"></uploadimg>
                   </div>
                   <div style="margin-top:50px;background-color:white" v-if = "curindex > 0 && curindex < questionlength" class="am-topbar am-topbar-fixed-bottom">
                     <button type="button" class="pastpagebtn am-btn am-btn-lg am-btn-primary am-radius"
@@ -211,7 +211,7 @@
 </style>
 <script>
   import Score from './Score'
-  import UploadImg from './UploadImg'
+  import uploadimg from './UploadImg'
   export default {
     data () {
       return {
@@ -225,7 +225,7 @@
     },
     components: {
       Score,
-      UploadImg
+      uploadimg
     },
     events: {
       'uploadimgsrc': function (item) {
@@ -263,8 +263,9 @@
       },
       goToNextOne (index) {
         var questionItem = this.questions[index]
+        console.log(JSON.stringify(this.questions[index + 1]))
         var formjson
-        if (questionItem.type !== 'uploadimg') {
+        if (questionItem.type !== 'upload_image') {
           formjson = $('#patient-form').serializeArray()
         } else {
           formjson = this.imgsrc
@@ -295,7 +296,7 @@
               status = false
             }
             break
-          case 'uploadimg':
+          case 'upload_image':
             if (formjson === '') {
               status = false
             }
@@ -329,7 +330,7 @@
                 data.push(formjson[j].value)
               }
               break
-            case 'uploadimg':
+            case 'upload_image':
               data.push(formjson)  // 把URL压入堆栈中
               break
           }
@@ -338,12 +339,12 @@
           if (this.curindex < this.questionlength) {  // 尚有下一个问题
             if (this.finishedanswer[this.curindex] !== '') { // 下一个问题已经录入过
               console.log('answers loading, front!')
-              if (nextquestion.type === 'symptom_score' || nextquestion.type === 'uploadimg') {  // 对评分控件进行单独处理
+              if (nextquestion.type === 'symptom_score' || nextquestion.type === 'upload_image') {  // 对评分控件进行单独处理
                 switch (nextquestion.type) {
                   case 'symptom_score':
                     this.scoredefaultdata = this.finishedanswer[this.curindex]
                     break
-                  case 'uploadimg':
+                  case 'upload_image':
                     this.imgsrcforchild = this.finishedanswer[this.curindex]
                     break
                 }
@@ -378,7 +379,7 @@
         var questionItem = this.questions[index]
         if (index !== this.questions.length - 1) {
           var formjson
-          if (questionItem.type === 'uploadimg') {
+          if (questionItem.type === 'upload_image') {
             formjson = this.imgsrc
           } else {
             formjson = $('#patient-form').serializeArray()
@@ -409,7 +410,7 @@
                 data.push(formjson[j].value)
               }
               break
-            case 'uploadimg':
+            case 'upload_image':
               data.push(formjson)  // 把URL压入堆栈中
               break
           }
@@ -421,12 +422,12 @@
         var percent = this.curindex / this.questionlength * 100
         $('#anprogress').css('width', percent + '%')
         console.log(thisquestion.type)
-        if (thisquestion.type === 'symptom_score' || thisquestion.type === 'uploadimg') {  // 对评分控件进行单独处理
+        if (thisquestion.type === 'symptom_score' || thisquestion.type === 'upload_image') {  // 对评分控件进行单独处理
           switch (thisquestion.type) {
             case 'symptom_score':
               this.scoredefaultdata = this.finishedanswer[this.curindex]
               break
-            case 'uploadimg':
+            case 'upload_image':
               this.imgsrcforchild = this.finishedanswer[this.curindex]
               break
           }

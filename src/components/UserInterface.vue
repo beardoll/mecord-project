@@ -200,9 +200,9 @@
               </tr>
               <tr>
                 <td v-if="!showdetail" style="font-size:12px;background-color:#9da0a4;cursor:pointer;
-                padding-top:5px;padding-bottom:5px" @click.stop="showdetail=!showdetail">查看更多任务</td>
+                padding-top:5px;padding-bottom:5px" @click.stop="showmore()">查看更多任务</td>
                 <td v-if="showdetail" style="font-size:12px;background-color:#9da0a4;cursor:pointer;
-                padding-top:5px;padding-bottom:5px" @click.stop="showdetail=!showdetail">收起</td>
+                padding-top:5px;padding-bottom:5px" @click.stop="showless()">收起</td>
               </tr>
               </tbody>
             </table>
@@ -636,7 +636,7 @@
     ready: function () {
       // console.log(this.$root.userData.tasks[0].questionSet.questions[0].title)
       this.changeIcon(this.windowIndex)
-      this.showProgress()
+      this.showminProgress()
       // this.parseDate()
       // this.loadClientDate ()
     },
@@ -710,13 +710,27 @@
           secondpanel.toggle()
         }
       },
-      showProgress () {  // 展示进度条函数
+      showminProgress () {  // 展示进度条函数
+        for (var i = 0; i < this.mintasklength; i++) {
+          $('#minunfinishedprogress' + i).css('width', (this.unfinished[i].progress) / this.unfinished[i].plans.dates.length * 100 + '%')
+        }
+      },
+      showmaxProgress () {
         for (var i = 0; i < this.unfinished.length; i++) {
           $('#unfinishedprogress' + i).css('width', (this.unfinished[i].progress) / this.unfinished[i].plans.dates.length * 100 + '%')
-          if (i < this.mintasklength) {
-            $('#minunfinishedprogress' + i).css('width', (this.unfinished[i].progress) / this.unfinished[i].plans.dates.length * 100 + '%')
-          }
         }
+      },
+      showmore () {
+        this.showdetail = true
+        this.$nextTick(function () {
+          this.showmaxProgress()
+        })
+      },
+      showless () {
+        this.showdetail = false
+        this.$nextTick(function () {
+          this.showminProgress()
+        })
       }
 /*      upLoadImg () {
         this.$router.go('/uploadimg')

@@ -17,11 +17,20 @@ export default {
       rootunfinished: [],
       currentanswer: [], // 当前问卷的答案
       editindex: [], // 当前修改答案的题目（在题目预览之后）
-      progress: []  // 各个未完成任务的进度
+      progress: [],  // 各个未完成任务的进度
+      wxsignature: ''
     }
   },
   computed: {
 
+  },
+  ready: function () {
+    var getURL = 'https://api.mecord.cn/api/CoreModels/getJsConfig?url=https%3A%2F%2Fwww.mecord.cn%2F'
+    this.$http.get(getURL).then((response) => {
+      this.wxsignature = response.body
+    }, (response) => {
+      console.log('cannot get signature')
+    })
   },
   events: {
     'changetaskindex': function (index) {
