@@ -340,27 +340,6 @@
                   that.$http.post('https://api.mecord.cn/api/Answers/' + answerid[index] + '/attachments', uploadinfo).then((response) => {
 //                    console.log('successfully submit the src to the server!')
 //                    window.alert('successfully submit the src to the server!')
-                    if (jj === attachmentsquestionid.length) {  // 已经异步执行了- -
-//                      window.alert('update!!')
-                      var updatetaskid = that.$root.currentrealtaskid
-                      var updatetaskurl = 'https://api.mecord.cn/api/Tasks/' + updatetaskid
-                      var updateprogress = that.$root.progress[that.$root.currenttaskindex] + 1
-                      var updatestate = ''
-                      if (updateprogress === that.$root.rootunfinished[that.$root.currenttaskindex].plans.dates.length - 1) {
-                        updatestate = 'finished'
-                      } else {
-                        updatestate = 'unfinished'
-                      }
-                      that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
-                        console.log('sucessfully put!')
-                        window.alert('提交成功啦！')
-                        that.$root.loadClientDate()
-                      }, (response) => {
-                        console.log('fail put!')
-                        window.alert(JSON.stringify(response.body))
-                        window.alert('提交失败！')
-                      })
-                    }
                   }, (response) => {
                     window.alert(JSON.stringify(response.body))
                     console.log('fail to submit the src to the server!')
@@ -370,6 +349,25 @@
                 }
               })
             }
+//          window.alert('update!!')
+            var updatetaskid = that.$root.currentrealtaskid
+            var updatetaskurl = 'https://api.mecord.cn/api/Tasks/' + updatetaskid
+            var updateprogress = that.$root.progress[that.$root.currenttaskindex] + 1
+            var updatestate = ''
+            if (updateprogress === that.$root.rootunfinished[that.$root.currenttaskindex].plans.dates.length - 1) {
+              updatestate = 'finished'
+            } else {
+              updatestate = 'unfinished'
+            }
+            that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
+              console.log('sucessfully put!')
+              window.alert('提交成功啦！')
+              that.$root.loadClientDate()
+            }, (response) => {
+              console.log('fail put!')
+              window.alert(JSON.stringify(response.body))
+              window.alert('提交失败！')
+            })
           }, (response) => {
           console.log(JSON.stringify(submitanswers))
           console.log('fail to submit!')
