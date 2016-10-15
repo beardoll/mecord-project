@@ -82,11 +82,13 @@
 </script>-->
   <button type="button" id="test">点击我</button>
   <script>
-    $('#test').click(function(){
-      var time = new Date().getTime()
-      var num = 3
-      alert(time + '&' + num)
-    })
+      $('#test').click(function(){
+        window.setTimeout(function () {
+          var time = new Date().getTime()
+          var num = 3
+          alert(time + '&' + num)
+        }, 300)
+      })
   </script>
 </body>
 </html>

@@ -637,6 +637,24 @@
       // console.log(this.$root.userData.tasks[0].questionSet.questions[0].title)
       this.changeIcon(this.windowIndex)
       this.showminProgress()
+/*      $('#changestate').on('tap', function () {
+        var target = event.target
+        var curindex = $(this).children('li').index(target)
+        this.state = curindex
+        $('#changestate li').each(function (index, element) {
+          if (curindex === index) {
+            $(this).css({
+              'background-color': 'dodgerblue'
+            })
+            $(this).children('span').css('color', 'white')
+          } else {
+            $(this).css({
+              'background-color': 'white'
+            })
+            $(this).children('span').css('color', 'dodgerblue')
+          }
+        })
+      })*/
       // this.parseDate()
       // this.loadClientDate ()
     },
@@ -677,11 +695,7 @@
         })
       },
       toggleState (tips) {
-        if (this.state === 0) {
-          this.state = 1
-        } else {
-          this.state = 0
-        }
+        this.state = tips
         $('#changestate li').each(function (index, element) {
           if (tips === index) {
             $(this).css({
