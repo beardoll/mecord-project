@@ -1,7 +1,7 @@
 <template id="score">
     <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
-    <div v-for="tipsintem in questionItem.tips" class="questiontips" track-by="$index">
-      提示{{$index+1}}:&nbsp;{{questionItem.tips}}
+    <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
+      提示{{$index+1}}:&nbsp;{{tipsitem}}
     </div>
     <div class="am-g" style="margin-top:10px">
       <span class="am-u-sm-3 am-u-sm-offset-3" style="font-size:14px;color:#50e3c2">症状程度</span>

@@ -1,8 +1,8 @@
 <template>
     <div>
       <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
-      <div v-for="tipsintem in questionItem.tips" class="questiontips" track-by="$index">
-        提示{{$index+1}}:&nbsp;{{questionItem.tips}}
+      <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
+        提示{{$index+1}}:&nbsp;{{tipsitem}}
       </div>
       <div class="uploadbutton">
         <button type="button" class="am-btn am-btn-primary" id="chooseImg">选择照片</button>
