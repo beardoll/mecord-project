@@ -684,6 +684,11 @@
         var selectedIndex = tips
         this.shining = tips
         this.windowIndex = tips
+        if (tips === 0) {  // 切回到主页面时需要渲染进度条，未来应该把主页面写成一个component
+          this.$nextTick(function () {
+            this.showminProgress()
+          })
+        }
         $('#footer div').each(function (index, element) {
           if (index === selectedIndex) {  // 当前下标指向发生点击事件的图标
             // console.log($(this).attr('id'))
@@ -696,6 +701,11 @@
       },
       toggleState (tips) {
         this.state = tips
+        if (tips === 0) {
+          this.$nextTick(function () {
+            this.showminProgress()
+          })
+        }
         $('#changestate li').each(function (index, element) {
           if (tips === index) {
             $(this).css({
