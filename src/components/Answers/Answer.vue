@@ -1,19 +1,9 @@
 <template>
     <div id="answer">
-<!--      <div class="anheader">
-        <div class="am-u-sm-3">
-          <img src="../assets/left-arrow.png" style="cursor:pointer;width:35px;height:35px;margin:auto;padding:auto"
-               @click.stop="backToFrontPage()">
-        </div>
-        <div class="am-u-sm-6 am-u-end" id="dropdownhead" style="text-align:center;
-        font-size:24px;color:white;margin-top:0.5%">
-          Mecord
-        </div>
-      </div>-->
       <div class="anbody">
         <div class="antitle">{{questions.title}}</div>
         <div class="am-progress am-progress-striped anprogressdiv">
-          <div class="am-progress-bar am-progress-bar-success" id="anprogress" style="width: 0%;">{{curindex}}/{{questionlength}}</div>
+          <div class="am-progress-bar am-progress-bar-success" id="anprogress" style="width: 0%">{{curindex}}/{{questionlength}}</div>
         </div>
         <div class="anquestion">
           <form class= "am-form" style="padding:0;margin:0" id="patient-form">
@@ -22,7 +12,7 @@
                 <div v-if="$index === curindex">
                   <div v-if="questionItem.type === 'blank'">
                     <div class="am-form-group" style="text-align:left;margin-top:2px">
-                      <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
+                      <label class="am-form-label questiontitle">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
                       <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
                         提示{{$index+1}}:&nbsp;{{tipsitem}}
                       </div>
@@ -38,7 +28,7 @@
                   </div>
                   <div v-if="questionItem.type === 'select'">
                     <div class="am-form-group" style="text-align:left">
-                      <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
+                      <label class="am-form-label questiontitle">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
                       <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
                         提示{{$index+1}}:&nbsp;{{tipsitem}}
                       </div>
@@ -59,7 +49,7 @@
                   </div>
                   <div v-if="questionItem.type === 'multi_select'">
                     <div class= "am-form-group am-g am-g-collapse" style="text-align:left">
-                      <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
+                      <label class="am-form-label questiontitle">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
                       <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
                         提示{{$index+1}}:&nbsp;{{tipsitem}}
                       </div>
@@ -79,7 +69,7 @@
                     </div>
                   </div>
                   <div v-if="questionItem.type === 'multi_blank'">
-                    <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%;text-align:left">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
+                    <label class="am-form-label questiontitle">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
                     <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index" style="text-align:left">
                       提示{{$index+1}}:&nbsp;{{tipsitem}}
                     </div>
@@ -127,7 +117,7 @@
       </div>
     </div>
 </template>
-<style>
+<style lang="less">
     body{
         background-color:white;
     }
@@ -137,77 +127,46 @@
       width: 100%;
       height: 100%;
       padding-bottom: 0px;
-    }
-    .anheader{
-      width: 100%;
-      height: 10%;
-      padding-top: 10px;
-      background-color: dodgerblue;
-    }
-    .anbody{
-      width: 100%;
-      height: 100%;
-    }
-    .antitle{
-      background-color: #00d4b4;
-      color: white;
-      text-align: left;
-      font-size: 20px;
-      padding-top: 2px;
-      padding-bottom: 2px;
-    }
-    .anprogressdiv{
-      padding: 0;
-      margin:0;
-      width: 100%;
-    }
-    .anquestion{
-      width: 100%;
-      margin: auto;
-      padding-bottom: 60px;
-    }
-    .questiontitle{
-      padding-left: 5px;
-      font-size: 20px;
-      text-align: left;
-    }
-    .diyprogress{
-      width: 100%;
-      height: 180px;
-      margin-top: 5px;
-    }
-    .questiontips{
-      text-align: left;
-      background-color: #fbedd9;
-      padding-left: 5px;
-      margin-top: 10px;
-    }
-/*    .nextpagebtn{
-       position: absolute;
-       left:60%;
-       top: 90%;
-     }
-    .pastpagebtn{
-      position: absolute;
-      left: 12%;
-      top: 90%
-    }
-    .nextpagebtn3{
-      position: absolute;
-      left:55%;
-      top: 90%;
-    }
-    .pastpagebtn3{
-      position: absolute;
-      left: 14%;
-      top: 90%
-    }
-    .nextpagebtn2{
-      position: absolute;
-      left: 40%;
-      top: 100%
-    }*/
+      .anbody{
+        width: 100%;
+        height: 100%;
+        .antitle{  /* 问卷标题  */
+          background-color: #00d4b4;
+          color: white;
+          text-align: left;
+          font-size: 20px;
+          padding-top: 2px;
+          padding-bottom: 2px;
+        }
+      }
 
+      .anprogressdiv{  /* 进度条 */
+        padding: 0;
+        margin:0;
+        width: 100%;
+      }
+
+      .anquestion{ /* 问卷中的问题 */
+        width: 100%;
+        margin: auto;
+        padding-bottom: 60px;
+
+        .questiontitle{  /* 问题标题 */
+          padding-left: 5px;
+          font-size: 20px;
+          text-align: left;
+          background-color:#cccccc;
+          width:100%;
+        }
+
+        .questiontips{  /* 问题提示 */
+          text-align: left;
+          background-color: #fbedd9;
+          padding-left: 5px;
+          margin-top: 10px;
+        }
+      }
+    }
 </style>
 <script>
   import Score from './Score'
@@ -229,6 +188,8 @@
     },
     events: {
       'uploadimgsrc': function (item) {
+        // 保存用户上传的图片地址
+        // dispatched from: UploadImg.vue -> wx.ready()
         this.imgsrc = item
       }
     },
@@ -349,8 +310,8 @@
                     break
                 }
               } else {
-                this.scoredefaultdata = [0, 0]
-                this.imgsrcforchild = ''
+                this.scoredefaultdata = [0, 0] // 复位，这是给子组件传的数据，默认为[0, 0]
+                this.imgsrcforchild = '' // 复位，这是给子组件传的数据，默认为''
                 this.$nextTick(function () {  // 需要渲染之后才能填数据，所以要回调
                   switch (nextquestion.type) {
                     case 'multi_blank':
@@ -432,8 +393,8 @@
               break
           }
         } else {
-          this.scoredefaultdata = [0, 0]
-          this.imgsrcforchild = ''
+          this.scoredefaultdata = [0, 0]  // 复位，这是给子组件传的数据，默认为[0, 0]
+          this.imgsrcforchild = '' // 复位，这是给子组件传的数据，默认为''
           this.$nextTick(function () {
             console.log('answers loading, back!')
             switch (thisquestion.type) {  // 返回到上一题时，应显示已经完成的问题答案
@@ -475,7 +436,6 @@
         }
       },
       setBlankData (data) {
-        console.log('haha')
         $('.blankinput').val(data)
       },
       setMultiSelectData (data) {
@@ -497,7 +457,7 @@
       },
       preview () { // 预览问卷
         // console.log(this.finishedanswer)
-        this.$dispatch('saveanswer', this.finishedanswer)
+        this.$dispatch('saveanswer', this.finishedanswer)  // 保存现在已经完成的答案
         this.$router.go('/preview')
       }
     }

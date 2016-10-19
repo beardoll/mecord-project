@@ -9,84 +9,44 @@ Vue.use(VueResource)
 var router = new VueRouter()
 
 router.map({
-  '/interface': {
-    component: function (resolve) {
-      require(['./components/Interface'], resolve)
-    }
-  },
-  '/demo': {
-    component: function (resolve) {
-      require(['./components/Demo'], resolve)
-    }
-  },
-  '/edit': {
-    component: function (resolve) {
-      require(['./components/Edit'], resolve)
-    }
-  },
-  '/create': {
-    component: function (resolve) {
-      require(['./components/Create'], resolve)
-    }
-  },
-  '/login': {
-    component: function (resolve) {
-      require(['./components/Login'], resolve)
-    }
-  },
-  '/userinterface/:tabIndex': {
-    component: function (resolve) {
-      require(['./components/UserInterface'], resolve)
-    }
-  },
   '/selfmaterial': {
     component: function (resolve) {
-      require(['./components/SelfMaterial'], resolve)
-    }
-  },
-  '/mainpage': {
-    component: function (resolve) {
-      require(['./components/MainPage'], resolve)
-    }
-  },
-  './qnheader': {
-    component: function (resolve) {
-      require(['./components/Qnheader'], resolve)
+      require(['./components/mine/SelfMaterial'], resolve)
     }
   },
   '/navigation': {
     component: function (resolve) {
-      require(['./components/Navigation'], resolve)
+      require(['./components/Answers/Navigation'], resolve)
     }
   },
   '/answer': {
     component: function (resolve) {
-      require(['./components/Answer'], resolve)
-    }
-  },
-  '/navigationpre': {
-    component: function (resolve) {
-      require(['./components/NavigationPre'], resolve)
+      require(['./components/Answers/Answer'], resolve)
     }
   },
   '/gate': {
     component: function (resolve) {
-      require(['./components/Gate'], resolve)
+      require(['./components/login/Gate'], resolve)
     }
   },
   '/preview': {
     component: function (resolve) {
-      require(['./components/Preview'], resolve)
+      require(['./components/Answers/Preview'], resolve)
     }
   },
   '/modification': {
     component: function (resolve) {
-      require(['./components/Modification'], resolve)
+      require(['./components/Answers/Modification'], resolve)
     }
   },
-  '/uploadimg': {
+  '/outer': {
     component: function (resolve) {
-      require(['./components/UploadImg'], resolve)
+      require(['./components/homepage/Outer'], resolve)
+    }
+  },
+  '/outline': {
+    component: function (resolve) {
+      require(['./components/Outline'], resolve)
     }
   }
 })
@@ -97,10 +57,10 @@ router.redirect({  // 定义全局的重定向规则，全局的重定向会在�
   // '*': '/answer/:1'
   // '*': '/navigation/:1'
   '*': '/gate'
+  // '*': 'outer'
 })
 
 router.start(App, 'app')
-
 /* eslint-disable no-new */
 /* new Vue({
   el: 'body',

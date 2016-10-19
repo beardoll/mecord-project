@@ -1,14 +1,9 @@
 <template>
     <div id="userinterface">
-<!--        <div class="uiheader">
-          <div class="" id="dropdownhead" style="text-align:center;font-size:24px;color:white;margin-top:auto;padding:auto">
-              Mecord
-          </div>
-        </div>-->
         <div class="usercenter" v-if="windowIndex === 1">
           <div class="userinfo">
           <div class="am-u-sm-3" style="text-align:left;margin:0;padding:0">
-            <img src="../assets/wechat-min.png" style="height:80px;width:80px;margin-top:auto;margin-bottom:auto;margin-left:0">
+            <img src="../../assets/wechat-min.png" style="height:80px;width:80px;margin-top:auto;margin-bottom:auto;margin-left:0">
           </div>
           <div class="am-u-sm-6 am-u-end" style="margin:0;padding-top:10px;text-align:left">
             <div style="text-align:left;margin:auto;padding:auto">
@@ -44,7 +39,7 @@
             </tbody>
           </table>
             <hr data-am-widget="divider" style="margin:0" class="am-divider am-divider-default" />
-        </div>
+          </div>
         </div>
         <div class="mainpage"  v-if="windowIndex === 0">
           <!--<div class="searchbox">
@@ -210,13 +205,13 @@
         </div>
         <div class="footer am-topbar am-topbar-fixed-bottom" id="footer" style="background:snow">
           <div class="am-u-sm-6" @click.stop="changeIcon(0)">
-            <img src="../assets/homewhite.png" class="footerimg" v-if="shining !== 0">
-            <img src="../assets/homeblue.png"  class="footerimg" v-if="shining === 0">
+            <img src="../../assets/homewhite.png" class="footerimg" v-if="shining !== 0">
+            <img src="../../assets/homeblue.png"  class="footerimg" v-if="shining === 0">
             <p style="margin:0;padding:0;color:orange">主页</p>
           </div>
           <div class="am-u-sm-6" @click.stop="changeIcon(1)">
-            <img src="../assets/personwhite.png" class="footerimg" v-if="shining !== 1">
-            <img src="../assets/personblue.png" class="footerimg" v-if="shining === 1">
+            <img src="../../assets/personwhite.png" class="footerimg" v-if="shining !== 1">
+            <img src="../../assets/personblue.png" class="footerimg" v-if="shining === 1">
             <p style="margin:0;padding:0" style="color:black">我</p>
           </div>
         </div>

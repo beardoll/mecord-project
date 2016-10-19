@@ -1,5 +1,6 @@
-<template id="score">
-    <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
+<template>
+  <div id="score">
+    <label class="am-form-label questiontitle">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
     <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
       提示{{$index+1}}:&nbsp;{{tipsitem}}
     </div>
@@ -7,7 +8,7 @@
       <span class="am-u-sm-3 am-u-sm-offset-3" style="font-size:14px;color:#50e3c2">症状程度</span>
       <span class="am-u-sm-3 am-u-end" style="font-size:14px;color:#4278f5">出现频率</span>
     </div>
-    <div class="diyprogress am-g" style="">
+    <div class="diyprogress am-g">
       <div class="am-u-sm-3" style="margin:0;padding:0;height:230px">
         <div v-for = "score in questionItem.content.levelScores" track-by="$index"
              :class="questionItem.type+score" style="text-align: right;width:100%;font-size:14px;margin:auto;padding:auto">
@@ -79,28 +80,84 @@
         </div>
       </div>
     </div>
+  </div>
 </template>
-<style>
+<style lang="less">
     body{
         background-color: white;
     }
-    .diyprogress{
-      width: 100%;
-      height: 180px;
-      margin-top: 5px;
+    #score{
+      .questiontitle{  /* 问题标题 */
+        padding-left: 5px;
+        font-size: 20px;
+        text-align: left;
+        background-color:#cccccc;
+        width:100%;
+      }
+
+      .questiontips{  /* 问题提示 */
+        text-align: left;
+        background-color: #fbedd9;
+        padding-left: 5px;
+        margin-top: 10px;
+      }
+
+      .diyprogress{  /* 评分控件的外边框 */
+        width: 100%;
+        height: 180px;
+        margin-top: 5px;
+
+        /*   评分控件（外边框）  */
+        .score-plugin{
+          width: 82px;
+          .bar1{            /* 评分控件（症状）*/
+            width: 80px;
+            height: 20px;
+            border: solid 1px white;
+          }
+          .score-default1{  /* 未被选中的状态 */
+            background-color: #bef5e8;
+          }
+          .score-selected1{  /* 已被选中的状态 */
+            background-color: #50e3c2;
+          }
+          .bottomfigure1{  /* 底部显示的数字 */
+            width: 100%;
+            font-size: large;
+            color: #50e3c2;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin: auto;
+            text-align: center;
+            font-weight: bold;
+          }
+
+          .bar2{   /* 评分控件（频率）*/
+            width: 80px;
+            height: 20px;
+            border: solid 1px white;
+          }
+          .score-default2{  /* 未被选中的状态 */
+            background-color: #bbcefb;
+          }
+          .score-selected2{  /* 已被选中的状态 */
+            background-color: #4278f5;
+          }
+          .bottomfigure2{  /* 底部显示的数字 */
+            width: 100%;
+            font-size: large;
+            color: #4278f5;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin: auto;
+            text-align: center;
+            font-weight: bold;
+          }
+        }
+      }
     }
-    .questiontips{
-      text-align: left;
-      background-color: #fbedd9;
-      padding-left: 5px;
-      margin-top: 10px;
-    }
-    .questiontitle{
-      padding-left: 5px;
-      font-size: 20px;
-      text-align: left;
-    }
-    /* 下面一段是为了给评分控件添加字体 */
+
+    /* 下面一段是为了给评分控件添加文字 */
     .symptom_score10{
       top: 0px;
       position: absolute;
@@ -145,58 +202,8 @@
       top: 200px;
       position: absolute;
     }
-
-    /*   评分控件（外边框）  */
-    .score-plugin{
-      width: 82px;
-    }
-    /*    评分控件（症状）     */
-    .bar1{
-      width: 80px;
-      height: 20px;
-      border: solid 1px white;
-    }
-    .score-default1{
-      background-color: #bef5e8;
-    }
-    .score-selected1{
-      background-color: #50e3c2;
-    }
-    .bottomfigure1{
-      width: 100%;
-      font-size: large;
-      color: #50e3c2;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      margin: auto;
-      text-align: center;
-      font-weight: bold;
-    }
-    /*    评分控件（频率）     */
-    .bar2{
-      width: 80px;
-      height: 20px;
-      border: solid 1px white;
-    }
-    .score-default2{
-      background-color: #bbcefb;
-    }
-    .score-selected2{
-      background-color: #4278f5;
-    }
-    .bottomfigure2{
-      width: 100%;
-      font-size: large;
-      color: #4278f5;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      margin: auto;
-      text-align: center;
-      font-weight: bold;
-    }
 </style>
 <script>
-/*    var attachFastClick = require('fastclick')*/
     export default{
       props: ['questionItem', 'curindex', 'defaultdata'],
       data () {
@@ -209,11 +216,6 @@
         this.setSymptomScoreData(this.defaultdata)
       },
       attached: function () {
-/*        var symptom = document.getElementById('symptom')
-        var frequency = document.getElementById('frequency')
-        console.log(symptom)
-        attachFastClick(symptom)
-        attachFastClick(frequency)*/
       },
       methods: {
         scoreControl () {

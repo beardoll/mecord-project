@@ -1,11 +1,5 @@
 <template>
     <div id="modification">
-<!--      <div class="mohead">
-        <div id="dropdownhead" style="text-align:center;
-      font-size:24px;color:white;margin:auto;padding:auto">
-          Mecord
-        </div>
-      </div>-->
       <div class="mobody">
         <div class="motitle">{{questions.title}}</div>
         <div class="moquestion">
@@ -15,7 +9,7 @@
                 <div v-if="$index === curindex">
                   <div v-if="questionItem.type === 'blank'">
                     <div class="am-form-group" style="text-align:left">
-                      <label class="am-form-label" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
+                      <label class="am-form-label questiontitle" >Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
                       <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
                         提示{{$index+1}}:{{tipsitem}}
                       </div>
@@ -31,7 +25,7 @@
                   </div>
                   <div v-if="questionItem.type === 'select'">
                     <div class="am-form-group" style="text-align:left">
-                      <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
+                      <label class="am-form-label questiontitle">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
                       <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
                         提示{{$index+1}}:&nbsp;{{tipsitem}}
                       </div>
@@ -52,7 +46,7 @@
                   </div>
                   <div v-if="questionItem.type === 'multi_select'">
                     <div class= "am-form-group am-g am-g-collapse" style="text-align:left">
-                      <label class="am-form-label questiontitle" style="background-color:#cccccc;width:100%">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
+                      <label class="am-form-label questiontitle">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
                       <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
                         提示{{$index+1}}:&nbsp;{{tipsitem}}
                       </div>
@@ -72,7 +66,7 @@
                     </div>
                   </div>
                   <div v-if="questionItem.type === 'multi_blank'">
-                    <label class="am-form-label" style="background-color:#cccccc;width:100%;text-align:left">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
+                    <label class="am-form-label questiontitle">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
                     <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index" style="text-align:left">
                       提示{{$index+1}}:{{tipsitem}}
                     </div>
@@ -105,7 +99,7 @@
       </div>
     </div>
 </template>
-<style>
+<style lang="less">
     body{
         background-color:white;
     }
@@ -115,33 +109,39 @@
       width: 100%;
       height: 100%;
       padding-bottom: 0px;
-    }
-    .mohead{
-      width: 100%;
-      height: 10%;
-      padding-top: 10px;
-      background-color: dodgerblue;
-    }
-    .mobody{
-      width: 100%;
-      height: 100%;
-    }
-    .motitle{
-      background-color: #00d4b4;
-      color: white;
-      text-align: left;
-      font-size: 20px;
-      padding-top: 2px;
-      padding-bottm: 2px;
-    }
-    .moquestion{
-      width: 100%;
-      margin: auto;
-      padding-bottom: 60px;
-    }
-    .questiontips{
-      text-align: left;
-      background-color: #fbedd9;
+
+      .mobody{
+        width: 100%;
+        height: 100%;
+
+        .motitle{ /* 问卷的标题 */
+          background-color: #00d4b4;
+          color: white;
+          text-align: left;
+          font-size: 20px;
+          padding-top: 2px;
+          padding-bottm: 2px;
+        }
+
+        .moquestion{
+          width: 100%;
+          margin: auto;
+          padding-bottom: 60px;
+
+          .questiontitle{  /* 问题标题 */
+            padding-left: 5px;
+            font-size: 20px;
+            text-align: left;
+            background-color:#cccccc;
+            width:100%;
+          }
+
+          .questiontips{  /* 问题提示 */
+            text-align: left;
+            background-color: #fbedd9;
+          }
+        }
+      }
     }
 </style>
 <script>
@@ -161,6 +161,8 @@
     },
     events: {
       'uploadimgsrc': function (item) {
+        // 保存用户上传的图片地址
+        // dispatched from: UploadImg.vue -> wx.ready()
         this.imgsrc = item
       }
     },
@@ -311,7 +313,7 @@
               data.push(formjson)
               break
           }
-          this.$dispatch('editanswer', data)
+          this.$dispatch('editanswer', data)  // 修改后的答案
           this.$router.go('/preview')
         }
       }

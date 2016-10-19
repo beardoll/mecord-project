@@ -1,11 +1,5 @@
 <template>
     <div id="preview">
-<!--      <div class="preheader">
-        <div id="dropdownhead" style="text-align:center;
-        font-size:24px;color:white;margin:auto;padding:auto">
-          Mecord
-        </div>
-      </div>-->
       <div class="prebody">
         <div class="pretitle">{{questions.title}}</div>
         <div class="toptips" style="padding-left:5px">点击<span class="am-icon-edit"></span>修改选项</div>
@@ -240,7 +234,7 @@
     },
     methods: {
       edit (index) { // 修改index对应的题目
-        this.$dispatch('seteditindex', index)
+        this.$dispatch('seteditindex', index)  // 上传当前修改的问题在问卷中的下标
         console.log(this.$root.currentanswer)
         this.$router.go('/modification')
       },
