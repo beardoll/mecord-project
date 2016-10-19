@@ -76,71 +76,39 @@
       </div>
     </div>
 </template>
-<style>
+<style lang = "less">
     *{
       margin: 0;
       padding: 0;
     }
     body{
-        background-color: white;
+      background-color: white;
     }
-    #selfmaterial{
+    #selfmaterial {
+      margin-top:10px;
       background-color: white;
       width: 100%;
       height: 100%;
       padding-left: 0;
-    }
-    .smbody{
-      width: 100%;
-      height: 90%;
-      overflow: scroll;
-    }
-    #selfmaterial .smbody .topbar{
-      width: 300px;
-      margin: auto;
-    }
-    #selfmaterial .smbody .publicinfo{
-      padding-left: 0px;
-      margin-left: 0px;
-    }
-    #selfmaterial .topbar li{
-      display: inline-block;
-      width: 100px;
-      margin-top: 10px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      border: solid 1px grey;
-    }
-    .active{
-      background-color: darkgrey;
-    }
-    .default{
-      background-color: white;
-    }
-    #selfmaterial .topbar{
-      margin: auto;
-      list-style-type: none;
-    }
-    .savetext:hover{
-      font-weight: bold;
-    }
-    .tabs-body{
-      border:solid 1px snow;
-      width:100%;
-      margin-top: 20px;
-    }
-    .tabs-body form{
-      margin-right: 40px;
-      margin-left: 20px;
-    }
-    .tabs-body form legend{
-      text-align:left;
-      font-size:28px;
-      color:orange;
-      margin-left: 0px;
-    }
-    .smfoot{
-
+      .smbody{
+        width: 100%;
+        height: 90%;
+        overflow: scroll;
+        .publicinfo{
+          padding-left: 0px;
+          margin-left: 0px;
+        }
+      }
+      .tabs-body form{
+        margin-right: 40px;
+        margin-left: 20px;
+        legend{
+          text-align:left;
+          font-size:28px;
+          color:orange;
+          margin-left: 0px;
+        }
+      }
     }
 </style>
 <script>

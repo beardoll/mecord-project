@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb2aa68e-fcff-49eb-9133-5581ef92b590" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Outline.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/homepage/Outer.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/mine/Mine.vue" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/NavigationPre.vue" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Answer.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Answer.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Create.vue" afterPath="$PROJECT_DIR$/src/components/referencecode/Create.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Demo.vue" afterPath="$PROJECT_DIR$/src/components/referencecode/Demo.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Edit.vue" afterPath="$PROJECT_DIR$/src/components/referencecode/Edit.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Gate.vue" afterPath="$PROJECT_DIR$/src/components/login/Gate.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Hello.vue" afterPath="$PROJECT_DIR$/src/components/referencecode/Hello.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Interface.vue" afterPath="$PROJECT_DIR$/src/components/referencecode/Interface.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Login.vue" afterPath="$PROJECT_DIR$/src/components/referencecode/Login.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Mainpage.vue" afterPath="$PROJECT_DIR$/src/components/referencecode/Mainpage.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Modification.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Modification.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Navigation.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Navigation.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Preview.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Preview.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Qnheader.vue" afterPath="$PROJECT_DIR$/src/components/referencecode/Qnheader.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Score.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Score.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/SelfMaterial.vue" afterPath="$PROJECT_DIR$/src/components/mine/SelfMaterial.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/UploadImg.vue" afterPath="$PROJECT_DIR$/src/components/Answers/UploadImg.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/UserInterface.vue" afterPath="$PROJECT_DIR$/src/components/referencecode/UserInterface.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/mine/SelfMaterial.vue" afterPath="$PROJECT_DIR$/src/components/mine/SelfMaterial.vue" />
     </list>
     <ignored path="mecord-project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,28 +27,38 @@
       <file leaf-file-name="Gate.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/login/Gate.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.4666667">
+            <state vertical-scroll-proportion="-9.533334">
               <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6666667">
-              <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.5775656">
+              <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Outline.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Outline.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Outline.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36754176">
+            <state vertical-scroll-proportion="-10.266666">
               <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelfMaterial.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/mine/SelfMaterial.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.733334">
+              <caret line="79" column="6" selection-start-line="79" selection-start-column="6" selection-end-line="79" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -82,7 +67,7 @@
       <file leaf-file-name="UnfinishedTasks.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.933333">
+            <state vertical-scroll-proportion="0.0">
               <caret line="157" column="1" selection-start-line="157" selection-start-column="1" selection-end-line="157" selection-end-column="1" />
               <folding />
             </state>
@@ -92,7 +77,7 @@
       <file leaf-file-name="FinishedTasks.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.4">
+            <state vertical-scroll-proportion="0.0">
               <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding />
             </state>
@@ -102,7 +87,7 @@
       <file leaf-file-name="Outer.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/homepage/Outer.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.333334">
+            <state vertical-scroll-proportion="0.0">
               <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
               <folding />
             </state>
@@ -141,7 +126,6 @@
         <option value="$PROJECT_DIR$/src/components/referencecode/UserInterface.vue" />
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/components/Outline.vue" />
-        <option value="$PROJECT_DIR$/src/components/mine/SelfMaterial.vue" />
         <option value="$PROJECT_DIR$/src/components/mine/Mine.vue" />
         <option value="$PROJECT_DIR$/src/components/Answers/Score.vue" />
         <option value="$PROJECT_DIR$/src/components/Answers/Preview.vue" />
@@ -151,6 +135,7 @@
         <option value="$PROJECT_DIR$/src/components/homepage/Outer.vue" />
         <option value="$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue" />
         <option value="$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue" />
+        <option value="$PROJECT_DIR$/src/components/mine/SelfMaterial.vue" />
         <option value="$PROJECT_DIR$/src/components/login/Gate.vue" />
         <option value="$PROJECT_DIR$/src/App.vue" />
       </list>
@@ -192,8 +177,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,7 +245,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="referencecode" />
+              <option name="myItemId" value="mine" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -296,6 +279,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -391,18 +376,18 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32568306" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -612,9 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="10" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="10" />
-          <folding>
-            <marker date="1476519600255" expanded="true" signature="2676:2681" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -622,7 +604,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="148" column="8" selection-start-line="148" selection-start-column="8" selection-end-line="148" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -630,7 +611,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -638,7 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -646,7 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.866667">
           <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -654,7 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -662,7 +639,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.73333335">
           <caret line="2" column="4" selection-start-line="2" selection-start-column="0" selection-end-line="7" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -670,7 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -678,7 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -686,7 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.2">
           <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -694,7 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="27.770493">
           <caret line="10" column="76" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -702,7 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.0327868">
           <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -710,7 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.4">
           <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -722,21 +692,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/mine/SelfMaterial.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.533333">
-          <caret line="93" column="18" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Answers/Preview.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.733334">
           <caret line="235" column="18" selection-start-line="235" selection-start-column="6" selection-end-line="235" selection-end-column="18" />
-          <folding>
-            <element signature="n#style#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -744,9 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-32.866665">
           <caret line="45" column="3" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
-          <folding>
-            <element signature="n#style#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -754,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.333333">
           <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="191" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,7 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-83.46667">
           <caret line="167" column="6" selection-start-line="167" selection-start-column="6" selection-end-line="167" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,13 +724,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.3700234">
           <caret line="85" column="14" selection-start-line="85" selection-start-column="14" selection-end-line="85" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/homepage/Outer.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.333334">
+        <state vertical-scroll-proportion="0.0">
           <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
           <folding />
         </state>
@@ -784,7 +737,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.933333">
+        <state vertical-scroll-proportion="0.0">
           <caret line="157" column="1" selection-start-line="157" selection-start-column="1" selection-end-line="157" selection-end-column="1" />
           <folding />
         </state>
@@ -792,24 +745,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.4">
+        <state vertical-scroll-proportion="0.0">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/login/Gate.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.4666667">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6666667">
-          <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -827,8 +764,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Outline.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36754176">
+        <state vertical-scroll-proportion="-10.266666">
           <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/mine/SelfMaterial.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.733334">
+          <caret line="79" column="6" selection-start-line="79" selection-start-column="6" selection-end-line="79" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/login/Gate.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.533334">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5775656">
+          <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
           <folding />
         </state>
       </provider>
