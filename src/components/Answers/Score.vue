@@ -1,9 +1,5 @@
 <template>
   <div id="score">
-    <label class="am-form-label questiontitle">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
-    <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
-      提示{{$index+1}}:&nbsp;{{tipsitem}}
-    </div>
     <div class="am-g" style="margin-top:10px">
       <span class="am-u-sm-3 am-u-sm-offset-3" style="font-size:14px;color:#50e3c2">症状程度</span>
       <span class="am-u-sm-3 am-u-end" style="font-size:14px;color:#4278f5">出现频率</span>
@@ -87,21 +83,6 @@
         background-color: white;
     }
     #score{
-      .questiontitle{  /* 问题标题 */
-        padding-left: 5px;
-        font-size: 20px;
-        text-align: left;
-        background-color:#cccccc;
-        width:100%;
-      }
-
-      .questiontips{  /* 问题提示 */
-        text-align: left;
-        background-color: #fbedd9;
-        padding-left: 5px;
-        margin-top: 10px;
-      }
-
       .diyprogress{  /* 评分控件的外边框 */
         width: 100%;
         height: 180px;
@@ -205,7 +186,7 @@
 </style>
 <script>
     export default{
-      props: ['questionItem', 'curindex', 'defaultdata'],
+      props: ['questionItem'],
       data () {
         return {
           name: 'score'
@@ -213,7 +194,7 @@
       },
       ready: function () {
         this.scoreControl()
-        this.setSymptomScoreData(this.defaultdata)
+        // this.setSymptomScoreData(this.defaultdata)
       },
       attached: function () {
       },

@@ -1,9 +1,5 @@
 <template>
     <div id="uploadimg">
-      <label class="am-form-label questiontitle">Q{{curindex+1}}&nbsp;&nbsp;{{questionItem.title}}</label>
-      <div v-for="tipsitem in questionItem.tips" class="questiontips" track-by="$index">
-        提示{{$index+1}}:&nbsp;{{tipsitem}}
-      </div>
       <div class="uploadbutton">
         <button type="button" class="am-btn am-btn-primary" id="chooseImg">选择照片</button>
       </div>
@@ -18,21 +14,6 @@
         background-color: white;
     }
     #uploadimg {
-      .questiontips {  /* 问题提示 */
-        text-align: left;
-        background-color: #fbedd9;
-        padding-left: 5px;
-        margin-top: 10px;
-      }
-
-      .questiontitle { /* 问题标题 */
-        padding-left: 5px;
-        font-size: 20px;
-        text-align: left;
-        background-color:#cccccc;
-        width:100%;
-      }
-
       .uploadbutton {  /* 上传照片的按钮 */
         margin-top: 30px;
         margin-bottom: 30px;
@@ -49,10 +30,11 @@
 <script>
     var wx = require('weixin-js-sdk')
     export default{
-      props: ['questionItem', 'curindex', 'imgsrcforchild'],
+      props: [],
       data () {
         return {
-          temp: ''
+          temp: '',
+          imgsrc: ''
         }
       },
       computed: {
@@ -62,7 +44,6 @@
       },
       ready: function () {
         let that = this
-        $('#img').attr('src', that.imgsrcforchild)
         wx.config({
           debug: false,
           appId: that.resbody.appId,          // 必填，公众号的唯一标识
@@ -79,18 +60,17 @@
               sourceType: ['album', 'camera'],  // 可以指定来源是相册还是相机，默认二者都有
               success: function (res) {
                 $('#img').attr('src', res.localIds)
-                that.$dispatch('uploadimgsrc', res.localIds)  // 保存照片的地址
-//                  $('#display').attr('src', res.localIds)
-//                  var width = $('#display').width()
-//                  var height = $('#display').height()
-//                  width = width / 2
-//                  height = height / 2
-//                  $('#display').css('width', width)
-//                  $('#display').css('height', height)
+                that.imgsrc = res.localIds
               }
             })
           })
         })
+      },
+      methods: {
+        setDefaultImgSrc (src) {
+          $('#img').attr('src', src)
+          this.imgsrc = src
+        }
       }
     }
 </script>
