@@ -17,15 +17,15 @@
       </div>
         <span class="gobutton am-u-sm-4" style="text-align:right"
               v-if="taskstate === 0 || taskstate === 1 && timediff === 0">
-          <button class="am-btn am-btn-primary am-radius" @click.stop="goToNav(taskindex, taskid)">填写</button>
+          <button class="am-btn am-btn-primary am-radius" @click.stop="goToNav()">填写</button>
         </span>
         <span class="gobutton am-u-sm-4" style="text-align:right"
               v-if="taskstate === 1 && timediff >= 1">
-          <button class="am-btn am-btn-primary am-radius" @click.stop="goToNav(taskindex, taskid)" disabled = "disabled">填写</button>
+          <button class="am-btn am-btn-primary am-radius" @click.stop="goToNav()" disabled = "disabled">填写</button>
         </span>
     </div>
     <div class="am-progress am-progress-striped taskprogress">
-      <div class="am-progress-bar am-progress-bar-success" :id="progressname+taskindex">{{taskprogress}}/{{taskamount}}</div>
+      <div class="am-progress-bar am-progress-bar-success" :id="progressname+taskindex">{{taskprogress}}/{{allsubtaskamount}}</div>
     </div>
   </div>
 </template>
@@ -96,24 +96,46 @@
 </style>
 <script>
     export default{
-      props: ['title', 'creator', 'taskstate', 'timediff', 'taskindex', 'taskid', 'taskprogress',
-        'taskamount', 'allsubtaskamount', 'progressname'],
-      // taskstate: 0表示当前任务已过期，1表示任务在今天或者将来
-      // timediff: 最近任务与当前的时间差，取绝对值
-      // taskindex: 当前任务在unfinished任务列表中的下标
-      // taskid: 当前任务的id
-      // taskprogress: 当前任务的进度
+      props: ['taskitem', 'taskindex', 'progressname'],
+      // progressname: 用来标识进度条的id
+      // taskindex: 用来标识进度条的id
       data () {
         return {
+        }
+      },
+      computed: {
+        title: function () {
+          return this.taskitem.title
+        },
+        creator: function () {
+          return this.taskitem.creator.nickname
+        },
+        timediff: function () {
+          return this.taskitem.unfinishedlist[0].countdown
+        },
+        taskprogress: function () {
+          return this.taskitem.progress
+        },
+        allsubtaskamount: function () {
+          return this.taskitem.plans.dates.length
+        },
+        taskstate: function () {
+          if (this.taskitem.unfinishedlist[0].countdownstate === 0) { // 过期
+            return 0
+          } else {
+            return 1
+          }
+        },
+        submissionid: function () {
+          return this.taskitem.submissions[this.taskitem.progress].id
         }
       },
       ready: function () {
         this.showProgress()
       },
       methods: {
-        goToNav (taskindex, taskid) { // 去填写问卷
-          this.$dispatch('changetaskindex', taskindex)  // 存放当前任务的下标（相对于unfinishedtasks）
-          this.$dispatch('realtaskid', taskid)  // 存放当前任务的id
+        goToNav () { // 去填写问卷
+          this.$dispatch('markcurtask', this.taskitem)
           this.$router.go('/navigation')
         },
         showProgress () {

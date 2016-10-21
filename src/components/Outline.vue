@@ -18,7 +18,7 @@
     </div>
   </div>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color: white;
     }
@@ -29,12 +29,13 @@
         width: 100%;
         height: 90%;
       }
-      #footer { /* 页脚  */
+      /* 页脚  */
+      #footer {
         width: 100%;
         height: 10%;
         margin: 0;
         padding: 0;
-
+        /* 底部按钮 */
         .footerimg {
           width: 15%;
           height: 60%;

@@ -1,7 +1,7 @@
 <template>
     <div id="preview">
       <div class="prebody">
-        <div class="pretitle">{{questions.title}}</div>
+        <div class="pretitle">{{questionset.title}}</div>
         <div class="toptips" style="padding-left:5px">点击<span class="am-icon-edit"></span>修改选项</div>
         <div v-for="questionItem in questions" track-by="$index" class="questionbody">
           <div class="questiontitle">Q{{$index+1}}:&nbsp;{{questionItem.title}}
@@ -76,6 +76,7 @@
           font-size: 20px;
           padding-top: 2px;
           padding-bottom: 2px;
+          text-align: center;
         }
         /* 提示点击可修改答案 */
         .toptips{
@@ -153,9 +154,9 @@
 
     },
     computed: {
-      answers: function () {  // 纯数字类型数据
+      answers: function () {  // 将答案转化为纯数字类型数据
         var currentanswer = this.$root.currentanswer
-        var tempquest = this.$root.rootunfinished[this.$root.currenttaskindex].submissions[this.$root.progress[this.$root.currenttaskindex]].questionSet.questions
+        var tempquest = this.$root.curquestionset.questions // 当前的所有问题，取它们的问题类型来分别操作
         var temp = []
         for (var i = 0; i < currentanswer.length; i++) {
           var temp1 = []
@@ -206,22 +207,27 @@
         }
         return temp
       },
+      questionset: function () {
+        return this.$root.curquestionset
+      },
       questions: function () {
-        var temp = this.$root.rootunfinished[this.$root.currenttaskindex].submissions[this.$root.progress[this.$root.currenttaskindex]].questionSet.questions
+        var temp = this.$root.curquestionset.questions
         for (var i = 0; i < temp.length; i++) {
           temp[i].answers = this.answers[i]  // 把每道题的答案放到对应的问题中
         }
-        // console.log(this.answers[4])
         return temp
       },
       submissions: function () {
-        return this.$root.rootunfinished[this.$root.currenttaskindex].submissions[this.$root.progress[this.$root.currenttaskindex]]
+        return this.$root.curtask.submissions[this.$root.curtask.progress]
       },
-      submissionid: function () {
-        return this.submissions.id
-      },
-      resbody: function () {
+      resbody: function () {  // 微信签名
         return this.$root.wxsignature
+      },
+      userId: function () {  // 用户id，用来submit answers
+        return this.$root.accesstoken.userId
+      },
+      task: function () { // 当前task
+        return this.$root.curtask
       }
     },
     ready: function () {
@@ -269,7 +275,7 @@
         var attachmentsquestionid = []
         for (var i = 0; i < this.questions.length; i++) {
           var temp = {}
-          temp.userId = this.$root.accesstoken.userId
+          temp.userId = this.userId
           temp.questionId = this.questions[i].id
           temp.type = this.questions[i].type
           var content = {}
@@ -306,11 +312,8 @@
           temp.content = content
           submitanswers.push(temp)
         }
-        // window.alert(JSON.stringify(submitanswers))
-        this.$http.post('https://api.mecord.cn/api/Submissions/' + this.submissionid + '/answers?access_token=' + this.$root.accesstoken.id, submitanswers).then(
+        this.$http.post('https://api.mecord.cn/api/Submissions/' + this.submissions.id + '/answers', submitanswers).then(
           (response) => {
-            console.log('successfully submit!')
-//            console.log(JSON.stringify(submitanswers))
             var answerid = []
             var questionid = []
             var datax = response.body
@@ -319,18 +322,17 @@
               questionid.push(datax[kk].questionId)
             }
             var that = this
-            var updatetaskid = that.$root.currentrealtaskid
+            var updatetaskid = that.task.id
             var updatetaskurl = 'https://api.mecord.cn/api/Tasks/' + updatetaskid
-            var updateprogress = that.$root.progress[that.$root.currenttaskindex] + 1
+            var updateprogress = that.task.progress + 1
             var updatestate = ''
-            if (updateprogress === that.$root.rootunfinished[that.$root.currenttaskindex].plans.dates.length - 1) {
+            if (updateprogress === that.task.plans.dates.length - 1) {
               updatestate = 'finished'
             } else {
               updatestate = 'unfinished'
             }
             if (attachmentsquestionid.length === 0) {  // 如果没有附件，直接更新状态，否则，等附件上传完后再更新状态
               that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
-                console.log('sucessfully put!')
                 window.alert('提交成功啦！')
                 that.$root.loadClientDate()
               }, (response) => {
@@ -340,7 +342,6 @@
               })
             } else {
               var uploadinfo = {}
-  //            window.alert('no problem!')
               for (var jj = 0; jj < attachmentsquestionid.length; jj++) {   // 一个个图片附件进行上传
                 var index = questionid.indexOf(attachmentsquestionid[jj]) // 附件问题在response对应的下标
                 wx.uploadImage({
@@ -348,14 +349,12 @@
                   isShowProgressTips: 1, // 默认为1，显示进度提示
                   success: function (res) {
                     var serverId = res.serverId.toString() // 返回图片的服务器端ID
-                    uploadinfo.filename = that.$root.accesstoken.userId + '&' + new Date().getTime()
-                    uploadinfo.submitterId = that.$root.accesstoken.userId
+                    uploadinfo.filename = that.userId + '&' + new Date().getTime()
+                    uploadinfo.submitterId = that.userId
                     uploadinfo.urls = serverId
                     uploadinfo.desription = ''
                     uploadinfo.permission = 'public'
                     that.$http.post('https://api.mecord.cn/api/Answers/' + answerid[index] + '/attachments', uploadinfo).then((response) => {
-  //                    console.log('successfully submit the src to the server!')
-  //                    window.alert('successfully submit the src to the server!')
                       if (jj === attachmentsquestionid.length) { // 等附件上传完后再更新状态，注意异步的问题，jj已经自加
                         that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
                           console.log('sucessfully put!')
@@ -371,13 +370,11 @@
                       window.alert(JSON.stringify(response.body))
                       console.log('fail to submit the src to the server!')
                       window.alert('fail to submit the src to the server!')
-                      // window.alert(response)
                     })
                   }
                 })
               }
             }
-//          window.alert('update!!')
           }, (response) => {
           console.log(JSON.stringify(submitanswers))
           console.log('fail to submit!')

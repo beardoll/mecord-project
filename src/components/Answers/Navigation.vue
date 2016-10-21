@@ -42,20 +42,30 @@
       $('#logo').css('width', maxwidth + 'px')
       $('#logo').css('height', maxwidth * ratio + 'px')
     },
+    created: function () {  // 在此处加载submissions数据
+
+    },
     computed: {
       title: function () {
-        return this.$root.rootunfinished[this.$root.currenttaskindex].submissions[this.$root.progress[this.$root.currenttaskindex]].questionSet.title
+        return this.$root.curtask.submissions[this.$root.curtask.progress].questionSet.title
       },
       description: function () {
-        return this.$root.rootunfinished[this.$root.currenttaskindex].submissions[this.$root.progress[this.$root.currenttaskindex]].questionSet.description
+        return this.$root.curtask.submissions[this.$root.curtask.progress].questionSet.description
+      },
+      questionsetid: function () {
+        return this.$root.curtask.plans.questionSets[this.$root.curtask.progress]
       }
     },
     methods: {
-      goToFill () {
-        this.$router.go('/answer')
-      },
-      backToFrontPage () {
-        this.$router.go('/userinterface/:0')
+      goToFill () {  // 点击开始按钮的时候，加载问卷下所有的问题
+        var questionseturl = 'https://api.mecord.cn/api/QuestionSets/' + this.questionsetid + '?filter=%7B%22include%22%3A%22questions%22%7D'
+        this.$http.get(questionseturl).then((response) => {
+          // console.log(JSON.stringify(response.body))
+          this.$dispatch('markcurquestionset', response.body)
+          this.$router.go('/answer')
+        }, (response) => {
+          console.log('cannot get questions!')
+        })
       }
     },
     route: {

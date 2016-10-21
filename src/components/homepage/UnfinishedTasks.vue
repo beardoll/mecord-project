@@ -9,18 +9,13 @@
       <tr v-if = !showdetail v-for="taskitem in minunfinishedtasks" track-by="$index">
         <td>
           <div>
-            <firstpanel :title="taskitem.title" :creator="taskitem.creator.nickname" :taskstate="unfinishedstate[$index]" :timediff="taskitem.plandateobj[0].countdown"
-              :taskindex="$index" :taskid="taskitem.id" :taskprogress="taskitem.progress" :taskamount = "taskamount[$index]"
-              :allsubtaskamount = "taskitem.plans.dates.length" :progressname="minprogressname"></firstpanel>
+            <firstpanel :taskitem="taskitem" :taskindex="$index" :progressname="minprogressname"></firstpanel>
           </div>
           <div style="margin:0;padding:0;background-color:lightyellow">
             <span style="margin:0;padding:0" class="am-icon am-icon-caret-down am-icon-md" @click.stop="expandSecondLayer($event)"></span>
           </div>
           <div style="display:none">
-            <secondpanel :tasknote="taskitem.note" :unfinishedlist="taskitem.plandateobj" :finishedlist="taskitem.finishedlist"></secondpanel>
-            <!-- unfinishedlist: number（子任务序号）,questionsettile（问卷标题）,countdownstate（倒计时状态，0表示过期，1表示正好今天，2表示明天以后）
-                 countdown（倒计时具体天数）-->
-            <!-- finishedlist:  number（子任务序号）,questionsettile（问卷标题）-->
+            <secondpanel :taskitem="taskitem"></secondpanel>
           </div>
           <div v-if="$index !== minunfinishedtasklength-1" class="divider"></div>
         </td>
@@ -28,18 +23,13 @@
       <tr v-if = showdetail v-for="taskitem in unfinished" track-by="$index">
         <td>
           <div>
-            <firstpanel :title="taskitem.title" :creator="taskitem.creator.nickname" :taskstate="unfinishedstate[$index]" :timediff="taskitem.plandateobj[0].countdown"
-                        :taskindex="$index" :taskid="taskitem.id" :taskprogress="taskitem.progress" :taskamount = "taskamount[$index]"
-                        :allsubtaskamount = "taskitem.plans.dates.length" :progressname="progressname"></firstpanel>
+            <firstpanel :taskitem="taskitem" :taskindex="$index" :progressname="progressname"></firstpanel>
           </div>
           <div style="margin:0;padding:0;background-color:lightyellow">
             <span style="margin:0;padding:0" class="am-icon am-icon-caret-down am-icon-md" @click.stop="expandSecondLayer($event)"></span>
           </div>
           <div style="display:none">
-            <secondpanel :tasknote="taskitem.note" :unfinishedlist="taskitem.plandateobj" :finishedlist="taskitem.finishedlist"></secondpanel>
-            <!-- unfinishedlist: number（子任务序号）,questionsettile（问卷标题）,countdownstate（倒计时状态，0表示过期，1表示正好今天，2表示明天以后）
-                 countdown（倒计时具体天数）-->
-            <!-- finishedlist:  number（子任务序号）,questionsettile（问卷标题）-->
+            <secondpanel :taskitem="taskitem"></secondpanel>
           </div>
           <div v-if="$index !== unfinishedtasklength-1" class="divider"></div>
         </td>
@@ -110,7 +100,13 @@
         totaltasklength: function () {  // 总任务数
           return this.$root.userData.tasks.length
         },
-        unfinished: function () {  // 未完成任务，计算各个子任务相对于当前日期的剩余日期等信息，以进行显示
+        unfinished: function () {
+          // 未完成任务，计算各个子任务相对于当前日期的剩余日期等信息，以进行显示
+          // unfinished.unfinishedlist: 未完成的子任务列表
+          // unfinished.finishedlist: 已完成的子任务列表
+          // unfinishedlist, finishedlist:  number -- 子任务编号 countdown -- 子任务倒计时（正数）
+          //                                countdownstate -- 倒计时状态，为0表示过期，为1表示正好今天，为2表示明天以后
+          //                                questionsettitle -- 子任务问卷标题
           var unfinishedtemp = []
           for (var k = 0; k < this.$root.userData.tasks.length; k++) {
             if (this.$root.userData.tasks[k].status !== 'finished') {
@@ -156,7 +152,7 @@
             } else {
               this.unfinishedstate.push(1)  // 还没有到当前任务的计划日期
             }
-            unfinishedtemp[i].plandateobj = temp
+            unfinishedtemp[i].unfinishedlist = temp
             unfinishedtemp[i].finishedlist = temp2
           }
           return unfinishedtemp
@@ -175,17 +171,7 @@
         },
         unfinishedtasklength: function () { // 未完成任务的长度，用来规划分割线
           return this.unfinished.length
-        },
-        taskamount: function () { // 子任务数量，在显示进度条的时候使用
-          var temp = []
-          for (var i = 0; i < this.unfinished.length; i++) {
-            temp.push(this.unfinished[i].plans.dates.length)
-          }
-          return temp
         }
-      },
-      ready: function () {
-        this.$dispatch('markunfinishedtask', this.unfinished) // 存放所有未完成的任务
       },
       methods: {
         expandSecondLayer (event) {  // 展开/收起第二层面板

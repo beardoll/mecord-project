@@ -1,7 +1,7 @@
 <template>
     <div id="modification">
       <div class="mobody">
-        <div class="motitle">{{questions.title}}</div>
+        <div class="motitle">{{questionset.title}}</div>
         <div class="moquestion">
           <questionlist :question-item="questions[curindex]" :curindex="curindex" v-ref:qlist></questionlist>
         </div>
@@ -31,7 +31,8 @@
           text-align: left;
           font-size: 20px;
           padding-top: 2px;
-          padding-bottm: 2px;
+          padding-bottom: 2px;
+          text-align: center;
         }
         /* 问卷题目 */
         .moquestion{
@@ -67,14 +68,17 @@
       }
     },
     computed: {
+      questionset: function () {
+        return this.$root.curquestionset
+      },
       questions: function () {
-        return this.$root.rootunfinished[this.$root.currenttaskindex].submissions[this.$root.progress[this.$root.currenttaskindex]].questionSet.questions
+        return this.$root.curquestionset.questions
       },
       curindex: function () { // 当前编辑问题的位置
         return this.$root.editindex
       },
       curquestion: function () { // 当前编辑的具体问题
-        return this.$root.rootunfinished[this.$root.currenttaskindex].submissions[this.$root.progress[this.$root.currenttaskindex]].questionSet.questions[this.curindex]
+        return this.$root.curquestionset.questions[this.curindex]
       },
       curanswer: function () {  // 当前问题的答案
         return this.$root.currentanswer[this.curindex]

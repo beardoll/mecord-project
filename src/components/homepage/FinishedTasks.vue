@@ -1,5 +1,5 @@
 <template>
-  <table class="am-table finishedtasktable am-table-bordered " style="margin:0" v-if="state === 1">
+  <table class="am-table finishedtasktable am-table-bordered">
     <!-----------  已完成部分  ---------->
     <tbody>
     <tr v-for="taskindex in finished" track-by="$index">
@@ -13,18 +13,23 @@
     </tbody>
   </table>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color: white;
     }
     .finishedtasktable {
-      .fintasktitle { /*   任务标题   */
+      margin:0;
+      tbody tr td{
+        background-color: lightyellow;
+      }
+      /*   任务标题   */
+      .fintasktitle {
         font-size: 20px;
         text-align: left;
         color: #0f9ae0;
       }
-
-      .finisheddate{  /*  完成的日期 */
+      /*  完成的日期 */
+      .finisheddate{
         text-align: left;
         color: gray;
         margin-top: 20px;

@@ -1,7 +1,7 @@
 <template>
   <div id="answer">
     <div class="anbody">
-      <div class="antitle">{{questions.title}}</div>
+      <div class="antitle">{{questionset.title}}</div>
       <div class="am-progress am-progress-striped anprogressdiv">
         <div class="am-progress-bar am-progress-bar-success" id="anprogress" style="width: 0%">{{curindex}}/{{questionlength}}</div>
       </div>
@@ -50,6 +50,7 @@
           font-size: 20px;
           padding-top: 2px;
           padding-bottom: 2px;
+          text-align: center;
         }
         /* 进度条 */
         .anprogressdiv {
@@ -66,9 +67,6 @@
     data () {
       return {
         curindex: 0,
-        scoredefaultdata: [0, 0], // 评分控件的默认值
-        imgsrc: '',  // 舌苔上传题的本地地址
-        imgsrcforchild: '', // 给子组件传递的img地址
         curanswerdata: '', // 当前问题的答案
         curanswerstate: '' // 当前问题的状态，为1表示填写正确，为0表示填写不正确
       }
@@ -89,17 +87,16 @@
       }
     },
     computed: {
-      questionSet: function () { // 问卷
-        console.log(this.$root.rootunfinished[this.$root.currenttaskindex].submissions)
-        return this.$root.rootunfinished[this.$root.currenttaskindex].submissions[this.$root.progress[this.$root.currenttaskindex]].questionSet
+      questionset: function () { // 问卷
+        return this.$root.curquestionset
       },
       questions: function () {  // 题目
-        return this.$root.rootunfinished[this.$root.currenttaskindex].submissions[this.$root.progress[this.$root.currenttaskindex]].questionSet.questions
+        return this.$root.curquestionset.questions
       },
       questionlength: function () { // 题目数量
-        return this.$root.rootunfinished[this.$root.currenttaskindex].submissions[this.$root.progress[this.$root.currenttaskindex]].questionSet.questions.length
+        return this.$root.curquestionset.questions.length
       },
-      finishedanswer: function () {  // 要提交的答案
+      finishedanswer: function () {  // 要提交的答案，默认值为空字符
         var temp = []
         for (var i = 0; i < this.questionlength; i++) {
           temp.push('')
@@ -121,7 +118,6 @@
             var percent = this.curindex / this.questionlength * 100
             $('#anprogress').css('width', percent + '%')
             this.finishedanswer[this.curindex - 1] = this.curanswerdata  // 将当前答案录入
-            console.log(this.curanswerdata)
             if (this.curindex < this.questionlength) { // 如果下一个题目不是最后一题
               this.$nextTick(function () { // 等待下一个题目渲染出来
                 var curanswerdefaultdata = this.finishedanswer[this.curindex]
@@ -148,7 +144,6 @@
         })
       },
       preview () { // 预览问卷
-        // console.log(this.finishedanswer)
         this.$dispatch('saveanswer', this.finishedanswer)  // 保存现在已经完成的答案
         this.$router.go('/preview')
       }

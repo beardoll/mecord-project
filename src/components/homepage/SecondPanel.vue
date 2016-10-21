@@ -108,9 +108,20 @@
 </style>
 <script>
     export default{
-      props: ['tasknote', 'unfinishedlist', 'finishedlist'],
+      props: ['taskitem'],
       data () {
         return {
+        }
+      },
+      computed: {
+        tasknote: function () {
+          return this.taskitem.note
+        },
+        unfinishedlist: function () {
+          return this.taskitem.unfinishedlist
+        },
+        finishedlist: function () {
+          return this.taskitem.finishedlist
         }
       }
     }
