@@ -16,8 +16,7 @@
     #uploadimg {
       /* 上传照片的按钮 */
       .uploadbutton {
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin: 30px 0;
       }
       /* 预览框 */
       .imgpreview {

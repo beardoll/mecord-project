@@ -86,7 +86,7 @@
       .diyprogress { /* 评分控件的外边框 */
         width: 100%;
         height: 180px;
-        margin-top: 5px;
+        margin: 5px 0 0 0;
         /*   评分控件（外边框）  */
         .score-plugin {
           width: 82px;
@@ -106,8 +106,7 @@
             width: 100%;
             font-size: large;
             color: #50e3c2;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding: 5px 0;
             margin: auto;
             text-align: center;
             font-weight: bold;
@@ -128,8 +127,7 @@
             width: 100%;
             font-size: large;
             color: #4278f5;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding: 5px 0;
             margin: auto;
             text-align: center;
             font-weight: bold;

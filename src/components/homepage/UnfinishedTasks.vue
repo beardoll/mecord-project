@@ -69,10 +69,8 @@
         /* 统计总任务数 */
         .taskamount {
           font-size: 20px;
-          padding-top: 10px;
-          padding-bottom: 10px;
+          padding: 10px 0 10px 5px;
           text-align: left;
-          padding-left: 5px;
         }
       }
     }

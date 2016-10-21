@@ -11,7 +11,7 @@
           <div class="am-form-group" style="text-align:left;margin-top:2px">
             <div class="am-g">
               <div class="am-u-sm-6" style="padding-left:0;margin-left:40px;margin-top:20px">
-                <input :type="questionItem.content.dataType" :name="questionItem.title" class="blankinput">
+                <input :type="questionItem.content.dataType" :name="questionItem.title">
               </div>
               <div class="am-u-sm-4 am-u-end" style="margin-top:20px" v-if="questionItem.content.zh_units !== ''">
                 <span style="font-size:20px">{{questionItem.content.zh_units}}({{questionItem.content.symbol_units}})</span>
@@ -21,7 +21,7 @@
         </div>
         <div v-if="questionItem.type === 'select'">
           <div class="am-form-group" style="text-align:left">
-            <div style="margin-top:20px" class="selectinput">
+            <div style="margin-top:20px">
               <div class="am-radio" v-for="selection in questionItem.content.choice" style="padding-top:5px;padding-bottom:5px">
                 <div class="am-g">
                   <div class="am-u-sm-1" style="margin:0;padding:0">
@@ -39,7 +39,7 @@
         <div v-if="questionItem.type === 'multi_select'">
           <div class= "am-form-group am-g am-g-collapse" style="text-align:left">
             <div style="margin-top:20px">
-              <div class="am-checkbox multiselectinput"  v-for="selection in questionItem.content.choice" track-by="$index">
+              <div class="am-checkbox"  v-for="selection in questionItem.content.choice" track-by="$index">
                 <div class="am-g">
                   <div class="am-u-sm-1" style="margin:0;padding:0;text-align:right">
                     <input type= "checkbox" :name="questionItem.title" :value="$index" style="padding-top:5px;padding-bottom:5px;
@@ -54,11 +54,11 @@
           </div>
         </div>
         <div v-if="questionItem.type === 'multi_blank'">
-          <div class="am-form-group  multiblankinput" style="text-align:left;margin-top:20px" >
+          <div class="am-form-group" style="text-align:left;margin-top:20px" >
             <div v-for = "title in questionItem.content.titles" track-by="$index">
               <div class="am-g am-form-group" >
                 <div class="am-u-sm-3" style="text-align:right;margin-top:2px">{{title}}</div>
-                <div class="am-u-sm-4 multiblankele">
+                <div class="am-u-sm-4">
                   <input :type="questionItem.content.dataTypes[$index]" style="margin-left:0" :name="questionItem.title">
                 </div>
                 <div class="am-u-sm-5" style="text-align:left;margin-top:2px" v-if="questionItem.content.zh_units !== ''">{{questionItem.content.symbol_units[$index]}}({{questionItem.content.zh_units[$index]}})</div>
@@ -83,7 +83,7 @@
     #questionlist{
       /* 问题标题 */
       .questiontitle{
-        padding-left: 5px;
+        padding: 0 0 0 5px;
         font-size: 20px;
         text-align: left;
         background-color:#cccccc;
@@ -93,8 +93,8 @@
       .questiontips{
         text-align: left;
         background-color: #fbedd9;
-        padding-left: 5px;
-        margin-top: 10px;
+        padding: 0 0 0 5px;
+        margin: 10px 0 0 0;
       }
     }
 </style>

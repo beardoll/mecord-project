@@ -24,6 +24,8 @@
       .mobody{
         width: 100%;
         height: 100%;
+        overflow: scroll;
+        padding-bottom: 80px;
         /* 问卷的标题 */
         .motitle{
           background-color: #00d4b4;

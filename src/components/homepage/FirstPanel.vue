@@ -1,10 +1,8 @@
 <template>
   <div class="firstpanel">
     <div style="text-align:left" class="am-g">
-              <span class="am-u-sm-7" style="margin:0;padding:0">
-                <span class="tasktitle"> {{title}}</span>
-              </span>
-      <span class="establisher am-u-sm-5"><span style="margin-right:5px">调查人：{{creator}}</span></span>
+      <span class="am-u-sm-7 tasktitle">{{title}}</span>
+      <span class="establisher am-u-sm-5">调查人：{{creator}}</span>
     </div>
     <div class="am-g" style="margin-top:10px">
       <div class="am-u-sm-8" style="text-align:left;padding-top:10px;padding-left:0">
@@ -45,30 +43,24 @@
     .tasktitle {
       font-size: 20px;
       color: blue;
-      margin-left: 5px;
-      padding: 0;
+      margin: 0;
+      padding: 0 0 0 5px;
     }
     /* 创建者 */
     .establisher {
       color: black;
       font-size: 12px;
       text-align: right;
-      margin-top: 10px;
-      margin-right: 0px;
+      margin: 10px 0 0 0;
     }
     /* 任务剩余天数 */
     .taskdeadline {
       text-align: left;
       font-size: 12px;
-      padding-left: 0px;
-      margin-bottom: 5px;
-      margin-left: 7px;
-      margin-top: 10px;
+      padding: 0;
+      margin: 10px 0 5px 7px;
       span { /* 具体天数上加个椭圆边框 */
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding: 5px 10px;
         border: solid 1px black;
         border-radius: 5px;
         text-align: left;
@@ -76,10 +68,9 @@
     }
     /* 填写按钮的样式 */
     .gobutton {
-      padding-top: 5px;
+      padding: 5px 5px 0 0;
       font-size: 12px;
       color: blue;
-      padding-right: 5px;
       button {
         margin-right: 10px;
       }
@@ -87,10 +78,8 @@
     /* 任务进度条 */
     .taskprogress {
       background-color: lightyellow;
-      padding-top: 0;
-      padding-bottom: 0;
-      margin-bottom: 0;
-      margin-top: 20px;
+      padding: 0;
+      margin: 20px 0 0 0;
     }
   }
 </style>

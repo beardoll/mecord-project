@@ -17,14 +17,14 @@
     }
     #navigation{
       background-color: white;
-      margin-top: 0px;
+      margin: 0;
       width: 100%;
       height: 100%;
-      padding-bottom: 0px;
+      padding: 0;
       .navbody{
         width: 100%;
         height: 80%;
-        padding-top: 10px;
+        padding: 10px 0 0 0;
       }
     }
 </style>

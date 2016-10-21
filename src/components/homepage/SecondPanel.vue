@@ -38,14 +38,8 @@
     .secondpanelcolor {
       background-color: moccasin;
       .taskdetail { /* 任务描述加边框 */
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        margin: 0 auto;  /* 上下 左右 */
+        padding: 5px 0 5px 0;
         width: 300px;
         border: dotted 3px silver;
         border-radius: 300px;
@@ -61,14 +55,12 @@
       .unfinishedlist {
         background-color: tan;
         padding: 0;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin: 20px 0;
       }
       /* 已完成的子任务背景 */
       .finishedlist {
         background-color: lightgray;
-        margin-top: 0;
-        margin-bottom: 0;
+        margin: 0;
         padding: 0;
       }
       /* 子任务的序号（通用） */
@@ -76,29 +68,21 @@
         text-align: left;
         float: left;
         font-size: 14px;
-        padding-top: 10px;
+        padding: 10px 0 0 10px;
       }
       /* 现在为问卷类型描述（通用） */
       .currentdate {
         color: white;
         font-size: 14px;
-        padding-left: 0;
-        padding-right: 0;
-        padding-bottom: 10px;
-        padding-top: 10px;
+        padding: 10px 0;
       }
       /* 倒计时（通用） */
       .lefttime {
-        padding-top: 10px;
         float: right;
         font-size: 10px;
-        padding-left: 0;
-        padding-right: 0;
+        padding: 12px 0 0 0;
         span { /* 具体日期外面加个框 */
-          padding-left: 10px;
-          padding-right: 10px;
-          padding-top: 3px;
-          padding-bottom: 3px;
+          padding: 3px 10px;
           border: solid 1px black;
           border-radius: 5px;
         }

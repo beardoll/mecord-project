@@ -8,18 +8,18 @@
       <div v-if="curindex < questionlength">
         <questionlist :question-item="questions[curindex]" :curindex="curindex" v-ref:qlist></questionlist>
       </div>
-      <div style="margin-top:50px;background-color:white" v-if = "curindex > 0 && curindex < questionlength" class="am-topbar am-topbar-fixed-bottom">
+      <div style="background-color:white" v-if = "curindex > 0 && curindex < questionlength" class="am-topbar am-topbar-fixed-bottom">
         <button type="button" class="pastpagebtn am-btn am-btn-lg am-btn-primary am-radius"
                 style="margin-left:20px;margin-right:20px" @click.stop="backToPastOne(curindex)">上一题</button>
         <button type="button" class="nextpagebtn am-btn am-btn-lg am-btn-primary am-radius"
                 style="margin-left:20px;margin-right:20px" @click.stop="goToNextOne(curindex)">下一题</button>
       </div>
-      <div style="margin-top:50px;background-color:white" v-if = "curindex === 0" class="am-topbar am-topbar-fixed-bottom">
+      <div style="background-color:white" v-if = "curindex === 0" class="am-topbar am-topbar-fixed-bottom">
         <button type="button" class="nextpagebtn2 am-btn am-btn-lg am-btn-primary am-radius" @click.stop="goToNextOne(curindex)">下一题</button>
       </div>
       <div v-if="curindex === questionlength">
         <p style="margin-top:100px;font-size:28px;color:red;background-color:white">恭喜您完成问卷！</p>
-        <div style="margin-top:50px" class="am-topbar am-topbar-fixed-bottom">
+        <div class="am-topbar am-topbar-fixed-bottom">
           <button type="button" class="pastpagebtn3 am-btn am-btn-lg am-btn-primary am-radius"
                   style="margin-left:20px;margin-right:20px" @click.stop="backToPastOne(questionlength-1)">上一题</button>
           <button type="button" class="nextpagebtn3 am-btn am-btn-lg am-btn-primary am-radius"
@@ -42,6 +42,8 @@
       .anbody {
         width: 100%;
         height: 100%;
+        padding-bottom: 80px;
+        overflow: scroll;
         /* 问卷标题  */
         .antitle {
           background-color: #00d4b4;

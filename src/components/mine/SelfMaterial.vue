@@ -9,7 +9,7 @@
                   <label for="smuser" class="am-form-label">昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称</label>
                 </div>
                 <div class="am-u-sm-8" style="padding:0">
-                  <input id="smuser" type="text" class="am-form-field am-u-sm-9" :value = "nickname">
+                  <input id="smuser" type="text" class="am-form-field" :value = "nickname" name="nickname">
                 </div>
               </div>
               <div class="am-form-group">
@@ -17,7 +17,11 @@
                   <label for="smsex" class="am-form-label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
                 </div>
                 <div class="am-u-sm-8" style="padding:0">
-                  <input id="smsex" type="text" class="am-form-field am-u-sm-9" :value = "sex">
+                  <select id="smsex" name="sex">
+                    <option value="0" :selected="sex === 0">保密</option>
+                    <option value="1" :selected="sex === 1">男</option>
+                    <option value="2" :selected="sex === 2">女</option>
+                  </select>
                 </div>
               </div>
               <div class="am-form-group">
@@ -25,13 +29,10 @@
                   <label for="smbirth" class="am-form-label">出生年月</label>
                 </div>
                 <div class="am-u-sm-8" style="padding:0">
-                  <p>
-                    <input id="smbirth" type="date" :value="birthday"/>
-                  </p>
-                  <!--<input id="smbirth" type="text" class="am-form-field am-u-sm-9" :value = "birthday">-->
+                    <input id="smbirth" class="am-form-field" name="birthday" type="date" :value="birthday"/>
                 </div>
               </div>
-              <legend>隐私信息
+<!--              <legend>隐私信息
                 <span class="am-icon am-icon-caret-down"style="margin:0;padding:0" @click.stop="expandPrivateInfo()"></span>
               </legend>
               <div style="display:none" id="privateinfo">
@@ -67,7 +68,7 @@
                     <input id="smrealname" type="text" class="am-form-field am-u-sm-9" placeholder="">
                   </div>
                 </div>
-              </div>
+              </div>-->
             </form>
         </div>
       </div>
@@ -85,23 +86,22 @@
       background-color: white;
     }
     #selfmaterial {
-      margin-top:10px;
+      margin:10px 0 0 0;
       background-color: white;
       width: 100%;
       height: 100%;
-      padding-left: 0;
+      padding: 0;
       .smbody{
         width: 100%;
         height: 90%;
         overflow: scroll;
         .tabs-body form{
-          margin-right: 40px;
-          margin-left: 20px;
+          margin: 0 40px 0 20px;
           legend{
             text-align:left;
             font-size:28px;
             color:orange;
-            margin-left: 0px;
+            margin: 0px;
           }
         }
       }
@@ -119,12 +119,7 @@
         return this.$root.userData.nickname
       },
       sex: function () {
-        var temp = this.$root.userData.sex
-        if (temp === 1) {
-          return '男'
-        } else {
-          return '女'
-        }
+        return this.$root.userData.sex
       },
       birthday: function () {
         var temp = []
@@ -134,7 +129,7 @@
         } else {
           temp = new Date(bir)
         }
-        var day = temp.getDay()
+        var day = temp.getDate()
         var month = temp.getMonth() + 1
         var year = temp.getFullYear()
         if (parseInt(day) < 10) {
@@ -146,11 +141,17 @@
         var returndata = year + '-' + month + '-' + day
         return returndata
         // return '2014-09-01'
+      },
+      userid: function () {
+        return this.$root.accesstoken.userId
+      },
+      id: function () {
+        return this.$root.accesstoken.id
       }
     },
     methods: {
-      expandPrivateInfo () {
-        $('#privateinfo').toggle()
+      expandPrivateInfo () {  // 暂时先不展开个人隐私信息
+        // $('#privateinfo').toggle()
       },
       backToFrontPage () {
         // 返回上一页
@@ -172,6 +173,22 @@
         })
       },
       save () {  // 保存个人资料
+        var formjson = $('form').serializeArray()
+        var name, value
+        var newinfo = {}
+        for (var i = 0; i < formjson.length; i++) {
+          name = formjson[i].name
+          value = formjson[i].value
+          newinfo[name] = value  // newinfo.name = value
+        }
+        newinfo.id = this.userid
+        var updateurl = 'https://api.mecord.cn/api/MecordUsers/' + this.userid + '?access_token=' + this.id
+        this.$http.put(updateurl, newinfo).then((response) => {
+          window.alert('保存个人资料成功！')
+          this.$root.loadClientDate()
+        }, (response) => {
+          console.log('can not update')
+        })
       }
     }
   }

@@ -3,17 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="bb2aa68e-fcff-49eb-9133-5581ef92b590" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Answers/Answer.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Answer.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Answers/Modification.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Modification.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Answers/Navigation.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Navigation.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Answers/Preview.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Preview.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Outline.vue" afterPath="$PROJECT_DIR$/src/components/Outline.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Answers/QuestionList.vue" afterPath="$PROJECT_DIR$/src/components/Answers/QuestionList.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Answers/Score.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Score.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Answers/UploadImg.vue" afterPath="$PROJECT_DIR$/src/components/Answers/UploadImg.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue" afterPath="$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/homepage/FirstPanel.vue" afterPath="$PROJECT_DIR$/src/components/homepage/FirstPanel.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/homepage/SecondPanel.vue" afterPath="$PROJECT_DIR$/src/components/homepage/SecondPanel.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue" afterPath="$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/login/Gate.vue" afterPath="$PROJECT_DIR$/src/components/login/Gate.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/mine/Mine.vue" afterPath="$PROJECT_DIR$/src/components/mine/Mine.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/mine/SelfMaterial.vue" afterPath="$PROJECT_DIR$/src/components/mine/SelfMaterial.vue" />
     </list>
     <ignored path="mecord-project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,18 +39,8 @@
       <file leaf-file-name="Gate.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/login/Gate.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.9333334">
+            <state vertical-scroll-proportion="-9.133333">
               <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.733334">
-              <caret line="61" column="2" selection-start-line="61" selection-start-column="0" selection-end-line="62" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -57,58 +49,38 @@
       <file leaf-file-name="Navigation.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Answers/Navigation.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.466666">
-              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+            <state vertical-scroll-proportion="-13.2">
+              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Answer.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-26.4">
+              <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Answer.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Answers/Answer.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-27.133333">
-              <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FinishedTasks.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.9188544">
-              <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+              <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UnfinishedTasks.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue">
+      <file leaf-file-name="QuestionList.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Answers/QuestionList.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="10.266666">
-              <caret line="25" column="65" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Outer.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/homepage/Outer.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.733334">
-              <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Preview.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Answers/Preview.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="186.96666">
-              <caret line="66" column="9" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
+            <state vertical-scroll-proportion="-22.733334">
+              <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -117,8 +89,28 @@
       <file leaf-file-name="Score.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Answers/Score.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-115.13333">
-              <caret line="182" column="7" selection-start-line="182" selection-start-column="7" selection-end-line="182" selection-end-column="7" />
+            <state vertical-scroll-proportion="-16.133333">
+              <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Modification.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Answers/Modification.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.066668">
+              <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FinishedTasks.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.8">
+              <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -127,8 +119,18 @@
       <file leaf-file-name="FirstPanel.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/homepage/FirstPanel.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.166666">
-              <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+            <state vertical-scroll-proportion="-34.466667">
+              <caret line="83" column="3" selection-start-line="83" selection-start-column="3" selection-end-line="83" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SecondPanel.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/homepage/SecondPanel.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-67.46667">
+              <caret line="92" column="8" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -165,22 +167,22 @@
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/homepage/Outer.vue" />
-        <option value="$PROJECT_DIR$/src/components/Answers/QuestionList.vue" />
-        <option value="$PROJECT_DIR$/src/components/Answers/Score.vue" />
-        <option value="$PROJECT_DIR$/src/components/Answers/UploadImg.vue" />
-        <option value="$PROJECT_DIR$/src/components/mine/Mine.vue" />
-        <option value="$PROJECT_DIR$/src/components/mine/SelfMaterial.vue" />
         <option value="$PROJECT_DIR$/src/components/Outline.vue" />
-        <option value="$PROJECT_DIR$/src/components/homepage/SecondPanel.vue" />
         <option value="$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue" />
         <option value="$PROJECT_DIR$/src/components/homepage/FirstPanel.vue" />
+        <option value="$PROJECT_DIR$/src/components/Answers/UploadImg.vue" />
         <option value="$PROJECT_DIR$/src/components/Answers/Navigation.vue" />
-        <option value="$PROJECT_DIR$/src/components/Answers/Answer.vue" />
-        <option value="$PROJECT_DIR$/src/components/Answers/Modification.vue" />
         <option value="$PROJECT_DIR$/src/components/Answers/Preview.vue" />
-        <option value="$PROJECT_DIR$/src/App.vue" />
-        <option value="$PROJECT_DIR$/src/components/login/Gate.vue" />
+        <option value="$PROJECT_DIR$/src/components/mine/SelfMaterial.vue" />
+        <option value="$PROJECT_DIR$/src/components/mine/Mine.vue" />
+        <option value="$PROJECT_DIR$/src/components/homepage/SecondPanel.vue" />
         <option value="$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue" />
+        <option value="$PROJECT_DIR$/src/components/Answers/QuestionList.vue" />
+        <option value="$PROJECT_DIR$/src/components/Answers/Score.vue" />
+        <option value="$PROJECT_DIR$/src/components/Answers/Modification.vue" />
+        <option value="$PROJECT_DIR$/src/components/login/Gate.vue" />
+        <option value="$PROJECT_DIR$/src/App.vue" />
+        <option value="$PROJECT_DIR$/src/components/Answers/Answer.vue" />
       </list>
     </option>
   </component>
@@ -220,8 +222,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -390,6 +390,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -696,34 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/referencecode/Demo.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/referencecode/Edit.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/referencecode/Hello.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.866667">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/referencecode/Interface.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/referencecode/Mainpage.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -752,13 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/referencecode/Login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.052505966">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="0" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/referencecode/UserInterface.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5">
@@ -770,31 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.459017">
           <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Answers/UploadImg.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.933332">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/mine/Mine.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.066668">
-          <caret line="54" column="53" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/mine/SelfMaterial.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.266666">
-          <caret line="101" column="27" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,71 +744,156 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.4">
           <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/homepage/Outer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Answers/QuestionList.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/referencecode/Demo.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1333334">
-          <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
+        <state vertical-scroll-proportion="-0.73333335">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/homepage/SecondPanel.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/referencecode/Hello.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.533333">
-          <caret line="117" column="35" selection-start-line="117" selection-start-column="35" selection-end-line="117" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Answers/Modification.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.933333">
-          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        <state vertical-scroll-proportion="-5.866667">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Answers/Score.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/referencecode/Interface.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-115.13333">
-          <caret line="182" column="7" selection-start-line="182" selection-start-column="7" selection-end-line="182" selection-end-column="7" />
+        <state vertical-scroll-proportion="-9.6">
+          <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/referencecode/Edit.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.73333335">
+          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/referencecode/Login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="21.933332">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="0" selection-end-line="7" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-51.333332">
+          <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Answers/UploadImg.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.466666">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Answers/Preview.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="186.96666">
-          <caret line="66" column="9" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
+        <state vertical-scroll-proportion="-25.666666">
+          <caret line="136" column="39" selection-start-line="136" selection-start-column="39" selection-end-line="136" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/homepage/Outer.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/mine/Mine.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.733334">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+        <state vertical-scroll-proportion="-16.866667">
+          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/mine/SelfMaterial.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.8">
+          <caret line="114" column="7" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/homepage/FirstPanel.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-34.466667">
+          <caret line="83" column="3" selection-start-line="83" selection-start-column="3" selection-end-line="83" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/homepage/SecondPanel.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-67.46667">
+          <caret line="92" column="8" selection-start-line="92" selection-start-column="8" selection-end-line="92" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.8">
+          <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Answers/Navigation.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.466666">
-          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+        <state vertical-scroll-proportion="-13.2">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Answers/QuestionList.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.733334">
+          <caret line="82" column="18" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Answers/Score.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.133333">
+          <caret line="88" column="8" selection-start-line="88" selection-start-column="8" selection-end-line="88" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Answers/Modification.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.066668">
+          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/login/Gate.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.9333334">
+        <state vertical-scroll-proportion="-9.133333">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="33" />
           <folding />
         </state>
@@ -874,40 +901,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.733334">
-          <caret line="61" column="2" selection-start-line="61" selection-start-column="0" selection-end-line="62" selection-end-column="35" />
+        <state vertical-scroll-proportion="-26.4">
+          <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Answers/Answer.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.133333">
-          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/homepage/FirstPanel.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.166666">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.266666">
-          <caret line="25" column="65" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9188544">
-          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+          <caret line="41" column="15" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
           <folding />
         </state>
       </provider>

@@ -46,7 +46,7 @@
     #userinfo{
       /*   操作选择(e.g 账户绑定等，外div) */
       .useroperation{
-        margin-top: 0px;
+        margin: 0;
         .useroperationlist{
           tbody tr td{ /*   具体操作选择    */
             cursor: pointer;

@@ -59,14 +59,14 @@
     }
     #preview{
       background-color: white;
-      margin-top: 0px;
+      margin: 0;
       width: 100%;
       height: 100%;
-      padding-bottom: 0px;
+      padding: 0;
       .prebody{
         width: 100%;
         height: 90%;
-        margin-bottom: 40px;
+        margin: 0 0 40px 0;
         overflow: scroll;
         /* 当前问卷的标题 */
         .pretitle{
@@ -74,8 +74,7 @@
           color: white;
           text-align: left;
           font-size: 20px;
-          padding-top: 2px;
-          padding-bottom: 2px;
+          padding: 2px 0 2px 0;
           text-align: center;
         }
         /* 提示点击可修改答案 */
@@ -91,17 +90,17 @@
             background-color: #9da0a4;
             text-align: left;
             font-size: 18px;
-            padding-left: 5px;
+            padding: 0 0 0 5px;
           }
           /* 单项填空题样式 */
           .blankstyle{
             text-align: left;
-            margin-left: 10px;
+            margin: 0 0 0 10px;
           }
           /* 单项选择题样式 */
           .selectstyle{
             text-align: left;
-            margin-left: 10px;
+            margin: 0 0 0 10px;
           }
           .selectedoption{  /* 被选中的选项 */
             color: black;
@@ -112,31 +111,30 @@
           /* 评分题样式 */
           .symptomtype{ /* 症状程度/频率 */
             text-align: left;
-            margin-left: 10px;
+            margin: 0 0 0 10px;
           }
           .symptomreftitle{ /* 症状值参考/频率值参考 */
             text-align: left;
-            margin-left: 40px;
+            margin: 0 0 0 40px;
             color: #b94a48
           }
           .symptomrefvalue{  /* 各个参考值代表的程度 */
             text-align: left;
-            margin-left: 60px;
+            margin: 0 0 0 60px;
             color: #b94a48
           }
           /* 多项填空题样式 */
           .multiblankstylediv{  /* 多项填空题，外框 */
             .multiblankstyle{
               text-align: left;
-              margin-left: 10px;
+              margin: 0 0 0 10px;
             }
           }
           /* 图片上传题样式 */
           .showimgarea{  /* 图片显示区域 */
             width: 150px;
             height: 200px;
-            margin-top: 10px;
-            margin-right: auto;
+            margin: 10px auto 0px auto;
           }
         }
       }
