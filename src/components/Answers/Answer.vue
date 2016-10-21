@@ -35,23 +35,21 @@
     }
     #answer{
       background-color: white;
-      margin-top: 0px;
+      margin: 0;
       width: 100%;
       height: 100%;
-      padding-bottom: 0px;
+      padding: 0;
       .anbody {
         width: 100%;
         height: 100%;
-        padding-bottom: 80px;
+        padding: 0 0 80px 0;
         overflow: scroll;
         /* 问卷标题  */
         .antitle {
           background-color: #00d4b4;
           color: white;
-          text-align: left;
           font-size: 20px;
-          padding-top: 2px;
-          padding-bottom: 2px;
+          padding: 2px 0;
           text-align: center;
         }
         /* 进度条 */

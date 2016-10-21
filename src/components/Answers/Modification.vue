@@ -17,30 +17,28 @@
     }
     #modification{
       background-color: white;
-      margin-top: 0px;
+      margin: 0;
       width: 100%;
       height: 100%;
-      padding-bottom: 0px;
+      padding: 0;
       .mobody{
         width: 100%;
         height: 100%;
         overflow: scroll;
-        padding-bottom: 80px;
+        padding: 0 0 80px 0;
         /* 问卷的标题 */
         .motitle{
           background-color: #00d4b4;
           color: white;
-          text-align: left;
           font-size: 20px;
-          padding-top: 2px;
-          padding-bottom: 2px;
+          padding: 2px 0px;
           text-align: center;
         }
         /* 问卷题目 */
         .moquestion{
           width: 100%;
           margin: auto;
-          padding-bottom: 60px;
+          padding: 0 0 60px 0;
         }
       }
     }
