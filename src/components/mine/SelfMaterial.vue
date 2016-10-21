@@ -86,7 +86,7 @@
       background-color: white;
     }
     #selfmaterial {
-      margin:10px 0 0 0;
+      margin: 10px 0 0 0;
       background-color: white;
       width: 100%;
       height: 100%;
@@ -98,9 +98,9 @@
         .tabs-body form{
           margin: 0 40px 0 20px;
           legend{
-            text-align:left;
-            font-size:28px;
-            color:orange;
+            text-align: left;
+            font-size: 28px;
+            color: orange;
             margin: 0px;
           }
         }
@@ -152,25 +152,6 @@
     methods: {
       expandPrivateInfo () {  // 暂时先不展开个人隐私信息
         // $('#privateinfo').toggle()
-      },
-      backToFrontPage () {
-        // 返回上一页
-        this.$router.go('/userinterface/:3')
-      },
-      handleClick (event) {
-        // 响应标签点击事件
-        var target = event.target
-        var selectedIndex = $('#topbar').children('li').index(target) // 被选中的li的编号
-        this.showIndex = selectedIndex
-        $('#topbar li').each(function (index, element) {
-          if (index === selectedIndex) {
-            $(this).removeClass('default')
-            $(this).addClass('active')
-          } else {
-            $(this).removeClass('active')
-            $(this).addClass('default')
-          }
-        })
       },
       save () {  // 保存个人资料
         var formjson = $('form').serializeArray()

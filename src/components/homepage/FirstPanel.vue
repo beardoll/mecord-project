@@ -13,12 +13,10 @@
         <span class="taskdeadline" v-if="taskstate === 1 && timediff <= 1">
           离最近任务剩余：<span style="color:red"> {{timediff}}天</span></span>
       </div>
-        <span class="gobutton am-u-sm-4" style="text-align:right"
-              v-if="taskstate === 0 || taskstate === 1 && timediff === 0">
+        <span class="gobutton am-u-sm-4" v-if="taskstate === 0 || taskstate === 1 && timediff === 0">
           <button class="am-btn am-btn-primary am-radius" @click.stop="goToNav()">填写</button>
         </span>
-        <span class="gobutton am-u-sm-4" style="text-align:right"
-              v-if="taskstate === 1 && timediff >= 1">
+        <span class="gobutton am-u-sm-4" v-if="taskstate === 1 && timediff >= 1">
           <button class="am-btn am-btn-primary am-radius" @click.stop="goToNav()" disabled = "disabled">填写</button>
         </span>
     </div>
@@ -68,6 +66,7 @@
     }
     /* 填写按钮的样式 */
     .gobutton {
+      text-align: right;
       padding: 5px 5px 0 0;
       font-size: 12px;
       color: blue;
