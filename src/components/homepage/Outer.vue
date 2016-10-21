@@ -13,7 +13,7 @@
     </div>
   </div>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color:white;
     }
@@ -21,16 +21,17 @@
       overflow: scroll;
       width: 100%;
       height: 100%;
+      /* “已完成”与“未完成”任务状态切换 */
       #taskstateswitchbtn {
         width: 100%;
         height: 10%;
+        /* 任务状态显示 */
         .selectstate {
           list-style-type: none;
           margin-bottom: 10px;
           padding-left: 0;
           padding-right: 0;
           padding-top: 8px;
-
           li {
             display: inline-block;
             border: solid 1px dodgerblue;
@@ -41,20 +42,21 @@
             text-align: center;
             cursor: pointer;
           }
-          .leftstate { /* 未完成按钮 */
+          /* 未完成按钮 */
+          .leftstate {
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
             background-color: dodgerblue;
           }
-
-          .rightstate { /* 已完成按钮 */
+          /* 已完成按钮 */
+          .rightstate {
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
             background-color: white;
           }
         }
       }
-
+      /* 任务具体内容（面板显示） */
       #taskcontent {
         width: 100%;
         height: 90%;

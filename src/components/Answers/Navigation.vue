@@ -11,7 +11,7 @@
       </div>
     </div>
 </template>
-<style>
+<style lang="scss">
     body{
         background-color: white;
     }
@@ -21,17 +21,11 @@
       width: 100%;
       height: 100%;
       padding-bottom: 0px;
-    }
-    #navigation .navheader{
-      width: 100%;
-      height: 10%;
-      padding-top: 10px;
-      background-color: dodgerblue;
-    }
-    #navigation .navbody{
-      width: 100%;
-      height: 80%;
-      padding-top: 10px;
+      .navbody{
+        width: 100%;
+        height: 80%;
+        padding-top: 10px;
+      }
     }
 </style>
 <script>

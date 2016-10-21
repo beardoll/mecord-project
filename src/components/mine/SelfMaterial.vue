@@ -76,7 +76,7 @@
       </div>
     </div>
 </template>
-<style lang = "less">
+<style lang = "scss">
     *{
       margin: 0;
       padding: 0;
@@ -94,19 +94,15 @@
         width: 100%;
         height: 90%;
         overflow: scroll;
-        .publicinfo{
-          padding-left: 0px;
-          margin-left: 0px;
-        }
-      }
-      .tabs-body form{
-        margin-right: 40px;
-        margin-left: 20px;
-        legend{
-          text-align:left;
-          font-size:28px;
-          color:orange;
-          margin-left: 0px;
+        .tabs-body form{
+          margin-right: 40px;
+          margin-left: 20px;
+          legend{
+            text-align:left;
+            font-size:28px;
+            color:orange;
+            margin-left: 0px;
+          }
         }
       }
     }

@@ -78,31 +78,31 @@
     </div>
   </div>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color: white;
     }
-    #score{
-      .diyprogress{  /* 评分控件的外边框 */
+    #score {
+      .diyprogress { /* 评分控件的外边框 */
         width: 100%;
         height: 180px;
         margin-top: 5px;
-
         /*   评分控件（外边框）  */
-        .score-plugin{
+        .score-plugin {
           width: 82px;
-          .bar1{            /* 评分控件（症状）*/
+          /* 评分控件（症状）*/
+          .bar1 {
             width: 80px;
             height: 20px;
             border: solid 1px white;
           }
-          .score-default1{  /* 未被选中的状态 */
+          .score-default1 { /* 未被选中的状态 */
             background-color: #bef5e8;
           }
-          .score-selected1{  /* 已被选中的状态 */
+          .score-selected1 { /* 已被选中的状态 */
             background-color: #50e3c2;
           }
-          .bottomfigure1{  /* 底部显示的数字 */
+          .bottomfigure1 { /* 底部显示的数字 */
             width: 100%;
             font-size: large;
             color: #50e3c2;
@@ -112,19 +112,19 @@
             text-align: center;
             font-weight: bold;
           }
-
-          .bar2{   /* 评分控件（频率）*/
+          /* 评分控件（频率）*/
+          .bar2 {
             width: 80px;
             height: 20px;
             border: solid 1px white;
           }
-          .score-default2{  /* 未被选中的状态 */
+          .score-default2 { /* 未被选中的状态 */
             background-color: #bbcefb;
           }
-          .score-selected2{  /* 已被选中的状态 */
+          .score-selected2 { /* 已被选中的状态 */
             background-color: #4278f5;
           }
-          .bottomfigure2{  /* 底部显示的数字 */
+          .bottomfigure2 { /* 底部显示的数字 */
             width: 100%;
             font-size: large;
             color: #4278f5;
@@ -135,53 +135,52 @@
             font-weight: bold;
           }
         }
+        /* 下面一段是为了给评分控件添加文字 */
+        .symptom_score10{
+          top: 0px;
+          position: absolute;
+        }
+        .symptom_score9{
+          top: 20px;
+          position: absolute;
+        }
+        .symptom_score8{
+          top: 40px;
+          position: absolute;
+        }
+        .symptom_score7{
+          top: 60px;
+          position: absolute;
+        }
+        .symptom_score6{
+          top: 80px;
+          position: absolute;
+        }
+        .symptom_score5{
+          top: 100px;
+          position: absolute;
+        }
+        .symptom_score4{
+          top: 120px;
+          position: absolute;
+        }
+        .symptom_score3{
+          top: 140px;
+          position: absolute;
+        }
+        .symptom_score2{
+          top: 160px;
+          position: absolute;
+        }
+        .symptom_score1{
+          top: 180px;
+          position: absolute;
+        }
+        .symptom_score0{
+          top: 200px;
+          position: absolute;
+        }
       }
-    }
-
-    /* 下面一段是为了给评分控件添加文字 */
-    .symptom_score10{
-      top: 0px;
-      position: absolute;
-    }
-    .symptom_score9{
-      top: 20px;
-      position: absolute;
-    }
-    .symptom_score8{
-      top: 40px;
-      position: absolute;
-    }
-    .symptom_score7{
-      top: 60px;
-      position: absolute;
-    }
-    .symptom_score6{
-      top: 80px;
-      position: absolute;
-    }
-    .symptom_score5{
-      top: 100px;
-      position: absolute;
-    }
-    .symptom_score4{
-      top: 120px;
-      position: absolute;
-    }
-    .symptom_score3{
-      top: 140px;
-      position: absolute;
-    }
-    .symptom_score2{
-      top: 160px;
-      position: absolute;
-    }
-    .symptom_score1{
-      top: 180px;
-      position: absolute;
-    }
-    .symptom_score0{
-      top: 200px;
-      position: absolute;
     }
 </style>
 <script>

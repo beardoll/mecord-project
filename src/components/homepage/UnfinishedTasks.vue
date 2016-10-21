@@ -54,7 +54,7 @@
     </table>
   </div>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color:white;
     }
@@ -70,13 +70,14 @@
           margin: 0;
           padding: 0;
         }
-        .divider { /* 任务之间有一条分割线 */
+        /* 任务之间有一条分割线 */
+        .divider {
           width: 100%;
           height: 1px;
           background-color: #8a6343;
         }
-
-        .taskamount { /* 统计总任务数 */
+        /* 统计总任务数 */
+        .taskamount {
           font-size: 20px;
           padding-top: 10px;
           padding-bottom: 10px;

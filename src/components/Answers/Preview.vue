@@ -53,7 +53,7 @@
       </div>
     </div>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color:white;
     }
@@ -63,14 +63,13 @@
       width: 100%;
       height: 100%;
       padding-bottom: 0px;
-
       .prebody{
         width: 100%;
         height: 90%;
         margin-bottom: 40px;
         overflow: scroll;
-
-        .pretitle{  /* 当前问卷的标题 */
+        /* 当前问卷的标题 */
+        .pretitle{
           background-color: #00d4b4;
           color: white;
           text-align: left;
@@ -78,28 +77,26 @@
           padding-top: 2px;
           padding-bottom: 2px;
         }
-
-        .toptips{  /* 提示点击可修改选项 */
+        /* 提示点击可修改答案 */
+        .toptips{
           text-align: left;
           font-size: 16px;
         }
-
-        .questionbody{   /* 问题预览部分 */
+        /* 问题预览部分 */
+        .questionbody{
           padding-bottom: 20px;
-
-          .questiontitle{  /* 问题标题 */
+          /* 问题标题 */
+          .questiontitle{
             background-color: #9da0a4;
             text-align: left;
             font-size: 18px;
             padding-left: 5px;
           }
-
           /* 单项填空题样式 */
           .blankstyle{
             text-align: left;
             margin-left: 10px;
           }
-
           /* 单项选择题样式 */
           .selectstyle{
             text-align: left;
@@ -111,7 +108,6 @@
           .notselectedoption{ /* 没有被选中的选项 */
             color: darkgrey;
           }
-
           /* 评分题样式 */
           .symptomtype{ /* 症状程度/频率 */
             text-align: left;
@@ -127,7 +123,6 @@
             margin-left: 60px;
             color: #b94a48
           }
-
           /* 多项填空题样式 */
           .multiblankstylediv{  /* 多项填空题，外框 */
             .multiblankstyle{
@@ -135,7 +130,6 @@
               margin-left: 10px;
             }
           }
-
           /* 图片上传题样式 */
           .showimgarea{  /* 图片显示区域 */
             width: 150px;
@@ -145,8 +139,8 @@
           }
         }
       }
-
-      .submitbtn{  /* 提交按钮 */
+      /* 提交按钮 */
+      .submitbtn{
         width: 100%;
         height: 10%;
       }

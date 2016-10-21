@@ -29,7 +29,7 @@
     </div>
   </div>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color:white;
     }
@@ -42,8 +42,8 @@
       .anbody {
         width: 100%;
         height: 100%;
-
-        .antitle { /* 问卷标题  */
+        /* 问卷标题  */
+        .antitle {
           background-color: #00d4b4;
           color: white;
           text-align: left;
@@ -51,7 +51,8 @@
           padding-top: 2px;
           padding-bottom: 2px;
         }
-        .anprogressdiv { /* 进度条 */
+        /* 进度条 */
+        .anprogressdiv {
           padding: 0;
           margin: 0;
           width: 100%;

@@ -9,17 +9,18 @@
       </div>
     </div>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color: white;
     }
     #uploadimg {
-      .uploadbutton {  /* 上传照片的按钮 */
+      /* 上传照片的按钮 */
+      .uploadbutton {
         margin-top: 30px;
         margin-bottom: 30px;
       }
-
-      .imgpreview {  /* 预览框 */
+      /* 预览框 */
+      .imgpreview {
         margin: auto;
         padding: auto;
         width: 300px;

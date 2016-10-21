@@ -76,20 +76,21 @@
     </div>
   </div>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color: white;
     }
     #questionlist{
-      .questiontitle{  /* 问题标题 */
+      /* 问题标题 */
+      .questiontitle{
         padding-left: 5px;
         font-size: 20px;
         text-align: left;
         background-color:#cccccc;
         width:100%;
       }
-
-      .questiontips{  /* 问题提示 */
+      /* 问题提示 */
+      .questiontips{
         text-align: left;
         background-color: #fbedd9;
         padding-left: 5px;

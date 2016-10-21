@@ -20,9 +20,9 @@
     }
 </style>
 <script>
-  var qs = require('querystring')
+/*  var qs = require('querystring')*/
   export default {
-    created: function () {
+/*    created: function () {
       let params = qs.parse(window.location.href.split('?')[1])
       if (params.code) {
         this.$http.get('https://api.mecord.cn/api/MecordUsers/wxLogin?code=' + params.code)
@@ -35,12 +35,12 @@
           })
           // this.$router.go('userinterface/:0')
       }
-    }
-/*    ready: function () {
+    }*/
+    ready: function () {
       console.log('begin login!')
       this.$root.login('VYG8ka7v7xJXFvGQtfe0ZfzWovTNssLsI1Jh13pCfO4jJfJcgU2qMNTfZLlbFUAA')
       this.$root.loadClientDate()
-    }*/
+    }
   }
 </script>
 x

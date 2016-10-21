@@ -11,7 +11,7 @@
       </div>
     </div>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color:white;
     }
@@ -21,12 +21,11 @@
       width: 100%;
       height: 100%;
       padding-bottom: 0px;
-
       .mobody{
         width: 100%;
         height: 100%;
-
-        .motitle{ /* 问卷的标题 */
+        /* 问卷的标题 */
+        .motitle{
           background-color: #00d4b4;
           color: white;
           text-align: left;
@@ -34,7 +33,7 @@
           padding-top: 2px;
           padding-bottm: 2px;
         }
-
+        /* 问卷题目 */
         .moquestion{
           width: 100%;
           margin: auto;

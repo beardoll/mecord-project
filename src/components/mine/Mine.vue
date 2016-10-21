@@ -39,19 +39,20 @@
     </div>
   </div>
 </template>
-<style lang="less">
+<style lang="scss">
     body{
         background-color: white;
     }
     #userinfo{
-      .useroperation{  /*   操作选择(e.g 账户绑定等，外div) */
+      /*   操作选择(e.g 账户绑定等，外div) */
+      .useroperation{
         margin-top: 0px;
         .useroperationlist{
           tbody tr td{ /*   具体操作选择    */
             cursor: pointer;
             text-align:left;
           }
-          tbody tr td:hover{ /*   具体操作选择    */
+          tbody tr td:hover{ /*   具体操作选择,鼠标经过的时候单元格变色    */
             background-color: darkgrey;
           }
         }

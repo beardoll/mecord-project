@@ -29,7 +29,7 @@
     </div>
   </div>
 </template>
-<style lang="less">
+<style lang="scss">
   body{
     background-color:white;
   }
@@ -41,20 +41,23 @@
     background-color: lightyellow;
     margin: 0;
     padding: 0;
-    .tasktitle { /*   任务标题   */
+    /*   任务标题   */
+    .tasktitle {
       font-size: 20px;
       color: blue;
       margin-left: 5px;
       padding: 0;
     }
-    .establisher { /* 创建者 */
+    /* 创建者 */
+    .establisher {
       color: black;
       font-size: 12px;
       text-align: right;
       margin-top: 10px;
       margin-right: 0px;
     }
-    .taskdeadline { /* 任务剩余天数 */
+    /* 任务剩余天数 */
+    .taskdeadline {
       text-align: left;
       font-size: 12px;
       padding-left: 0px;
@@ -71,7 +74,8 @@
         text-align: left;
       }
     }
-    .gobutton { /* 填写按钮的样式 */
+    /* 填写按钮的样式 */
+    .gobutton {
       padding-top: 5px;
       font-size: 12px;
       color: blue;
@@ -80,7 +84,8 @@
         margin-right: 10px;
       }
     }
-    .taskprogress { /* 任务进度条 */
+    /* 任务进度条 */
+    .taskprogress {
       background-color: lightyellow;
       padding-top: 0;
       padding-bottom: 0;
