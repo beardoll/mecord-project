@@ -121,6 +121,7 @@
             if (this.curindex < this.questionlength) { // 如果下一个题目不是最后一题
               this.$nextTick(function () { // 等待下一个题目渲染出来
                 var curanswerdefaultdata = this.finishedanswer[this.curindex]
+                window.alert(this.finishedanswer[this.curindex])
                 this.$refs.qlist.setDefaultValue(this.questions[this.curindex].type, curanswerdefaultdata)
               })
             }

@@ -172,7 +172,8 @@
           if (questionItem.type !== 'upload_image') {
             formjson = $('form').serializeArray()
           } else {
-            formjson = this.$refs.upimg.imgsrc
+            // formjson = this.$refs.upimg.imgsrc
+            formjson = ''
           }
           var status = true
           var data = []
@@ -214,7 +215,7 @@
               break
             case 'upload_image':
               if (formjson === '') {
-                status = false
+                status = true
               }
               data.push(formjson)
               break

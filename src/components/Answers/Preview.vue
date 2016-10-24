@@ -329,7 +329,15 @@
             } else {
               updatestate = 'unfinished'
             }
-            if (attachmentsquestionid.length === 0) {  // 如果没有附件，直接更新状态，否则，等附件上传完后再更新状态
+            that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
+              window.alert('提交成功啦！')
+              that.$root.loadClientDate()
+            }, (response) => {
+              console.log('fail put!')
+              window.alert(JSON.stringify(response.body))
+              window.alert('提交失败！')
+            })
+            /* if (attachmentsquestionid.length === 0) {  // 如果没有附件，直接更新状态，否则，等附件上传完后再更新状态
               that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
                 window.alert('提交成功啦！')
                 that.$root.loadClientDate()
@@ -372,7 +380,7 @@
                   }
                 })
               }
-            }
+            } */
           }, (response) => {
           console.log(JSON.stringify(submitanswers))
           console.log('fail to submit!')

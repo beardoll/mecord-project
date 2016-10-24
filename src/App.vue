@@ -26,6 +26,7 @@ export default {
       this.wxsignature = response.body
     }, (response) => {
       console.log('cannot get signature')
+      window.alert('cannot get signature')
     })
   },
   events: {
