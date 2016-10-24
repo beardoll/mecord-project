@@ -10,9 +10,6 @@
             padding: 0px;
         }
         body{
-            background-image: url("img/starnight.jpg");
-            background-repeat: no-repeat;
-            background-size: 100%;
         }
         .loginbox{
             width: 600px;
@@ -80,14 +77,49 @@
         })
     })
 </script>-->
-  <button type="button" id="test">点击我</button>
+  <form id="#form">
+    <div class="am-radio">
+      <label>
+        <input type="checkbox" name="doc-radio-1" value="option1" checked="checked">
+        单选框 - 选项1
+      </label>
+    </div>
+    <div class="am-radio">
+      <label>
+        <input type="checkbox" name="doc-radio-1" value="option2">
+        单选框 - 选项2
+      </label>
+    </div>
+  </form>
+  <button type="button" id="test1">选中第二项</button>
+  <button type="button" id="test2">选中第一项</button>
   <script>
-      $('#test').click(function(){
-        window.setTimeout(function () {
-          var time = new Date().getTime()
-          var num = 3
-          alert(time + '&' + num)
-        }, 300)
+      $('#test1').click(function(){
+        $("input[name='doc-radio-1'][value='option1']").prop('checked', false)
+        $("input[name='doc-radio-1'][value='option2']").prop('checked', true)
+//        $('input').each(function (index, element) {
+//          console.log($(this))
+//          if (curindex == index) {
+//            console.log('true!')
+//            $(this).attr('checked', true)
+//          } else {
+//            $(this).attr('checked', false)
+//          }
+//        })
+      })
+      $('#test2').click(function(){
+        $("input[name='doc-radio-1'][value='option1']").prop('checked', true)
+        $("input[name='doc-radio-1'][value='option2']").prop('checked', false)
+//        var curindex = 0
+//        $('input').each(function (index, element) {
+//          console.log($(this))
+//          if (curindex == index) {
+//            console.log('true!')
+//            $(this).attr('checked', true)
+//          } else {
+//            $(this).attr('checked', false)
+//          }
+//        })
       })
   </script>
 </body>

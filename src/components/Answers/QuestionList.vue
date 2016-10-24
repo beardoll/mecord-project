@@ -121,6 +121,10 @@
                 $('input').each(function (index, element) {
                   $(this).val(data[index])
                 })
+              } else {  // 当答案为空时
+                $('input').each(function (index, element) {
+                  $(this).val('')
+                })
               }
               break
             case 'select':
@@ -128,10 +132,14 @@
                 var checkedindex = parseInt(data[0])  // json存的是字符而不是数字
                 $('input').each(function (index, element) {
                   if (index === checkedindex) {
-                    $(this).attr('checked', true)
+                    $(this).prop('checked', true)
                   } else {
-                    $(this).attr('checked', false)
+                    $(this).prop('checked', false)
                   }
+                })
+              } else {   // 当答案为空时
+                $('input').each(function (index, element) {
+                  $(this).prop('checked', false)
                 })
               }
               break
@@ -149,16 +157,22 @@
                 $('input').each(function (index, element) {
                   var mark = $.inArray(index, datafigure)
                   if (mark === -1) {
-                    $(this).attr('checked', false)
+                    $(this).prop('checked', false)
                   } else {
-                    $(this).attr('checked', true)
+                    $(this).prop('checked', true)
                   }
+                })
+              } else {   // 当答案为空时
+                $('input').each(function (index, element) {
+                  $(this).prop('checked', false)
                 })
               }
               break
             case 'symptom_score':
-              if (data !== '') {
+              if (data !== '') {   // 当答案不为空时
                 this.$refs.score.setSymptomScoreData(data)
+              } else {   // 当答案为空时
+                this.$refs.score.setSymptomScoreData([0, 0])
               }
               break
             case 'upload_image':
