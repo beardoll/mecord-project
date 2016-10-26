@@ -21,13 +21,6 @@ export default {
 
   },
   ready: function () {
-    var getURL = 'https://api.mecord.cn/api/CoreModels/getJsConfig?url=https%3A%2F%2Fwww.mecord.cn%2F'
-    this.$http.get(getURL).then((response) => {
-      this.wxsignature = response.body
-    }, (response) => {
-      console.log('cannot get signature')
-      window.alert('cannot get signature')
-    })
   },
   events: {
     'markcurtask': function (item) {
@@ -57,11 +50,18 @@ export default {
     }
   },
   methods: {
-    login: function (data) {
+    login: function (wxurl, data) {
       this.accesstoken.userId = data.userId
       this.accesstoken.id = data.id
 /*      this.accesstoken.id = data
       this.accesstoken.userId = 2*/
+      var geturl = 'https://api.mecord.cn/api/CoreModels/getJsConfig?url=' + wxurl
+      this.$http.get(geturl).then((response) => {
+        this.wxsignature = response.body
+      }, (response) => {
+        console.log('cannot get signature')
+        window.alert('cannot get signature')
+      })
       process.nextTick(this.loadClientDate())
     },
     loadClientDate () {
@@ -70,14 +70,11 @@ export default {
           // 只取到questionSet那一层
           console.log('successfully!')
           this.$set('userData', response.body)
+          this.$router.go('/outline')
           // console.log(response.body)
-          // console.log('http://mecord.cn:3000/api/MecordUsers/' + this.accesstoken.userId + '?filter=%7B%22include%22%3A%7B%22tasks%22%3A%5B%22creator%22%2C%22questionSet%22%5D%7D%7D&access_token=' +
-          // this.accesstoken.id)
           // this.$router.go('/modification')
           // console.log(JSON.stringify(this.userData))
-          // this.$router.go('/userinterface')
           // this.$router.go('/preview')
-          this.$router.go('/outline')
         }, (response) => {
           console.log('error!')
         })

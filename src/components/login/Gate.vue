@@ -28,18 +28,19 @@
         this.$http.get('https://api.mecord.cn/api/MecordUsers/wxLogin?code=' + params.code)
           .then((response) => {
             console.log('登录成功！')
-            this.$root.login(response.body.data)
+            var wxurl = window.location.href.split('#')[0]
+            wxurl = encodeURIComponent(wxurl)
+            this.$root.login(wxurl, response.body.data)
           }, (response) => {
             console.log('bad!')
-            // this.$router.go('navigation/:0')
           })
-          // this.$router.go('userinterface/:0')
       }
     }
 /*    ready: function () {
       console.log('begin login!')
-      this.$root.login('VYG8ka7v7xJXFvGQtfe0ZfzWovTNssLsI1Jh13pCfO4jJfJcgU2qMNTfZLlbFUAA')
-      this.$root.loadClientDate()
+      var wxurl = window.location.href.split('#')[0]
+      wxurl = encodeURIComponent(wxurl)
+      this.$root.login(wxurl, 'VYG8ka7v7xJXFvGQtfe0ZfzWovTNssLsI1Jh13pCfO4jJfJcgU2qMNTfZLlbFUAA')
     }*/
   }
 </script>
