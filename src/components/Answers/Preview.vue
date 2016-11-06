@@ -169,11 +169,11 @@
           }
           switch (tempquest[i].type) {
             case 'blank':
-              temp1.push(data)
+              temp1.push(data1)
               break
             case 'multi_blank':
               for (var j = 0; j < data.length; j++) {
-                temp1.push(data[j])
+                temp1.push(data1[j])
               }
               break
             case 'select':
