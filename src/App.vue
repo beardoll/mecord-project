@@ -51,10 +51,10 @@ export default {
   },
   methods: {
     login: function (wxurl, data) {
-      this.accesstoken.userId = data.userId
-      this.accesstoken.id = data.id
-/*      this.accesstoken.id = data
-      this.accesstoken.userId = 2*/
+/*      this.accesstoken.userId = data.userId
+      this.accesstoken.id = data.id*/
+      this.accesstoken.id = data
+      this.accesstoken.userId = 1
       var geturl = 'https://api.mecord.cn/api/CoreModels/getJsConfig?url=' + wxurl
       this.$http.get(geturl).then((response) => {
         this.wxsignature = response.body
