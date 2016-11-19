@@ -48,6 +48,11 @@ router.map({
     component: function (resolve) {
       require(['./components/Outline'], resolve)
     }
+  },
+  '/review': {
+    component: function (resolve) {
+      require(['./components/Answers/Review'], resolve)
+    }
   }
 })
 

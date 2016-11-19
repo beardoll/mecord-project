@@ -4,8 +4,12 @@
         <img src="../../assets/hospital.jpg" style="margin:auto" id="logo">
           <hr data-am-widget="divider" style="width:70%;margin-left:auto;margin-right:auto;margin-top:10px" class="am-divider am-divider-default" />
         <p style="font-size:28px">{{title}}</p>
-          <hr data-am-widget="divider" style="width:70%;margin:auto" class="am-divider am-divider-dotted" />
+        <hr data-am-widget="divider" style="width:70%;margin:auto" class="am-divider am-divider-dotted" />
         <h5>{{description}}</h5>
+        <hr data-am-widget="divider" style="width:70%;margin:auto" class="am-divider am-divider-dotted" />
+        <div class="avatar">
+          <img :src="avatar"><span class="avatar_word">{{nickname}}</span>
+        </div>
         <button type="button" class="am-btn am-btn-lg am-btn-primary am-radius"
                 style="margin-top:40px" @click.stop="goToFill()">开始</button>
       </div>
@@ -26,12 +30,42 @@
         height: 80%;
         padding: 10px 0 0 0;
       }
+      .avatar{
+        width: 180px;
+        height: 50px;
+        border-radius: 50px 0 0 50px;
+        background-color: antiquewhite;
+        margin: 20px auto;
+        img{
+          float: left;
+          position: relative;
+          margin: 0;
+          padding: 0;
+          width: 49px;
+          height: 49px;
+          border: solid 1px black;
+          border-radius: 50px;
+        }
+        .avatar_word{
+          float: left;
+          position: relative;
+          margin: 10px auto;
+          padding: auto;
+          font-size: large;
+          display: inline-block;
+          height: 50px;
+          width: 130px;
+          font-weight: bold;
+        }
+      }
     }
 </style>
 <script>
   export default{
     data () {
       return {
+        avatar: '',   // 创建者的头像
+        nickname: '' // 创建者的昵称
       }
     },
     ready: function () {
@@ -41,6 +75,12 @@
       var maxwidth = 160
       $('#logo').css('width', maxwidth + 'px')
       $('#logo').css('height', maxwidth * ratio + 'px')
+      this.$http.get('https://api.mecord.cn/api/MecordUsers/' + this.creatorid).then((response) => {
+        this.avatar = response.body.avatar
+        this.nickname = response.body.nickname
+      }, (response) => {
+        console.log('cannot get the avatar!!')
+      })
     },
     created: function () {  // 在此处加载submissions数据
 
@@ -54,6 +94,9 @@
       },
       questionsetid: function () {
         return this.$root.curtask.plans.questionSets[this.$root.curtask.progress]
+      },
+      creatorid: function () {
+        return this.$root.curtask.creatorId
       }
     },
     methods: {

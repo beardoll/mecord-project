@@ -6,7 +6,7 @@
       <tr>
         <td class="taskamount">总任务数：{{totaltasklength}}</td>
       </tr>
-      <tr v-if = !showdetail v-for="taskitem in minunfinishedtasks" track-by="$index">
+      <tr v-show = !showdetail v-for="taskitem in minunfinishedtasks" track-by="$index">
         <td>
           <div>
             <firstpanel :taskitem="taskitem" :taskindex="$index" :progressname="minprogressname"></firstpanel>
@@ -20,7 +20,7 @@
           <div v-if="$index !== minunfinishedtasklength-1" class="divider"></div>
         </td>
       </tr>
-      <tr v-if = showdetail v-for="taskitem in unfinished" track-by="$index">
+      <tr v-show = showdetail v-for="taskitem in unfinished" track-by="$index">
         <td>
           <div>
             <firstpanel :taskitem="taskitem" :taskindex="$index" :progressname="progressname"></firstpanel>
@@ -102,9 +102,10 @@
           // 未完成任务，计算各个子任务相对于当前日期的剩余日期等信息，以进行显示
           // unfinished.unfinishedlist: 未完成的子任务列表
           // unfinished.finishedlist: 已完成的子任务列表
-          // unfinishedlist, finishedlist:  number -- 子任务编号 countdown -- 子任务倒计时（正数）
+          // unfinishedlist:  number -- 子任务编号 countdown -- 子任务倒计时（正数）
           //                                countdownstate -- 倒计时状态，为0表示过期，为1表示正好今天，为2表示明天以后
-          //                                questionsettitle -- 子任务问卷标题
+          //                                questionsettitle -- 子任务问卷标题  submissionid questionsetid
+          // finishedlist: questiontitle -- 问卷标题 number -- 子任务编号  submissionid questionsetid
           var unfinishedtemp = []
           for (var k = 0; k < this.$root.userData.tasks.length; k++) {
             if (this.$root.userData.tasks[k].status !== 'finished') {
@@ -121,6 +122,8 @@
                 var finishedlist = {}
                 finishedlist.questionsettitle = unfinishedtemp[i].submissions[j].questionSet.title
                 finishedlist.number = j + 1
+                finishedlist.submissionid = unfinishedtemp[i].submissions[j].id
+                finishedlist.questionsetid = unfinishedtemp[i].plans.questionSets[j]
                 temp2.push(finishedlist)
               } else {
                 var sdate = unfinishedtemp[i].startDate  // 任务开始时间
@@ -142,6 +145,8 @@
                     includeOuter.countdownstate = 2 // 正数
                   }
                 }
+                includeOuter.submissionid = unfinishedtemp[i].submissions[j].id // 每个问卷对应的submissionid
+                includeOuter.questionsetid = unfinishedtemp[i].plans.questionSets[j]
                 temp.push(includeOuter)
               }
             }

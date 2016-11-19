@@ -31,11 +31,13 @@ export default {
     'markcurquestionset': function (item) {
       // 当前问卷
       // dispatched from: Navigation.vue -> goToFill()
+      //                  SecondPanel.vue -> review()
       this.curquestionset = item
     },
     'saveanswer': function (item) {
       // 保存现在已经完成的答案
       // dispatched from: Answer.vue -> preview()
+      //                  SecondPanel.vue -> review()
       this.currentanswer = item
     },
     'seteditindex': function (index) {
@@ -54,7 +56,7 @@ export default {
 /*      this.accesstoken.userId = data.userId
       this.accesstoken.id = data.id*/
       this.accesstoken.id = data
-      this.accesstoken.userId = 1
+      this.accesstoken.userId = 2
       var geturl = 'https://api.mecord.cn/api/CoreModels/getJsConfig?url=' + wxurl
       this.$http.get(geturl).then((response) => {
         this.wxsignature = response.body

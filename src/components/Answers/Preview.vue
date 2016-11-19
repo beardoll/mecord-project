@@ -72,7 +72,6 @@
         .pretitle{
           background-color: #00d4b4;
           color: white;
-          text-align: left;
           font-size: 20px;
           padding: 2px 0 2px 0;
           text-align: center;
@@ -230,7 +229,7 @@
     },
     ready: function () {
       wx.config({
-        debug: false,
+        debug: true,
         appId: this.resbody.appId,          // 必填，公众号的唯一标识
         timestamp: this.resbody.timestamp,      // 必填，生成签名的时间戳
         nonceStr: this.resbody.nonceStr,      // 必填，生成签名的随机串
