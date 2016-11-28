@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script   src="https://code.jquery.com/jquery-1.12.4.js"   integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="   crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/amazeui/2.7.2/css/amazeui.css" type="text/css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/amazeui/2.7.2/css/amazeui.min.css" type="text/css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amazeui/2.7.2/js/amazeui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amazeui/2.7.2/js/amazeui.min.js"></script>
+</head>
+<body>
+    <form id="form1" class="am-form am-form-horizontal">
+      <div class="am-form-group">
+        <div class="am-checkbox">
+          <input type="checkbox" name="radio1" value="1" data-mark="0"> a
+        </div>
+        <div class="am-checkbox">
+          <input type="checkbox" name="radio1" value="2" data-mark="0"> b
+        </div>
+        <div class="am-checkbox">
+        <input type="checkbox" name="radio1" value="3" data-mark="0"> c
+        </div>
+        <div class="am-checkbox am-g" id="specialradio">
+          <div class="am-u-sm-1" style="margin:0;padding:0">
+            <input type="checkbox" name="radio1" value="4" data-mark="1">
+          </div>
+          <div class="am-u-sm-11" style="margin:0;padding:0;text-align: left">
+            <div class="am-u-sm-2">
+              其他</div>
+            <div class="am-u-sm-10">
+              <input type="text" name="text1" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="am-btn am-btn-primary" id="submit">提交</button>
+    </form>
+    <script>
+      $("#submit").click(function () {
+          var jsoncontent = $("#form1").serializeArray();
+          console.log(jsoncontent)
+      })
+      $("input").click(function () {
+          if ($(this).attr("type") == "checkbox") {
+            // 点击checkbox时，判断是点击“其他”还是别的有效选项
+            // 当点击有效选项时，“其他”失效
+            // 当点击“其他”时，有效选项失效
+            var mark = $(this).data("mark");  // 获取点击项的data-mark
+            if (mark == 1) {
+                $("input").each(function(index, element) {
+                  if($(this).attr("type") == "checkbox") {
+                    if ($(this).data("mark") == 0) {
+                      $(this).prop("checked", false)
+                    }
+                  }
+                  if($(this).attr("type") == "text") {
+                      $(this).prop("disabled", false)
+                  }
+               })
+            } else {
+              $("input").each(function(index, element) {
+                if($(this).attr("type") == "checkbox") {
+                  if ($(this).data("mark") == 1) {
+                    $(this).prop("checked", false)
+                  }
+                }
+                if($(this).attr("type") == "text") {
+                  $(this).prop("disabled", true)
+                }
+              })
+            }
+          }
+      })
+    </script>
+    <!--
+    <form id="haha2">
+      <div><input type="text" name="a" value="1" id="a" /></div>
+      <div><input type="text" name="b" value="2" id="b" /></div>
+      <div><input type="hidden" name="c" value="3" id="c" /></div>
+      <div>
+        <textarea name="d" rows="8" cols="40">4</textarea>
+      </div>
+      <div><select name="e">
+        <option value="5" selected="selected">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select></div>
+    </form>
+    <button onclick="wawa">提交</button>
+
+    <script>
+      $(function(){
+        $("#submit").click(function(){
+          console.log($("#myForm").serialize());
+        });
+      });
+    </script>
+
+    <form id="myForm">
+      昵称 <input type="text" name="username" value="admin" /><br />
+      密码 <input type="password" name="password" value="admin123" /><br />
+      <input type="button" id="submit" value="序列化表单" />
+    </form>
+
+    <script>
+      function wawa() {
+        alert($("#haha2").serialize());
+      }
+    </script>
+
+    <select class="example-h" name="rating">
+      <option value="10">10</option>
+      <option value="9">9</option>
+      <option value="8">8</option>
+      <option value="7">7</option>
+      <option value="6">6</option>
+      <option value="5">5</option>
+      <option value="4">4</option>
+      <option value="3">3</option>
+      <option value="2">2</option>
+      <option value="1" selected="selected">1</option>
+      <option value="0">0</option>
+    </select>
+    <select class="example-h" name="rating">
+      <option value="10">10</option>
+      <option value="9">9</option>
+      <option value="8">8</option>
+      <option value="7">7</option>
+      <option value="6">6</option>
+      <option value="5">5</option>
+      <option value="4">4</option>
+      <option value="3">3</option>
+      <option value="2">2</option>
+      <option value="1" selected="selected">1</option>
+      <option value="0">0</option>
+    </select>
+    <div class="box">
+      <div class="box-body">
+      </div>
+    </div>-->
+</body>
+</html>
