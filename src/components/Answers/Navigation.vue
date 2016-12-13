@@ -6,10 +6,10 @@
         <p style="font-size:28px">{{title}}</p>
         <hr data-am-widget="divider" style="width:70%;margin:auto" class="am-divider am-divider-dotted" />
         <h5>{{description}}</h5>
-        <hr data-am-widget="divider" style="width:70%;margin:auto" class="am-divider am-divider-dotted" />
+<!--        <hr data-am-widget="divider" style="width:70%;margin:auto" class="am-divider am-divider-dotted" />
         <div class="avatar">
           <img :src="avatar"><span class="avatar_word">{{nickname}}</span>
-        </div>
+        </div>-->
         <button type="button" class="am-btn am-btn-lg am-btn-primary am-radius"
                 style="margin-top:40px" @click.stop="goToFill()">开始</button>
       </div>

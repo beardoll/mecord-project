@@ -40,7 +40,7 @@
       console.log('begin login!')
       var wxurl = window.location.href.split('#')[0]
       wxurl = encodeURIComponent(wxurl)
-      this.$root.login(wxurl, 'jb4UA2eu6A2l2x4ZzkS5GE6j6YfUw4nU9Fp6tvsFnwQMMiatKRP7GFlLknU6tPqn')
+      this.$root.login(wxurl, 'obeqOp4KbOF71YLFulD1v3GPjh9PAw9LU4UZXUZFwVKiYAhgi1lmtJXmuSWV0Iav')
     }*/
   }
 </script>

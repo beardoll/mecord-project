@@ -63,6 +63,7 @@ export default {
       }, (response) => {
         console.log('cannot get signature')
         window.alert('cannot get signature')
+        process.nextTick(this.loadClientDate())
       })
       process.nextTick(this.loadClientDate())
     },

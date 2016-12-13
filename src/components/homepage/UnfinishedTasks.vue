@@ -1,10 +1,44 @@
 <template>
   <div id="unfinishedtasks">
+    <div class="mask" v-show="alertmark === true">
+      <div class="mask-prompt">
+        <div class="title">选择项目套餐</div>
+        <div class="content">
+          <div class="codeinput">
+            <form id="code" class="am-form">
+              <div class="am-form-group">
+                <div class="am-u-sm-5" style="text-align:center">
+                  <label for="codeinput" class="am-form-label" style="font-size: 14px;margin-top:3px">项目码：</label>
+                </div>
+                <div class="am-u-sm-7" style="text-align: left;padding:0;margin:0">
+                  <input id="codeinput" type="text" class="am-form-field" name="code">
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="mask_validate">
+            <div class="am-u-sm-6">
+              <button type="button" class="am-btn am-btn-primary am-btn-sm" @click.stop="alertmark = false">确定</button>
+            </div>
+            <div class="am-u-sm-6">
+              <button type="button" class="am-btn am-btn-primary am-btn-sm" @click.stop="alertmark = false">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <table class="am-table tasktable" style="margin:0">
       <!-----------  未完成部分  ---------->
       <tbody>
       <tr>
-        <td class="taskamount">总任务数：{{totaltasklength}}</td>
+        <td class="taskamount">
+          <div class="am-u-sm-6">
+            总任务数：{{totaltasklength}}
+          </div>
+          <div class="am-u-sm-6" style="text-align: right" @click.stop="alertmark = true">
+            <img src="../../assets/plus.png" width="35px" height="35px"/>
+          </div>
+        </td>
       </tr>
       <tr v-show = !showdetail v-for="taskitem in minunfinishedtasks" track-by="$index">
         <td>
@@ -55,24 +89,71 @@
     #unfinishedtasks {
       width: 100%;
       height: 100%;
-      .tasktable {
-        tbody tr td{
-          margin: 0;
-          padding: 0;
-        }
-        /* 任务之间有一条分割线 */
-        .divider {
-          width: 100%;
-          height: 1px;
-          background-color: #8a6343;
-        }
-        /* 统计总任务数 */
-        .taskamount {
-          font-size: 20px;
-          padding: 10px 0 10px 5px;
-          text-align: left;
+      .mask {
+        left: 0;
+        top: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, .15);
+        .mask-prompt {
+          top: 50%;
+          left: 50%;
+          margin: -91px 0px 0px -126px;
+          z-index: 10;
+          overflow: hidden;
+          position: fixed !important;
+          _position: absolute;
+          width: 250px;
+          height: 180px;
+          border: 1px solid black;
+          .title {
+            padding-top: 5px;
+            color: white;;
+            width: 250px;
+            height: 40px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            background-color: #42b983;
+          }
+          .content {
+            padding: 1px 0 0 0;
+            background-color: white;
+            width: 250px;
+            height: 140px;
+            .codeinput{
+              margin: 1px 0 0 0;
+              height: 80px;
+              width: 250px;
+              padding: 0 20px 0 20px;
+            }
+            .mask_validate{
+              width: 250px;
+              height: 30px;
+              margin: 1px 0 0 0;
+            }
+          }
         }
       }
+    .tasktable {
+      tbody tr td {
+        margin: 0;
+        padding: 0;
+      }
+      /* 任务之间有一条分割线 */
+      .divider {
+        width: 100%;
+        height: 1px;
+        background-color: #8a6343;
+      }
+      /* 统计总任务数 */
+      .taskamount {
+        font-size: 20px;
+        padding: 10px 0 10px 5px;
+        text-align: left;
+      }
+    }
     }
 
 </style>
@@ -87,7 +168,8 @@
           showdropdown: false,
           mintasklength: 2,  // 面板收缩时显示的任务数
           minprogressname: 'minunfinishedprogress',  // 缩小版任务列表的进度条名字
-          progressname: 'unfinishedprogress'  // 完整版任务列表的进度条名字
+          progressname: 'unfinishedprogress',  // 完整版任务列表的进度条名字
+          alertmark: false  // 是否显示弹出框
         }
       },
       components: {
