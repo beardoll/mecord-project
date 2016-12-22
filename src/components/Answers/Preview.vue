@@ -1,7 +1,7 @@
 <template>
     <div id="preview">
       <div class="prebody">
-        <div class="pretitle">{{questionset.title}}</div>
+        <headtitle :name="questionset.title"></headtitle>
         <div class="toptips" style="padding-left:5px">点击<span class="am-icon-edit"></span>修改选项</div>
         <div v-for="questionItem in questions" track-by="$index" class="questionbody">
           <div class="questiontitle">Q{{$index+1}}:&nbsp;{{questionItem.title}}
@@ -68,14 +68,6 @@
         height: 90%;
         margin: 0 0 40px 0;
         overflow: scroll;
-        /* 当前问卷的标题 */
-        .pretitle{
-          background-color: #00d4b4;
-          color: white;
-          font-size: 20px;
-          padding: 2px 0 2px 0;
-          text-align: center;
-        }
         /* 提示点击可修改答案 */
         .toptips{
           text-align: left;
@@ -146,9 +138,13 @@
 </style>
 <script>
   var wx = require('weixin-js-sdk')
+  import headtitle from '../public_component/head'
   export default{
     data () {
 
+    },
+    components: {
+      headtitle
     },
     computed: {
       answers: function () {  // 将答案转化为纯数字类型数据

@@ -14,7 +14,9 @@ export default {
       currentanswer: [],      // 当前问卷的答案
       editindex: [],   // 当前修改答案的题目在问卷中的下标
       wxsignature: '',  // 微信签名，在顶级component获取
-      curquestionset: '' // 当前问卷，可索引到questions一层
+      curquestionset: '', // 当前问卷，可索引到questions一层
+      currentsearch: [],   // 当前的搜索结果
+      currentread: ''    // 当前删除的任务
     }
   },
   computed: {
@@ -31,13 +33,13 @@ export default {
     'markcurquestionset': function (item) {
       // 当前问卷
       // dispatched from: Navigation.vue -> goToFill()
-      //                  SecondPanel.vue -> review()
+      //                  TaskDetail.vue -> review()
       this.curquestionset = item
     },
     'saveanswer': function (item) {
       // 保存现在已经完成的答案
       // dispatched from: Answer.vue -> preview()
-      //                  SecondPanel.vue -> review()
+      //                  TaskDetail.vue -> review()
       this.currentanswer = item
     },
     'seteditindex': function (index) {
@@ -49,6 +51,11 @@ export default {
       // 修改后的新答案
       // dispatched from: Modification.vue -> validModification()
       this.currentanswer[this.editindex] = item
+    },
+    'curread': function (item) {
+      // 存放当前删除的任务
+      // dispatched from: FirstPanel.vue -> delete()
+      this.currentread = item
     }
   },
   methods: {
@@ -76,7 +83,7 @@ export default {
           this.$router.go('/outline')
           // console.log(response.body)
           // this.$router.go('/modification')
-          console.log(JSON.stringify(this.userData))
+          // console.log(JSON.stringify(this.userData))
           // this.$router.go('/preview')
         }, (response) => {
           console.log('error!')

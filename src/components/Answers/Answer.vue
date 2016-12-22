@@ -1,7 +1,7 @@
 <template>
   <div id="answer">
     <div class="anbody">
-      <div class="antitle">{{questionset.title}}</div>
+      <headtitle :name="questionset.title"></headtitle>
       <div class="am-progress am-progress-striped anprogressdiv">
         <div class="am-progress-bar am-progress-bar-success" id="anprogress" style="width: 0%">{{curindex}}/{{questionlength}}</div>
       </div>
@@ -44,14 +44,6 @@
         height: 100%;
         padding: 0 0 80px 0;
         overflow: scroll;
-        /* 问卷标题  */
-        .antitle {
-          background-color: #00d4b4;
-          color: white;
-          font-size: 20px;
-          padding: 2px 0;
-          text-align: center;
-        }
         /* 进度条 */
         .anprogressdiv {
           padding: 0;
@@ -63,6 +55,7 @@
 </style>
 <script>
   import questionlist from './QuestionList'
+  import headtitle from '../public_component/head'
   export default {
     data () {
       return {
@@ -72,7 +65,8 @@
       }
     },
     components: {
-      questionlist
+      questionlist,
+      headtitle
     },
     events: {
       'thisanswer': function (item) {

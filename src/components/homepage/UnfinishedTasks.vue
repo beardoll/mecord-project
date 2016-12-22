@@ -1,32 +1,5 @@
 <template>
   <div id="unfinishedtasks">
-    <div class="mask" v-show="alertmark === true">
-      <div class="mask-prompt">
-        <div class="title">选择项目套餐</div>
-        <div class="content">
-          <div class="codeinput">
-            <form id="code" class="am-form">
-              <div class="am-form-group">
-                <div class="am-u-sm-5" style="text-align:center">
-                  <label for="codeinput" class="am-form-label" style="font-size: 14px;margin-top:3px">项目码：</label>
-                </div>
-                <div class="am-u-sm-7" style="text-align: left;padding:0;margin:0">
-                  <input id="codeinput" type="text" class="am-form-field" name="code">
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="mask_validate">
-            <div class="am-u-sm-6">
-              <button type="button" class="am-btn am-btn-primary am-btn-sm" @click.stop="alertmark = false">确定</button>
-            </div>
-            <div class="am-u-sm-6">
-              <button type="button" class="am-btn am-btn-primary am-btn-sm" @click.stop="alertmark = false">取消</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <table class="am-table tasktable" style="margin:0">
       <!-----------  未完成部分  ---------->
       <tbody>
@@ -35,8 +8,8 @@
           <div class="am-u-sm-6">
             总任务数：{{totaltasklength}}
           </div>
-          <div class="am-u-sm-6" style="text-align: right" @click.stop="alertmark = true">
-            <img src="../../assets/plus.png" width="35px" height="35px"/>
+          <div class="am-u-sm-6" style="text-align: right" @click.stop="goToAddTask()">
+            <img src="../../assets/plus.png" style="width:35px; height:35px"/>
           </div>
         </td>
       </tr>
@@ -45,12 +18,6 @@
           <div>
             <firstpanel :taskitem="taskitem" :taskindex="$index" :progressname="minprogressname"></firstpanel>
           </div>
-          <div style="margin:0;padding:0;background-color:lightyellow">
-            <span style="margin:0;padding:0" class="am-icon am-icon-caret-down am-icon-md" @click.stop="expandSecondLayer($event)"></span>
-          </div>
-          <div style="display:none">
-            <secondpanel :taskitem="taskitem"></secondpanel>
-          </div>
           <div v-if="$index !== minunfinishedtasklength-1" class="divider"></div>
         </td>
       </tr>
@@ -58,12 +25,6 @@
         <td>
           <div>
             <firstpanel :taskitem="taskitem" :taskindex="$index" :progressname="progressname"></firstpanel>
-          </div>
-          <div style="margin:0;padding:0;background-color:lightyellow">
-            <span style="margin:0;padding:0" class="am-icon am-icon-caret-down am-icon-md" @click.stop="expandSecondLayer($event)"></span>
-          </div>
-          <div style="display:none">
-            <secondpanel :taskitem="taskitem"></secondpanel>
           </div>
           <div v-if="$index !== unfinishedtasklength-1" class="divider"></div>
         </td>
@@ -89,92 +50,42 @@
     #unfinishedtasks {
       width: 100%;
       height: 100%;
-      .mask {
-        left: 0;
-        top: 0;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        z-index: 1000;
-        background-color: rgba(0, 0, 0, .15);
-        .mask-prompt {
-          top: 50%;
-          left: 50%;
-          margin: -91px 0px 0px -126px;
-          z-index: 10;
-          overflow: hidden;
-          position: fixed !important;
-          _position: absolute;
-          width: 250px;
-          height: 180px;
-          border: 1px solid black;
-          .title {
-            padding-top: 5px;
-            color: white;;
-            width: 250px;
-            height: 40px;
-            margin-bottom: 0;
-            padding-bottom: 0;
-            background-color: #42b983;
-          }
-          .content {
-            padding: 1px 0 0 0;
-            background-color: white;
-            width: 250px;
-            height: 140px;
-            .codeinput{
-              margin: 1px 0 0 0;
-              height: 80px;
-              width: 250px;
-              padding: 0 20px 0 20px;
-            }
-            .mask_validate{
-              width: 250px;
-              height: 30px;
-              margin: 1px 0 0 0;
-            }
-          }
+      .tasktable {
+        tbody tr td {
+          margin: 0;
+          padding: 0;
+        }
+        /* 任务之间有一条分割线 */
+        .divider {
+          width: 100%;
+          height: 1px;
+          background-color: #8a6343;
+        }
+        /* 统计总任务数 */
+        .taskamount {
+          font-size: 20px;
+          padding: 10px 0 10px 5px;
+          text-align: left;
         }
       }
-    .tasktable {
-      tbody tr td {
-        margin: 0;
-        padding: 0;
-      }
-      /* 任务之间有一条分割线 */
-      .divider {
-        width: 100%;
-        height: 1px;
-        background-color: #8a6343;
-      }
-      /* 统计总任务数 */
-      .taskamount {
-        font-size: 20px;
-        padding: 10px 0 10px 5px;
-        text-align: left;
-      }
-    }
     }
 
 </style>
 <script>
     import firstpanel from './FirstPanel'
-    import secondpanel from './SecondPanel'
     export default{
       data () {
         return {
-          showdetail: false, // 显示所有任务
+          showdetail: true, // 显示所有任务
           unfinishedstate: [],  // 各个任务的状态，0表示过期，1表示完成日期在将来
           showdropdown: false,
           mintasklength: 2,  // 面板收缩时显示的任务数
           minprogressname: 'minunfinishedprogress',  // 缩小版任务列表的进度条名字
-          progressname: 'unfinishedprogress',  // 完整版任务列表的进度条名字
-          alertmark: false  // 是否显示弹出框
+          progressname: 'unfinishedprogress'  // 完整版任务列表的进度条名字
         }
       },
       components: {
-        firstpanel,
-        secondpanel
+        firstpanel
       },
       computed: {
         totaltasklength: function () {  // 总任务数
@@ -198,16 +109,49 @@
           for (var i = 0; i < unfinishedtemp.length; i++) {
             var temp = []
             var temp2 = []
+            var mark  // 表格颜色标记
             for (var j = 0; j < unfinishedtemp[i].plans.dates.length; j++) {
               // console.log(this.unfinished[i].progress)
-              if (j < unfinishedtemp[i].progress) {
+              if (j <= unfinishedtemp[i].progress) {
+                if (j === 0) {
+                  mark = 0
+                } else {
+                  switch (mark) {
+                    case 0:
+                      mark = 1
+                      break
+                    case 1:
+                      mark = 0
+                      break
+                  }
+                }
                 var finishedlist = {}
+                finishedlist.colormark = mark
                 finishedlist.questionsettitle = unfinishedtemp[i].submissions[j].questionSet.title
                 finishedlist.number = j + 1
                 finishedlist.submissionid = unfinishedtemp[i].submissions[j].id
                 finishedlist.questionsetid = unfinishedtemp[i].plans.questionSets[j]
+                var submitdate = unfinishedtemp[i].submissions[j].submitDate
+                submitdate = new Date(submitdate)
+                var day = submitdate.getDate()
+                var month = submitdate.getMonth() + 1
+                var year = submitdate.getFullYear() % 1000
+                finishedlist.submitdate = year + '/' + month + '/' + day
                 temp2.push(finishedlist)
               } else {
+                if (j === unfinishedtemp[i].progress + 1) {  // 取第一个unfinished的子任务的积分
+                  unfinishedtemp[i].score = unfinishedtemp[i].submissions[j].score
+                  mark = 0
+                } else {
+                  switch (mark) {
+                    case 0:
+                      mark = 1
+                      break
+                    case 1:
+                      mark = 0
+                      break
+                  }
+                }
                 var sdate = unfinishedtemp[i].startDate  // 任务开始时间
                 sdate = new Date(sdate)
                 sdate.setDate(sdate.getDate() + unfinishedtemp[i].plans.dates[j])
@@ -218,6 +162,7 @@
                 includeOuter.questionsettitle = unfinishedtemp[i].submissions[j].questionSet.title // 当前问卷的标题
                 includeOuter.countdown = Math.abs(daysdiff)
                 includeOuter.number = j + 1
+                includeOuter.colormark = mark
                 if (daysdiff < 0) {
                   includeOuter.countdownstate = 0 // 负数
                 } else {
@@ -256,6 +201,9 @@
         },
         unfinishedtasklength: function () { // 未完成任务的长度，用来规划分割线
           return this.unfinished.length
+        },
+        score: function () {  // 任务积分
+
         }
       },
       methods: {
@@ -264,6 +212,9 @@
           var $td = target.closest('td')
           var secondpanel = $($td).children('div').eq(2)
           secondpanel.toggle()
+        },
+        goToAddTask () {   // 添加问题
+          this.$router.go('/addtask')
         }
       }
     }

@@ -1,12 +1,12 @@
 <template>
   <div id="userinfo">
     <div class="am-u-sm-3" style="text-align:left;margin:0;padding:0">
-      <img src="../../assets/wechat-min.png" style="height:80px;width:80px;margin-top:auto;margin-bottom:auto;margin-left:0">
+      <img :src="imgsrc" style="height:80px;width:80px;margin-top:auto;margin-bottom:auto;margin-left:0;padding: 5px">
     </div>
     <div class="am-u-sm-6 am-u-end" style="margin:0;padding-top:10px;text-align:left">
       <div style="text-align:left;margin:auto;padding:auto">
-        <p style="margin:0;padding:0">昵称：{{user}}</p>
-        <!--<p style="margin:0;padding:0">角色：{{role}}</p>-->
+        <p style="margin:0;padding:0">姓名：{{user}}</p>
+        <p style="margin-top:8px;padding:0">积分：100<img src="../../assets/score.png" style="width: 20px; height: 20px; margin-left: 5px"></p>
       </div>
     </div>
     <div class="useroperation">
@@ -76,6 +76,9 @@
           } else {
             return '医生'
           }
+        },
+        imgsrc: function () {
+          return this.$root.userData.avatar
         }
       },
       methods: {

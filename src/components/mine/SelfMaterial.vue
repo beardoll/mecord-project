@@ -4,9 +4,9 @@
         <div class="tabs-body">
             <form class="am-form am-form-horizontal">
               <legend>个人信息</legend>
-              <div class="am-form-group">
+              <div class="am-form-group" style="margin-top: 10px">
                 <div class="am-u-sm-4" style="text-align:left">
-                  <label for="smuser" class="am-form-label">昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称</label>
+                  <label for="smuser" class="am-form-label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
                 </div>
                 <div class="am-u-sm-8" style="padding:0">
                   <input id="smuser" type="text" class="am-form-field" :value = "nickname" name="nickname">

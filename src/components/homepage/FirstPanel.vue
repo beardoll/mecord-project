@@ -5,7 +5,7 @@
       <span class="establisher am-u-sm-5">调查人：{{creator}}</span>
     </div>
     <div class="am-g" style="margin-top:10px">
-      <div class="am-u-sm-8" style="text-align:left;padding-top:10px;padding-left:0">
+      <div class="am-u-sm-9" style="text-align:left;padding-top:10px;padding-left:0">
         <span class="taskdeadline" v-if="taskstate === 0">
           过期：<span style="color:red">{{timediff}}天</span></span>
         <span class="taskdeadline" v-if="taskstate === 1 && timediff > 1">
@@ -13,15 +13,23 @@
         <span class="taskdeadline" v-if="taskstate === 1 && timediff <= 1">
           离最近任务剩余：<span style="color:red"> {{timediff}}天</span></span>
       </div>
-        <span class="gobutton am-u-sm-4" v-if="taskstate === 0 || taskstate === 1 && timediff === 0">
-          <button class="am-btn am-btn-primary am-radius" @click.stop="goToNav()">填写</button>
+        <span class="gobutton am-u-sm-3" v-if="taskstate === 0 || taskstate === 1 && timediff === 0">
+          <button class="am-btn am-btn-primary am-radius am-btn-sm" @click.stop="goToNav()">填写</button>
         </span>
-        <span class="gobutton am-u-sm-4" v-if="taskstate === 1 && timediff >= 1">
-          <button class="am-btn am-btn-primary am-radius" @click.stop="goToNav()" disabled = "disabled">填写</button>
+        <span class="gobutton am-u-sm-3" v-if="taskstate === 1 && timediff >= 1">
+          <button class="am-btn am-btn-primary am-radius am-btn-sm" @click.stop="goToNav()" disabled = "disabled">填写</button>
         </span>
     </div>
-    <div class="am-progress am-progress-striped taskprogress">
-      <div class="am-progress-bar am-progress-bar-success" :id="progressname+taskindex">{{taskprogress}}/{{allsubtaskamount}}</div>
+    <div class="scoretips" style="height: 50px; padding-top: 8px">
+      <div class="am-u-sm-9" style="margin:0; padding-left: 5px;padding-top: 5px">
+        完成当前任务可获得积分：20<img src="../../assets/score.png" style="width: 20px; height: 20px; margin-left: 5px">
+      </div>
+      <div class="am-u-sm-3 gobutton">
+        <button class="am-btn am-btn-success am-radius am-btn-sm" @click.stop="readdetail()">详情</button>
+      </div>
+    </div>
+    <div class="am-progress am-progress-striped taskprogress" style="margin-bottom: 5px">
+      <div class="am-progress-bar am-progress-bar-success" :id="progressname+taskindex">{{taskprogress+1}}/{{allsubtaskamount}}</div>
     </div>
   </div>
 </template>
@@ -34,7 +42,7 @@
     margin: 0;
   }
   .firstpanel { /* 第一层面板 */
-    background-color: lightyellow;
+    background-color: white;
     margin: 0;
     padding: 0;
     /*   任务标题   */
@@ -67,18 +75,24 @@
     /* 填写按钮的样式 */
     .gobutton {
       text-align: right;
-      padding: 5px 5px 0 0;
+      padding: 3px 5px 0 0;
       font-size: 12px;
       color: blue;
       button {
-        margin-right: 10px;
+        margin-right: 3px;
       }
+    }
+    /* 积分提示 */
+    .scoretips{
+      font-size: 14px;
+      text-align: left;
+      margin: 0;
+      padding: 10px 0px 10px 0px;
     }
     /* 任务进度条 */
     .taskprogress {
-      background-color: lightyellow;
       padding: 0;
-      margin: 20px 0 0 0;
+      margin: 5px 0 0 0;
     }
   }
 </style>
@@ -127,7 +141,12 @@
           this.$router.go('/navigation')
         },
         showProgress () {
-          $('#' + this.progressname + this.taskindex).css('width', this.taskprogress / this.allsubtaskamount * 100 + '%')
+          $('#' + this.progressname + this.taskindex).css('width', (this.taskprogress + 1) / this.allsubtaskamount * 100 + '%')
+        },
+        readdetail () {
+          this.$dispatch('curread', this.taskitem)
+          console.log(JSON.stringify(this.taskitem.finishedlist))
+          this.$router.go('/taskdetail')
         }
       }
     }

@@ -1,7 +1,7 @@
 <template>
     <div id="modification">
       <div class="mobody">
-        <div class="motitle">{{questionset.title}}</div>
+        <headtitle :name="questionset.title"></headtitle>
         <div class="moquestion">
           <questionlist :question-item="questions[curindex]" :curindex="curindex" v-ref:qlist></questionlist>
         </div>
@@ -26,14 +26,6 @@
         height: 100%;
         overflow: scroll;
         padding: 0 0 80px 0;
-        /* 问卷的标题 */
-        .motitle{
-          background-color: #00d4b4;
-          color: white;
-          font-size: 20px;
-          padding: 2px 0px;
-          text-align: center;
-        }
         /* 问卷题目 */
         .moquestion{
           width: 100%;
@@ -45,6 +37,7 @@
 </style>
 <script>
   import questionlist from './QuestionList'
+  import headtitle from '../public_component/head'
   export default{
     data () {
       return {
@@ -53,7 +46,8 @@
       }
     },
     components: {
-      questionlist
+      questionlist,
+      headtitle
     },
     events: {
       'thisanswer': function (item) {

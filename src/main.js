@@ -53,6 +53,26 @@ router.map({
     component: function (resolve) {
       require(['./components/Answers/Review'], resolve)
     }
+  },
+  '/addtask': {
+    component: function (resolve) {
+      require(['./components/homepage/AddTask'], resolve)
+    }
+  },
+  '/withdrawtask': {
+    component: function (resolve) {
+      require(['./components/homepage/WithdrawTask'], resolve)
+    }
+  },
+  '/taskdetail': {
+    component: function (resolve) {
+      require(['./components/homepage/TaskDetail'], resolve)
+    }
+  },
+  '/settask': {
+    component: function (resolve) {
+      require(['./components/homepage/SetTask'], resolve)
+    }
   }
 })
 
@@ -63,6 +83,8 @@ router.redirect({  // 定义全局的重定向规则，全局的重定向会在�
   // '*': '/navigation/:1'
   '*': '/gate'
   // '*': 'outer'
+  // '*': '/addtask'
+  // '*': '/withdrawtask'
 })
 
 router.start(App, 'app')
