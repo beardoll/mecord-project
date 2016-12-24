@@ -8,7 +8,7 @@
       <form id="settime" class="am-form">
         <div class="am-form-group">
           <div>
-            <select name="remindtime">
+            <select name="remindtime" id="remindtime">
               <option value="-1">不提醒</option>
               <option value="0">0:00</option>
               <option value="1">1:00</option>
@@ -16,7 +16,7 @@
               <option value="3">3:00</option>
               <option value="4">4:00</option>
               <option value="5">5:00</option>
-              <option value="6" selected="selected">6:00</option>
+              <option value="6">6:00</option>
               <option value="7">7:00</option>
               <option value="8">8:00</option>
               <option value="9">9:00</option>
@@ -72,7 +72,7 @@
   export default {
     data () {
       return {
-
+        pastremindtime: ''
       }
     },
     computed: {
@@ -81,12 +81,16 @@
       },
       currentremindtime: function () {
         var temp = this.$root.currentread.remindTime
+        this.pastremindtime = temp
         if (temp === -1) {
           return '不提醒'
         } else {
           return temp + ':00'
         }
       }
+    },
+    ready: function () {
+      $('#remindtime').val(this.pastremindtime)
     },
     components: {
       headtitle

@@ -48,7 +48,7 @@
     /*   任务标题   */
     .tasktitle {
       font-size: 20px;
-      color: mediumblue;
+      color: darkblue;
       font-family: 微软雅黑;
       margin: 0;
       padding: 0 0 0 5px;

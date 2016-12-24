@@ -26,7 +26,7 @@
     <hr data-am-widget="divider" style="margin:0;padding:0" class="am-divider am-divider-default" />
     <div class="button">
       <div class="am-topbar am-topbar-fixed-bottom">
-        <button type="button" class="pastpagebtn3 am-btn am-btn-lg am-btn-primary am-radius"
+        <button type="button" class="pastpagebtn3 am-btn am-btn-lg am-btn-danger am-radius"
                 style="margin-right:10px" @click.stop="validate()">确认删除</button>
         <button type="button" class="nextpagebtn3 am-btn am-btn-lg am-btn-primary am-radius"
                 style="margin-left:10px" @click.stop="cancel()">取消删除</button>

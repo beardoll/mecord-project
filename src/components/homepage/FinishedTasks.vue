@@ -32,7 +32,7 @@
       margin: 0;
       padding: 0;
       tbody tr td{
-        background-color: lightyellow;
+        background-color: white;
         margin: 0;
         padding: 0; /* 上右下左 */
       }
@@ -51,7 +51,7 @@
           text-align: left;
           margin: 0 0 0 0;
           padding: 0 0 0 5px;
-          color: mediumblue;
+          color: darkblue;
           font-family: 微软雅黑;
         }
         /* 问卷创建人 */
@@ -74,6 +74,7 @@
           color: black;
           margin: 0;
           padding: 15px 0 0 5px;
+          font-size: 14px;
         }
       }
     }

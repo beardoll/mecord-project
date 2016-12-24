@@ -66,8 +66,8 @@
     </div>
   </div>
   <div class="am-topbar am-topbar-fixed-bottom">
-    <button type="button" class="pastpagebtn3 am-btn am-btn-lg am-btn-primary am-radius" style="margin-right:10px" @click.stop="settask()">设置</button>
-    <button type="button" class="nextpagebtn3 am-btn am-btn-lg am-btn-danger am-radius" style="margin-left:10px" @click.stop="end()">提前结束</button>
+    <button type="button" class="pastpagebtn3 am-btn am-btn-lg am-btn-primary am-radius" style="margin-right:15px" @click.stop="settask()">设置</button>
+    <button type="button" class="nextpagebtn3 am-btn am-btn-lg am-btn-danger am-radius" style="margin-left:15px" @click.stop="end()">删除</button>
   </div>
 </template>
 
@@ -77,7 +77,7 @@
     /* 任务标题 */
     .tasktitle{
       font-size: 20px;
-      color: mediumblue;
+      color: darkblue;
       font-family: 微软雅黑;
     }
     /* 任务状态(过期，还没到？) */
