@@ -105,7 +105,7 @@
         var questionItem = this.questions[index]
         this.$refs.qlist.dispatchAnswer(questionItem)
         this.$nextTick(function () {  // 等待子组件把当前答案上传，需要注意异步的问题
-          if (this.curanswerstate === false) {
+          if (this.curanswerstate === false && questionItem.nullValidate === false) {
             window.alert('请正确完成此题')
           } else {
             this.curindex = this.curindex + 1

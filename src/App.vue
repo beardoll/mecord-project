@@ -83,7 +83,7 @@ export default {
           this.$router.go('/outline')
           // console.log(response.body)
           // this.$router.go('/modification')
-          // console.log(JSON.stringify(this.userData))
+          console.log(JSON.stringify(this.userData))
           // this.$router.go('/preview')
         }, (response) => {
           console.log('error!')

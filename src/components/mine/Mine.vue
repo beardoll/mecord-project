@@ -6,7 +6,7 @@
     <div class="am-u-sm-6 am-u-end" style="margin:0;padding-top:10px;text-align:left">
       <div style="text-align:left;margin:auto;padding:auto">
         <p style="margin:0;padding:0">姓名：{{user}}</p>
-        <p style="margin-top:8px;padding:0">积分：100<img src="../../assets/score.png" style="width: 20px; height: 20px; margin-left: 5px"></p>
+        <p style="margin-top:8px;padding:0">积分：{{score}}<img src="../../assets/score.png" style="width: 20px; height: 20px; margin-left: 5px"></p>
       </div>
     </div>
     <div class="useroperation">
@@ -77,8 +77,11 @@
             return '医生'
           }
         },
-        imgsrc: function () {
+        imgsrc: function () {   // 头像的url地址
           return this.$root.userData.avatar
+        },
+        score: function () {    // 用户节分
+          return this.$root.userData.score
         }
       },
       methods: {

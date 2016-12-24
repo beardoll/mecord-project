@@ -22,14 +22,14 @@
     </div>
     <div class="scoretips" style="height: 50px; padding-top: 8px">
       <div class="am-u-sm-9" style="margin:0; padding-left: 5px;padding-top: 5px">
-        完成当前任务可获得积分：20<img src="../../assets/score.png" style="width: 20px; height: 20px; margin-left: 5px">
+        完成当前任务可获得积分：{{score}}<img src="../../assets/score.png" style="width: 20px; height: 20px; margin-left: 5px">
       </div>
       <div class="am-u-sm-3 gobutton">
         <button class="am-btn am-btn-success am-radius am-btn-sm" @click.stop="readdetail()">详情</button>
       </div>
     </div>
     <div class="am-progress am-progress-striped taskprogress" style="margin-bottom: 5px">
-      <div class="am-progress-bar am-progress-bar-success" :id="progressname+taskindex">{{taskprogress+1}}/{{allsubtaskamount}}</div>
+      <div class="am-progress-bar am-progress-bar-success" :id="progressname+taskindex">{{taskprogress}}/{{allsubtaskamount}}</div>
     </div>
   </div>
 </template>
@@ -48,7 +48,8 @@
     /*   任务标题   */
     .tasktitle {
       font-size: 20px;
-      color: blue;
+      color: mediumblue;
+      font-family: 微软雅黑;
       margin: 0;
       padding: 0 0 0 5px;
     }
@@ -115,6 +116,9 @@
         timediff: function () {
           return this.taskitem.unfinishedlist[0].countdown
         },
+        score: function () {
+          return this.taskitem.unfinishedlist[0].score
+        },
         taskprogress: function () {
           return this.taskitem.progress
         },
@@ -141,11 +145,10 @@
           this.$router.go('/navigation')
         },
         showProgress () {
-          $('#' + this.progressname + this.taskindex).css('width', (this.taskprogress + 1) / this.allsubtaskamount * 100 + '%')
+          $('#' + this.progressname + this.taskindex).css('width', (this.taskprogress) / this.allsubtaskamount * 100 + '%')
         },
         readdetail () {
           this.$dispatch('curread', this.taskitem)
-          console.log(JSON.stringify(this.taskitem.finishedlist))
           this.$router.go('/taskdetail')
         }
       }

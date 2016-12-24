@@ -12,6 +12,10 @@
               <span class="am-u-sm-7 fintasktitle">{{taskindex.title}}</span>
               <span class="am-u-sm-5 fincreator">调查人：{{taskindex.creator.nickname}}</span>
             </div>
+            <div class="taskstatus">
+              任务状态:<span style="font-size: 16px; color: royalblue" v-if="taskindex.status === 'finished'">[已完成]</span>
+              <span style="font-size: 16px; color: crimson" v-if="taskindex.status === 'ended'">[中途放弃]</span>
+            </div>
             <div class="finsubmitdates">完成日期：{{submitdate[$index]}}</div>
           </div>
           <div v-if="$index !== finishedtasklength-1" class="divider"></div>
@@ -47,7 +51,8 @@
           text-align: left;
           margin: 0 0 0 0;
           padding: 0 0 0 5px;
-          color: blue;
+          color: mediumblue;
+          font-family: 微软雅黑;
         }
         /* 问卷创建人 */
         .fincreator {
@@ -57,12 +62,18 @@
           color: black;
           font-size: 12px;
         }
+        /* 问卷状态 */
+        .taskstatus {
+          padding: 15px 0 0 5px;
+          font-size: 16px;
+          text-align: left;
+        }
         /*  完成的日期 */
         .finsubmitdates {
           text-align: left;
           color: black;
           margin: 0;
-          padding: 20px 0 0 5px;
+          padding: 15px 0 0 5px;
         }
       }
     }
@@ -77,7 +88,9 @@
         finished: function () { // 已完成问卷
           var temp = []
           for (var i = 0; i < this.$root.userData.tasks.length; i++) {
-            if (this.$root.userData.tasks[i].status === 'finished') {
+            if (this.$root.userData.tasks[i].status === 'finished' || this.$root.userData.tasks[i].status === 'ended') {
+              // 已完成问卷分为“已完成”和“中途放弃”两种
+              console.log(this.$root.userData.tasks[i].status)
               temp.push(this.$root.userData.tasks[i])
             }
           }

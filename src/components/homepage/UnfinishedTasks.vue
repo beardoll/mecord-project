@@ -101,7 +101,7 @@
           // finishedlist: questiontitle -- 问卷标题 number -- 子任务编号  submissionid questionsetid
           var unfinishedtemp = []
           for (var k = 0; k < this.$root.userData.tasks.length; k++) {
-            if (this.$root.userData.tasks[k].status !== 'finished') {
+            if (this.$root.userData.tasks[k].status === 'not-started' || this.$root.userData.tasks[k].status === 'unfinished') {
               // “未完成”有“未开始”和“未填写完”两种情况
               unfinishedtemp.push(this.$root.userData.tasks[k])
             }
@@ -112,7 +112,7 @@
             var mark  // 表格颜色标记
             for (var j = 0; j < unfinishedtemp[i].plans.dates.length; j++) {
               // console.log(this.unfinished[i].progress)
-              if (j <= unfinishedtemp[i].progress) {
+              if (j < unfinishedtemp[i].progress) {
                 if (j === 0) {
                   mark = 0
                 } else {
@@ -139,7 +139,7 @@
                 finishedlist.submitdate = year + '/' + month + '/' + day
                 temp2.push(finishedlist)
               } else {
-                if (j === unfinishedtemp[i].progress + 1) {  // 取第一个unfinished的子任务的积分
+                if (j === unfinishedtemp[i].progress) {  // 取第一个unfinished的子任务的积分
                   unfinishedtemp[i].score = unfinishedtemp[i].submissions[j].score
                   mark = 0
                 } else {
@@ -163,6 +163,7 @@
                 includeOuter.countdown = Math.abs(daysdiff)
                 includeOuter.number = j + 1
                 includeOuter.colormark = mark
+                includeOuter.score = unfinishedtemp[i].submissions[j].score
                 if (daysdiff < 0) {
                   includeOuter.countdownstate = 0 // 负数
                 } else {

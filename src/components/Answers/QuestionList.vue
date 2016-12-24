@@ -228,7 +228,7 @@
               break
             case 'upload_image':
               if (formjson === '') {
-                status = true
+                status = false
               }
               data.push(formjson)
               break

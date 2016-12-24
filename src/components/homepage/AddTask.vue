@@ -7,16 +7,23 @@
           <div class="codeinput">
             <form id="settime" class="am-form">
               <div class="am-form-group">
-                <div style="text-align: left;padding-top:5px; padding-bottom:5px">请选择任务的起始时间</div>
+                <div style="text-align: left;padding-top:5px; padding-bottom:5px;color: black">请选择任务的起始时间</div>
                 <div style="text-align: left;padding:0;margin:0">
                   <input class="am-form-field" name="begindates" type="date" :value="today"/>
                 </div>
               </div>
               <div class="am-form-group">
-                <div style="text-align: left">请选择任务提醒的时间段</div>
+                <div style="text-align: left; color: black">请选择任务提醒的时间</div>
                 <div>
-                  <select>
-                    <option value="6">6:00</option>
+                  <select name="remindtime">
+                    <option value="-1">不提醒</option>
+                    <option value="0">0:00</option>
+                    <option value="1">1:00</option>
+                    <option value="2">2:00</option>
+                    <option value="3">3:00</option>
+                    <option value="4">4:00</option>
+                    <option value="5">5:00</option>
+                    <option value="6" selected="selected">6:00</option>
                     <option value="7">7:00</option>
                     <option value="8">8:00</option>
                     <option value="9">9:00</option>
@@ -33,6 +40,7 @@
                     <option value="20">20:00</option>
                     <option value="21">21:00</option>
                     <option value="22">22:00</option>
+                    <option value="23">23:00</option>
                   </select>
                 </div>
               </div>
@@ -54,7 +62,7 @@
       <div class="am-u-sm-9">
         <form id="searchfor" class="am-form">
           <div class="am-form-group">
-            <input type="text" name="searchfor" placeholder="在此输入任务编号" id="search">
+            <input type="text" name="searchfor" placeholder="在此输入关键字" id="search">
           </div>
         </form>
       </div>
@@ -65,14 +73,14 @@
     <div class="searchresult">
       <table class="am-table">
         <tbody>
-          <tr v-for="item in tasklist" track-by="index">
+          <tr v-for="item in tasklist" track-by="$index">
             <td>
               <div class="itemtitle">{{item.title}}</div>
               <div class="itemnote">
                 <div class="am-u-sm-9 itemnoteele"> 备注：{{item.note}} </div>
                 <div class="am-u-sm-3">
                   <button type="button" class="am-btn am-btn-primary am-btn-sm" style="margin-right: 10px"
-                  @click.stop="alertmark = true">添加</button>
+                   @click.stop="add(item)">添加</button>
                 </div>
               </div>
               <div class="itemnum">问卷编号: {{item.taskid}}</div>
@@ -112,22 +120,12 @@
         height: 300px;
         color: aliceblue;
         border: 1px solid black;
-        /* 弹出框标题 */
-        .title {
-          padding-top: 5px;
-          color: white;;
-          width: 250px;
-          height: 40px;
-          margin-bottom: 0;
-          padding-bottom: 5px;
-          background-color: #42b983;
-        }
         /* 弹出框内容 */
         .content {
           padding: 1px 0 0 0;
           background-color: white;
           width: 250px;
-          height: 250px;
+          height: 300px;
           /* 弹出框里面的选项 */
           .codeinput{
             margin: 1px 0 0 0;
@@ -138,7 +136,7 @@
            /* 弹出框的按钮 */
           .mask_validate{
             width: 250px;
-            height: 30px;
+            height: 50px;
             margin: 1px 0 0 0;
           }
         }
@@ -186,7 +184,7 @@
       .itemnum{
         font-size: 14px;
         text-align: left;
-        padding: 2px 5px;
+        padding: 4px 5px 3px 5px;
       }
     }
   }
@@ -198,7 +196,8 @@
     data () {
       return {
         tasklist: [],
-        alertmark: false
+        alertmark: false,
+        currenttask: ''  // 点击“添加”按钮后更新此处
       }
     },
     components: {
@@ -218,34 +217,57 @@
         }
         var returndata = year + '-' + month + '-' + day
         return returndata
+      },
+      currentuserid: function () {
+        return this.$root.userData.id
       }
     },
     methods: {
       onSearch () {
-        this.$set('tasklist', [])
-        console.log('hahahaha!')
+        this.$set('tasklist', [])   // 每次搜索前清空上一次的搜索结果
         var formjson = $('#searchfor').serializeArray()
-        var task = formjson[0].value
-        console.log(task)
-        var urls = 'https://api.mecord.cn/api/TaskTemplates/searchById?id=' + 2
-        this.$http.get(urls).then((response) => {
+        var key = formjson[0].value
+        var urls = 'https://api.mecord.cn/api/TaskTemplates/search?userId=' + this.currentuserid
+        this.$http.post(urls, '"' + key + '"').then((response) => {
           var temp = {}
           console.log(JSON.stringify(response.body))
-          temp.title = response.body.data.title
-          temp.note = response.body.data.note
-          temp.taskid = task
-          var temp2 = this.tasklist
-          temp2.push(temp)
-          this.$set('tasklist', temp2)
+          var data = response.body.data
+          for (var i = 0; i < data.length; i++) {
+            temp.title = data[i].title
+            temp.note = data[i].note
+            temp.taskid = data[i].id
+            this.tasklist.push(temp)
+            temp = {}
+          }
         }, (response) => {
           console.log('cannot get task!')
         })
       },
-      settimeValidate () {
+      add (item) {
+        this.alertmark = true
+        this.currenttask = item
+      },
+      settimeValidate () {  // 确定时间方面的设置
         this.alertmark = false
-        // var formjson = $('#settime') .serializeArray()
-        window.alert('恭喜你成功添加任务！')
-        this.$router.go('/outline')
+        var urls = 'https://api.mecord.cn/api/TaskTemplates/applyToUser?id=' + this.currenttask.taskid
+        var data = {}
+        var formjson = $('#settime').serializeArray()
+        for (var i = 0; i < formjson.length; i++) {
+          if (formjson[i].name === 'begindates') {
+            data.startDate = formjson[i].value
+          }
+          if (formjson[i].name === 'remindtime') {
+            data.remindTime = formjson[i].value
+          }
+        }
+        data.userId = this.currentuserid
+        data.toUserId = this.currentuserid
+        this.$http.post(urls, data).then((response) => {
+          window.alert('恭喜你成功添加任务！')
+          this.$root.loadClientDate()
+        }, (response) => {
+          console.log('无法添加任务')
+        })
       },
       goBack () {
         this.$router.go('/outline')

@@ -3,19 +3,13 @@
     <headtitle name="意见反馈"></headtitle>
     <div class="alert">
       您将删除任务：
-      <div class="task">{{deletetask.title}}</div>
+      <div class="task">{{currenttitle}}</div>
     </div>
     <div class="questiontitle" style="text-align: left">请选择删除此任务的原因</div>
     <table class="showtable am-table" style="margin:0;padding:0">
       <tbody>
-        <tr>
-          <td class="selected">你不要宝宝了么？</td>
-        </tr>
-        <tr>
-          <td>你真的不要宝宝了么？</td>
-        </tr>
-        <tr>
-          <td>是的，不要你了</td>
+        <tr v-for="item in endconditions">
+          <td>{{item}}</td>
         </tr>
         <tr>
           <td> 其他 </td>
@@ -82,27 +76,35 @@
       }
     },
     computed: {
-      deletetask: function () {
-        return this.$root.currentread
+      currenttitle: function () {
+        return this.$root.currentread.title
+      },
+      endconditions: function () {
+        return this.$root.currentread.endConditions
+      },
+      taskid: function () {
+        return this.$root.currentread.id
       }
     },
     components: {
       headtitle
     },
     ready: function () {
+      var that = this  // 在jq函数中this关键字被屏蔽
       $('table tbody tr').on('click', function (event) {
         var target = event.target.parentNode       // HTML DOM对象
         var curindex = $('table tbody').children('tr').index(target)
+        var conditionsnum = that.endconditions.length + 1  // 结束任务的理由数目
         $('table tbody tr').each(function (index, element) {
           // 查找被点击的对象，如果原来是选中状态，则点击后取消选中，反之亦然
           if (curindex === index) {
             if ($(this).children('td').hasClass('selected')) {
-              if (curindex === 3) {
+              if (curindex === conditionsnum - 1) {   // 其他
                 $('#others').hide()
               }
               $(this).children('td').removeClass('selected')
             } else {
-              if (curindex === 3) {
+              if (curindex === conditionsnum - 1) {   // 其他
                 $('#others').show()
               }
               $(this).children('td').addClass('selected')
@@ -114,20 +116,25 @@
     methods: {
       validate () {
         var answerarr = []
-        var temp = {}
+        var conditionsnum = this.endconditions.length + 1  // 结束任务的理由数目
+        var that = this
         $('table tbody tr').each(function (index, element) {
           // 找出所有处于选中状态的选项
           if ($(this).children('td').hasClass('selected')) {
-            temp.choice = index
-            temp.text = ''
-            console.log(temp.choice)
-            answerarr.push(temp)
-            temp = {}  // 清空变量
+            if (index === conditionsnum - 1) {   // 其他
+              var formjson = $('form').serializeArray()
+              answerarr.push(formjson[0].value)
+            } else {
+              answerarr.push(that.endconditions[index])
+            }
           }
         })
-        console.log(JSON.stringify(answerarr))
-        window.alert('删除成功！感谢您的意见反馈!')
-        this.$router.go('/outline')
+        this.$http.post('https://api.mecord.cn/api/Tasks/endTask?taskId=' + this.taskid, answerarr).then((response) => {
+          window.alert('删除成功！感谢您的意见反馈!')
+          this.$root.loadClientDate()
+        }, (response) => {
+          console.log('抱歉，删除失败')
+        })
       },
       cancel () {
         this.$router.go('/outline')
