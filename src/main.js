@@ -73,6 +73,11 @@ router.map({
     component: function (resolve) {
       require(['./components/homepage/SetTask'], resolve)
     }
+  },
+  '/taskdetailfin': {
+    component: function (resolve) {
+      require(['./components/homepage/TaskDetailFin'], resolve)
+    }
   }
 })
 

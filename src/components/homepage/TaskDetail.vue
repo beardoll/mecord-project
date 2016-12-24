@@ -67,7 +67,7 @@
   </div>
   <div class="am-topbar am-topbar-fixed-bottom">
     <button type="button" class="pastpagebtn3 am-btn am-btn-lg am-btn-primary am-radius" style="margin-right:15px" @click.stop="settask()">设置</button>
-    <button type="button" class="nextpagebtn3 am-btn am-btn-lg am-btn-danger am-radius" style="margin-left:15px" @click.stop="end()">删除</button>
+    <button type="button" class="nextpagebtn3 am-btn am-btn-lg am-btn-danger am-radius" style="margin-left:15px" @click.stop="end()">放弃</button>
   </div>
 </template>
 

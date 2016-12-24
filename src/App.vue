@@ -55,6 +55,7 @@ export default {
     'curread': function (item) {
       // 存放当前删除的任务
       // dispatched from: FirstPanel.vue -> delete()
+      //                  FinishedTask.vue -> detail(taskindex)
       this.currentread = item
     }
   },

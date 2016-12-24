@@ -2,10 +2,10 @@
   <div id="withdrawtask">
     <headtitle name="意见反馈"></headtitle>
     <div class="alert">
-      您将删除任务：
+      您将放弃任务：
       <div class="task">{{currenttitle}}</div>
     </div>
-    <div class="questiontitle" style="text-align: left">请选择删除此任务的原因</div>
+    <div class="questiontitle" style="text-align: left">请选择放弃此任务的原因</div>
     <table class="showtable am-table" style="margin:0;padding:0">
       <tbody>
         <tr v-for="item in endconditions">
@@ -27,9 +27,9 @@
     <div class="button">
       <div class="am-topbar am-topbar-fixed-bottom">
         <button type="button" class="pastpagebtn3 am-btn am-btn-lg am-btn-danger am-radius"
-                style="margin-right:10px" @click.stop="validate()">确认删除</button>
+                style="margin-right:10px" @click.stop="validate()">确认放弃</button>
         <button type="button" class="nextpagebtn3 am-btn am-btn-lg am-btn-primary am-radius"
-                style="margin-left:10px" @click.stop="cancel()">取消删除</button>
+                style="margin-left:10px" @click.stop="cancel()">取消放弃</button>
       </div>
     </div>
   </div>
