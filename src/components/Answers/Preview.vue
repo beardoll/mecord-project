@@ -259,6 +259,19 @@
         }
       },
       submit () {
+        // 更新submissions的status
+        this.$http.get('https://api.mecord.cn/api/Submissions/' + this.submissions.id).then((response) => {
+          var updatesubmission = response.body
+          updatesubmission.status = 'finished'
+          this.$http.put('https://api.mecord.cn/api/Submissions/' + this.submissions.id, updatesubmission).then((response) => {
+            console.log('获得积分啦!')
+          }, (response) => {
+            window.alert('获取积分失败！')
+          })
+        }, (response) => {
+          console.log('cannot get submission')
+        })
+
         // 先上传非图片类问题的答案
         // 再上传图片
         // 提交表单数据
