@@ -259,19 +259,6 @@
         }
       },
       submit () {
-        // 更新submissions的status
-        this.$http.get('https://api.mecord.cn/api/Submissions/' + this.submissions.id).then((response) => {
-          var updatesubmission = response.body
-          updatesubmission.status = 'finished'
-          this.$http.put('https://api.mecord.cn/api/Submissions/' + this.submissions.id, updatesubmission).then((response) => {
-            console.log('获得积分啦!')
-          }, (response) => {
-            window.alert('获取积分失败！')
-          })
-        }, (response) => {
-          console.log('cannot get submission')
-        })
-
         // 先上传非图片类问题的答案
         // 再上传图片
         // 提交表单数据
@@ -338,13 +325,25 @@
               updatestate = 'unfinished'
             }
             if (attachmentsquestionid.length === 0) {  // 如果没有附件，直接更新状态
-              that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
-                window.alert('提交成功啦！')
-                that.$root.loadClientDate()
+              // 更新submissions的status，然后更新task的progress
+              that.$http.get('https://api.mecord.cn/api/Submissions/' + that.submissions.id).then((response) => {
+                var updatesubmission = response.body
+                updatesubmission.status = 'finished'
+                that.$http.put('https://api.mecord.cn/api/Submissions/' + that.submissions.id, updatesubmission).then((response) => {
+                  console.log('获得积分啦!')
+                  that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
+                    window.alert('提交成功啦！')
+                    that.$root.loadClientDate()
+                  }, (response) => {
+                    console.log('fail put!')
+                    window.alert(JSON.stringify(response.body))
+                    window.alert('提交失败！')
+                  })
+                }, (response) => {
+                  window.alert('获取积分失败！')
+                })
               }, (response) => {
-                console.log('fail put!')
-                window.alert(JSON.stringify(response.body))
-                window.alert('提交失败！')
+                console.log('cannot get submission')
               })
             } else {  // 否则，等附件上传完后再更新状态
               var uploadinfo = {}
@@ -362,14 +361,26 @@
                     uploadinfo.permission = 'public'
                     that.$http.post('https://api.mecord.cn/api/Answers/' + answerid[index] + '/attachments', uploadinfo).then((response) => {
                       if (jj === attachmentsquestionid.length) { // 等附件上传完后再更新状态，注意异步的问题，jj已经自加
-                        that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
-                          console.log('sucessfully put!')
-                          window.alert('提交成功啦！')
-                          that.$root.loadClientDate()
+                        // 更新submissions的status和task的progress
+                        that.$http.get('https://api.mecord.cn/api/Submissions/' + that.submissions.id).then((response) => {
+                          var updatesubmission = response.body
+                          updatesubmission.status = 'finished'
+                          that.$http.put('https://api.mecord.cn/api/Submissions/' + that.submissions.id, updatesubmission).then((response) => {
+                            console.log('获得积分啦!')
+                            that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
+                              console.log('sucessfully put!')
+                              window.alert('提交成功啦！')
+                              that.$root.loadClientDate()
+                            }, (response) => {
+                              console.log('fail put!')
+                              window.alert(JSON.stringify(response.body))
+                              window.alert('提交失败！')
+                            })
+                          }, (response) => {
+                            window.alert('获取积分失败！')
+                          })
                         }, (response) => {
-                          console.log('fail put!')
-                          window.alert(JSON.stringify(response.body))
-                          window.alert('提交失败！')
+                          console.log('cannot get submission')
                         })
                       }
                     }, (response) => {
