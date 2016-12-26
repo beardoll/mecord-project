@@ -130,7 +130,7 @@
           }
         })
         this.$http.post('https://api.mecord.cn/api/Tasks/endTask?taskId=' + this.taskid, answerarr).then((response) => {
-          window.alert('删除成功！感谢您的意见反馈!')
+          window.alert('放弃任务成功！感谢您的意见反馈!')
           this.$root.loadClientDate()
         }, (response) => {
           console.log('抱歉，删除失败')

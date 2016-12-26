@@ -118,9 +118,9 @@
           var temp2 = {}
           var submitdate, day, month, year
           for (i = 0; i < finishedtemp.length; i++) {
+            var colormark1 = 0
+            var colormark2 = 0
             for (var k = 0; k < finishedtemp[i].submissions.length; k++) {
-              var colormark1 = 0
-              var colormark2 = 0
               if (finishedtemp[i].submissions[k].status === 'finished') {  // 已完成的
                 temp2.finishedlistcolormark = colormark1
                 if (colormark1 === 0) {

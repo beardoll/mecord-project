@@ -2,6 +2,7 @@
   <div id="taskdetail">
     <headtitle name="任务详情"></headtitle>
     <div class="tasktitle">{{tasktitle}}</div>
+    <div class="tasknote">任务备注：{{tasknote}}</div>
     <div class="taskstatus"><span style="font-weight:bold;color: deepskyblue">当前任务状态：</span>
       <span class="taskdeadline" v-if="taskstate === 0">
             已过期<span style="color:red">{{timediff}}天</span></span>
@@ -79,6 +80,11 @@
       font-size: 20px;
       color: darkblue;
       font-family: 微软雅黑;
+    }
+    /* 备注 */
+    .tasknote{
+      font-size: 14px;
+      color: crimson;
     }
     /* 任务状态(过期，还没到？) */
     .taskstatus{
