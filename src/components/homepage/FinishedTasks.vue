@@ -130,6 +130,8 @@
                 }
                 temp2.questionsettitle = finishedtemp[i].submissions[k].questionSet.title
                 temp2.number = k + 1
+                temp2.submissionid = finishedtemp[i].submissions[k].id
+                temp2.questionsetid = finishedtemp[i].plans.questionSets[k]
                 submitdate = finishedtemp[i].submissions[k].submitDate
                 submitdate = new Date(submitdate)
                 day = submitdate.getDate()

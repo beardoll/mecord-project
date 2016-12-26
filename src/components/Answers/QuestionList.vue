@@ -22,7 +22,7 @@
         <div v-if="questionItem.type === 'select'">
           <div class="am-form-group" style="text-align:left">
             <div style="margin-top:20px">
-              <div class="am-radio" v-for="selection in questionItem.content.choice" style="padding-top:5px;padding-bottom:5px">
+              <div class="am-radio" v-for="selection in questionItem.content.choice" style="padding-top:5px;padding-bottom:5px" track-by="$index">
                 <div class="am-g">
                   <div class="am-u-sm-1" style="margin:0;padding:0">
                     <input type = "radio" :name="questionItem.title" :value="$index" style="margin-left:0px;
@@ -228,7 +228,7 @@
               break
             case 'upload_image':
               if (formjson === '') {
-                status = false
+                status = true
               }
               data.push(formjson)
               break

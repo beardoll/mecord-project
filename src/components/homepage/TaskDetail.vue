@@ -2,11 +2,11 @@
   <div id="taskdetail">
     <headtitle name="任务详情"></headtitle>
     <div class="tasktitle">{{tasktitle}}</div>
-    <div class="tasknote">任务备注：{{tasknote}}</div>
+    <div class="tasknote">{{tasknote}}</div>
     <div class="taskstatus"><span style="font-weight:bold;color: deepskyblue">当前任务状态：</span>
       <span class="taskdeadline" v-if="taskstate === 0">
             已过期<span style="color:red">{{timediff}}天</span></span>
-      <span class="taskdeadline" v-if="taskstate === 1 && timediff > 1">
+      <span class="taskdeadline" v-if="taskstate === 1 && timediff > 0">
             <span style="color:blue">{{timediff}}天</span>后需要填写</span>
       <span class="taskdeadline" v-if="taskstate === 1 && timediff === 0">
         <span style="color:blue">今天</span>需要填写
@@ -83,8 +83,12 @@
     }
     /* 备注 */
     .tasknote{
-      font-size: 14px;
-      color: crimson;
+      background-color: #fbedd9;
+      width: 100%;
+      font-size:14px;
+      color: black;
+      text-align: left;
+      padding: 5px 0px 5px 10px;
     }
     /* 任务状态(过期，还没到？) */
     .taskstatus{
@@ -154,9 +158,10 @@
         console.log(cursubmissionid)
         this.$http.get('https://api.mecord.cn/api/Submissions/' + cursubmissionid + '/answers').then((response) => {
           var curanswercontent = response.body
-          console.log(JSON.stringify(curanswercontent))
+          window.alert(JSON.stringify(curanswercontent))
           var temp = []
           var temp2 = []
+          var k
           for (var i = 0; i < curanswercontent.length; i++) {
             var temp4 = []
             temp2.push(curanswercontent[i].questionId)
@@ -169,7 +174,11 @@
                 temp4.push(curanswercontent[i].content.select)
                 break
               case 'multi_select':
-                temp4.push(curanswercontent[i].content.datas)
+                for (k = 0; k < curanswercontent[i].content.datas.length; k++) {
+                  if (curanswercontent[i].content.datas[k] === 1) {
+                    temp4.push(k)
+                  }
+                }
                 break
               case 'multi_blank':
                 for (var kk = 0; kk < curanswercontent[i].content.datas.length; kk++) {

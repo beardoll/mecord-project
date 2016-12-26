@@ -5,10 +5,10 @@
       <tbody>
       <tr>
         <td class="taskamount">
-          <div class="am-u-sm-6">
-            总任务数：{{totaltasklength}}
+          <div class="am-u-sm-8" style="padding-left: 5px; margin:0">
+            未完成任务数：{{unfinishedtasklength}}
           </div>
-          <div class="am-u-sm-6" style="text-align: right" @click.stop="goToAddTask()">
+          <div class="am-u-sm-4" style="text-align: right" @click.stop="goToAddTask()">
             <img src="../../assets/plus.png" style="width:35px; height:35px"/>
           </div>
         </td>
@@ -81,16 +81,14 @@
           showdropdown: false,
           mintasklength: 2,  // 面板收缩时显示的任务数
           minprogressname: 'minunfinishedprogress',  // 缩小版任务列表的进度条名字
-          progressname: 'unfinishedprogress'  // 完整版任务列表的进度条名字
+          progressname: 'unfinishedprogress',  // 完整版任务列表的进度条名字
+          unfinishedtasklength: 0   // 未完成任务数
         }
       },
       components: {
         firstpanel
       },
       computed: {
-        totaltasklength: function () {  // 总任务数
-          return this.$root.userData.tasks.length
-        },
         unfinished: function () {
           // 未完成任务，计算各个子任务相对于当前日期的剩余日期等信息，以进行显示
           // unfinished.unfinishedlist: 未完成的子任务列表
@@ -100,9 +98,11 @@
           //                                questionsettitle -- 子任务问卷标题  submissionid questionsetid
           // finishedlist: questiontitle -- 问卷标题 number -- 子任务编号  submissionid questionsetid
           var unfinishedtemp = []
+          this.unfinishedtasklength = 0
           for (var k = 0; k < this.$root.userData.tasks.length; k++) {
             if (this.$root.userData.tasks[k].status === 'not-started' || this.$root.userData.tasks[k].status === 'unfinished') {
               // “未完成”有“未开始”和“未填写完”两种情况
+              this.unfinishedtasklength++
               unfinishedtemp.push(this.$root.userData.tasks[k])
             }
           }

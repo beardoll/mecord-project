@@ -1,5 +1,11 @@
 <template>
     <div id="preview">
+      <div class="mask" v-if="showmask === true">
+        <div class="maskprompt">
+          <i class="am-icon-spinner am-icon-md am-icon-spin"></i>
+          <p style="font-size:16px">提交中，请稍后</p>
+        </div>
+      </div>
       <div class="prebody">
         <headtitle :name="questionset.title"></headtitle>
         <div class="toptips" style="padding-left:5px">点击<span class="am-icon-edit"></span>修改选项</div>
@@ -56,6 +62,28 @@
 <style lang="scss">
     body{
         background-color:white;
+    }
+    /* 遮罩层 */
+    .mask{
+      left: 0;
+      top: 0;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      background-color: rgba(255, 255, 255, .75);
+      .maskprompt{
+        top: 50%;
+        left: 50%;
+        margin: -51px 0px 0px -101px;
+        z-index: 1000;
+        overflow: hidden;
+        position: fixed !important;
+        _position: absolute;
+        width: 200px;
+        height: 100px;
+        color: black;
+      }
     }
     #preview{
       background-color: white;
@@ -141,7 +169,9 @@
   import headtitle from '../public_component/head'
   export default{
     data () {
-
+      return {
+        showmask: false  // 是否显示遮罩层
+      }
     },
     components: {
       headtitle
@@ -263,10 +293,13 @@
         // 再上传图片
         // 提交表单数据
         // console.log(this.submission.answers)
+        this.showmask = true   // 提交答案的时候先显示遮罩层
         var submitanswers = []
         var attachmentsurl = []
         var attachmentsquestionid = []
-        for (var i = 0; i < this.questions.length; i++) {
+        console.log(this.answers)
+        var i, j, k
+        for (i = 0; i < this.questions.length; i++) {
           var temp = {}
           temp.userId = this.userId
           temp.questionId = this.questions[i].id
@@ -280,17 +313,22 @@
               break
             case 'multi_blank':
               var data = []
-              for (var j = 0; j < currentanswer.length; j++) {
+              for (j = 0; j < currentanswer.length; j++) {
                 data.push(currentanswer[j])
               }
               content.datas = data
               break
             case 'select':
-              content.select = currentanswer[0]
+              for (k = 0; k < currentanswer.length; k++) {
+                if (currentanswer[k] === 1) {
+                  content.select = k
+                  break
+                }
+              }
               break
             case 'multi_select':
               var data2 = []
-              for (var k = 0; k < currentanswer.length; k++) {
+              for (k = 0; k < currentanswer.length; k++) {
                 data2.push(currentanswer[k])
               }
               content.datas = data2
@@ -332,6 +370,7 @@
                 that.$http.put('https://api.mecord.cn/api/Submissions/' + that.submissions.id, updatesubmission).then((response) => {
                   console.log('获得积分啦!')
                   that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
+                    that.showmask = false     // 关闭遮罩层
                     window.alert('提交成功啦！')
                     that.$root.loadClientDate()
                   }, (response) => {
@@ -368,6 +407,7 @@
                           that.$http.put('https://api.mecord.cn/api/Submissions/' + that.submissions.id, updatesubmission).then((response) => {
                             console.log('获得积分啦!')
                             that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
+                              that.showmask = false  // 关闭遮罩层
                               console.log('sucessfully put!')
                               window.alert('提交成功啦！')
                               that.$root.loadClientDate()
