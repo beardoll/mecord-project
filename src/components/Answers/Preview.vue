@@ -371,8 +371,11 @@
                   console.log('获得积分啦!')
                   that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
                     that.showmask = false     // 关闭遮罩层
-                    window.alert('提交成功啦！')
-                    that.$root.loadClientDate()
+                    that.$nextTick(function () {
+                      console.log('sucessfully put!')
+                      window.alert('提交成功啦！')
+                      that.$root.loadClientDate()
+                    })
                   }, (response) => {
                     console.log('fail put!')
                     window.alert(JSON.stringify(response.body))
@@ -408,9 +411,11 @@
                             console.log('获得积分啦!')
                             that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
                               that.showmask = false  // 关闭遮罩层
-                              console.log('sucessfully put!')
-                              window.alert('提交成功啦！')
-                              that.$root.loadClientDate()
+                              that.$nextTick(function () {
+                                console.log('sucessfully put!')
+                                window.alert('提交成功啦！')
+                                that.$root.loadClientDate()
+                              })
                             }, (response) => {
                               console.log('fail put!')
                               window.alert(JSON.stringify(response.body))

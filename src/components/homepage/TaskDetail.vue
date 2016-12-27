@@ -158,7 +158,6 @@
         console.log(cursubmissionid)
         this.$http.get('https://api.mecord.cn/api/Submissions/' + cursubmissionid + '/answers').then((response) => {
           var curanswercontent = response.body
-          window.alert(JSON.stringify(curanswercontent))
           var temp = []
           var temp2 = []
           var k
