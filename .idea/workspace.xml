@@ -2,56 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb2aa68e-fcff-49eb-9133-5581ef92b590" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/gou.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/homeblue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/homewhite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/hospital.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/left-arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/leftarrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/name.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/personblue.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/personwhite.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/plus.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/schoolgate.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/score.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/tsinghua.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/assets/wechat-min.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/Answers/Answer.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/Answers/Modification.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/Answers/Navigation.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/Answers/QuestionList.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/Answers/Review.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/Answers/Score.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/Answers/UploadImg.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/Outline.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/homepage/AddTask.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/homepage/FinishedTasks.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/homepage/FirstPanel.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/homepage/Outer.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/homepage/SetTask.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/homepage/TaskDetail.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/homepage/TaskDetailFin.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/homepage/UnfinishedTasks.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/homepage/WithdrawTask.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/login/Gate.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/mine/Mine.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/mine/SelfMaterial.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/public_component/head.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/Alert.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/Create.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/Demo.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/Edit.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/Hello.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/Interface.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/Login.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/Mainpage.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/Qnheader.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/SecondPanel.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/referencecode/UserInterface.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Answers/Preview.vue" afterPath="$PROJECT_DIR$/src/components/Answers/Preview.vue" />
     </list>
@@ -73,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="84" column="39" lean-forward="false" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
+            <state relative-caret-position="24">
+              <caret line="71" column="31" lean-forward="false" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -106,7 +56,7 @@
       <file leaf-file-name="TaskDetail.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/homepage/TaskDetail.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1201">
+            <state relative-caret-position="3312">
               <caret line="138" column="40" lean-forward="false" selection-start-line="138" selection-start-column="40" selection-end-line="138" selection-end-column="40" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -115,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Preview.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Preview.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Answers/Preview.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="401" column="37" lean-forward="false" selection-start-line="401" selection-start-column="37" selection-end-line="401" selection-end-column="37" />
+            <state relative-caret-position="816">
+              <caret line="419" column="54" lean-forward="false" selection-start-line="419" selection-start-column="54" selection-end-line="419" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -310,6 +260,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -440,8 +392,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -610,12 +560,13 @@
       <workItem from="1482999519931" duration="4186000" />
       <workItem from="1483085519614" duration="3000" />
       <workItem from="1487589938497" duration="3510000" />
-      <workItem from="1487593650516" duration="361000" />
+      <workItem from="1487593650516" duration="732000" />
+      <workItem from="1488358847493" duration="925000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157815000" />
+    <option name="totallyTimeSpent" value="159111000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -791,9 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#21#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -815,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
           <caret line="155" column="32" lean-forward="false" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -878,7 +825,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/homepage/TaskDetail.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1201">
+        <state relative-caret-position="3312">
           <caret line="138" column="40" lean-forward="false" selection-start-line="138" selection-start-column="40" selection-end-line="138" selection-end-column="40" />
           <folding>
             <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -886,10 +833,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Answers/Preview.vue">
+    <entry file="file://$PROJECT_DIR$/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="401" column="37" lean-forward="false" selection-start-line="401" selection-start-column="37" selection-end-line="401" selection-end-column="37" />
+        <state relative-caret-position="24">
+          <caret line="71" column="31" lean-forward="false" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -902,10 +849,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.vue">
+    <entry file="file://$PROJECT_DIR$/src/components/Answers/Preview.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="84" column="39" lean-forward="false" selection-start-line="84" selection-start-column="39" selection-end-line="84" selection-end-column="39" />
+        <state relative-caret-position="816">
+          <caret line="419" column="54" lean-forward="false" selection-start-line="419" selection-start-column="54" selection-end-line="419" selection-end-column="54" />
           <folding />
         </state>
       </provider>

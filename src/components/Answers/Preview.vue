@@ -368,6 +368,7 @@
                 var updatesubmission = response.body
                 updatesubmission.status = 'finished'
                 updatesubmission.submitDate = new Date()
+                updatesubmission.submitterId = that.userId
                 that.$http.put('https://api.mecord.cn/api/Submissions/' + that.submissions.id, updatesubmission).then((response) => {
                   console.log('获得积分啦!')
                   that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
@@ -409,6 +410,7 @@
                           var updatesubmission = response.body
                           updatesubmission.status = 'finished'
                           updatesubmission.submitDate = new Date()
+                          updatesubmission.submitterId = that.userId
                           that.$http.put('https://api.mecord.cn/api/Submissions/' + that.submissions.id, updatesubmission).then((response) => {
                             console.log('获得积分啦!')
                             that.$http.put(updatetaskurl, {'progress': updateprogress, 'status': updatestate}).then((response) => {
