@@ -11,7 +11,7 @@
       <div style="background-color:white" v-if = "curindex > 0 && curindex < questionlength" class="am-topbar am-topbar-fixed-bottom">
         <button type="button" class="pastpagebtn am-btn am-btn-lg am-btn-primary am-radius"
                 style="margin-left:20px;margin-right:20px" @click.stop="backToPastOne(curindex)">上一题</button>
-        <button type="button" class="nextpagebtn am-btn am-btn-lg am-btn-primary am-radius"
+        <button type="submit" class="nextpagebtn am-btn am-btn-lg am-btn-primary am-radius"
                 style="margin-left:20px;margin-right:20px" @click.stop="goToNextOne(curindex)">下一题</button>
       </div>
       <div style="background-color:white" v-if = "curindex === 0" class="am-topbar am-topbar-fixed-bottom">

@@ -11,7 +11,7 @@
           <div class="am-form-group" style="text-align:left;margin-top:2px">
             <div class="am-g">
               <div class="am-u-sm-6" style="padding-left:0;margin-left:40px;margin-top:20px">
-                <input :type="questionItem.content.dataType" :name="questionItem.title">
+                <input :type="questionItem.content.dataType" :name="questionItem.title" class="blank_input">
               </div>
               <div class="am-u-sm-4 am-u-end" style="margin-top:20px" v-if="questionItem.content.zh_units !== ''">
                 <span style="font-size:20px">{{questionItem.content.zh_units}}({{questionItem.content.symbol_units}})</span>
@@ -59,7 +59,7 @@
               <div class="am-g am-form-group" >
                 <div class="am-u-sm-3" style="text-align:right;margin-top:2px">{{title}}</div>
                 <div class="am-u-sm-4">
-                  <input :type="questionItem.content.dataTypes[$index]" style="margin-left:0" :name="questionItem.title">
+                  <input :type="questionItem.content.dataTypes[$index]" style="margin-left:0" :name="questionItem.title" class="blank_input">
                 </div>
                 <div class="am-u-sm-5" style="text-align:left;margin-top:2px" v-if="questionItem.content.zh_units !== ''">{{questionItem.content.symbol_units[$index]}}({{questionItem.content.zh_units[$index]}})</div>
               </div>
@@ -111,6 +111,13 @@
       components: {
         Score,
         uploadimg
+      },
+      ready: function () {
+        $('.blank_input').keypress(function (e) {
+          if (e.keyCode === 13) {
+            e.preventDefault()
+          }
+        })
       },
       methods: {
         setDefaultValue (questiontype, data) {
